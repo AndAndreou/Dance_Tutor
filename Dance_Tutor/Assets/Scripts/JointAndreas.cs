@@ -6,7 +6,7 @@ using UnityEngine;
 public class JointAndreas
 {
     public JointName name;
-    public GameObject jointGo;
+    public GameObject jointGO;
     public List<Frame> frames;
 
     /// <summary>
@@ -17,8 +17,13 @@ public class JointAndreas
     public JointAndreas(JointName name,GameObject go)
     {
         this.name = name;
-        this.jointGo = go;
+        this.jointGO = go;
         this.frames = new List<Frame>();
+    }
+
+    public GameObject GetJointGameObject()
+    {
+        return jointGO;
     }
 
     /// <summary>
@@ -66,9 +71,11 @@ public class JointAndreas
     /// <summary>
     /// Add frame by current values of joitn game object
     /// </summary>
-    public void AddFrame()
+    public Frame AddFrame()
     {
-        frames.Add(new Frame(jointGo.transform.position, jointGo.transform.rotation));
+        Frame newFrame = new Frame(jointGO.transform.position, jointGO.transform.rotation, Time.time);
+        frames.Add(newFrame);
+        return newFrame;
     }
 
     /// <summary>
@@ -76,9 +83,9 @@ public class JointAndreas
     /// </summary>
     /// <param name="position"></param>
     /// <param name="rotetion"></param>
-    public void AddFrame(Vector3 position,Quaternion rotetion)
+    public void AddFrame(Vector3 position,Quaternion rotetion, float time)
     {
-        frames.Add(new Frame(position, rotetion));
+        frames.Add(new Frame(position, rotetion,time));
     }
 
     /// <summary>
@@ -123,11 +130,13 @@ public struct Frame
 {
     public Vector3 position;
     public Quaternion rotation;
+    public float time;
 
-    public Frame(Vector3 pos, Quaternion rot)
+    public Frame(Vector3 pos, Quaternion rot, float t)
     {
         position = pos;
         rotation = rot;
+        time = t;
     }
 }
 
