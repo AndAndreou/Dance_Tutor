@@ -3354,7 +3354,7 @@ MonoBehaviour:
       jointGO: {fileID: 1773273044946902}
     - name: 51
       jointGO: {fileID: 1000857623063594}
-    - name: 55
+    - name: 52
       jointGO: {fileID: 1064870871015740}
     - name: 55
       jointGO: {fileID: 1362217470974672}
@@ -3394,6 +3394,10 @@ MonoBehaviour:
       jointGO: {fileID: 1958163063701020}
     - name: 39
       jointGO: {fileID: 1159354808182332}
+    motionWordStep: 5
+    motionWordWindowSize: 35
+    stykeWordStep: 5
+    styleWordWindowSize: 35
   selectedAnimationIndex: 0
   animations:
   - {fileID: 7400000, guid: f61fae1b3d1119d42a6178a1b032d3bb, type: 3}

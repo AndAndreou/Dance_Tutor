@@ -173,6 +173,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1304721194
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.040474113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.141733e-18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.32163504
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203533247231044, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+      propertyPath: m_Name
+      value: 1os-antrikos-karsilamas-DANCER (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1703014128
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,55 +392,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1969203746
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.040474113
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -7.141733e-18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.32163504
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034899756604270, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114133142343662160, guid: 8c1aec2e57923a64fb3f8b25518572c8,
-        type: 2}
-      propertyPath: skeleton.motionWordStep
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114133142343662160, guid: 8c1aec2e57923a64fb3f8b25518572c8,
-        type: 2}
-      propertyPath: skeleton.motionWordWindowSize
-      value: 35
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8c1aec2e57923a64fb3f8b25518572c8, type: 2}
-  m_IsPrefabParent: 0

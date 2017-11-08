@@ -21,6 +21,11 @@ public class JointAndreas
         this.frames = new List<Frame>();
     }
 
+    public JointName GetJointName()
+    {
+        return name;
+    }
+
     public GameObject GetJointGameObject()
     {
         return jointGO;
@@ -73,6 +78,10 @@ public class JointAndreas
     /// </summary>
     public Frame AddFrame()
     {
+        if (frames == null)
+        {
+            frames = new List<Frame>();
+        }
         Frame newFrame = new Frame(jointGO.transform.position, jointGO.transform.rotation, Time.time);
         frames.Add(newFrame);
         return newFrame;
