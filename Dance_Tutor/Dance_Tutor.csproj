@@ -93,15 +93,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_OtherAssets\Eazy Tools\Sound Manager\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\CharController.cs" />
-    <Compile Include="Assets\Scripts\JointAndreas.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Joint.cs" />
     <Compile Include="Assets\Scripts\MathHelper.cs" />
-    <Compile Include="Assets\Scripts\Old\BVHLoader.cs" />
-    <Compile Include="Assets\Scripts\Old\BVHLoaderAndreas.cs" />
-    <Compile Include="Assets\Scripts\Old\DanceE_Learning.cs" />
-    <Compile Include="Assets\Scripts\Old\Joint.cs" />
-    <Compile Include="Assets\Scripts\Old\Motion.cs" />
-    <Compile Include="Assets\Scripts\SkeletonAndreas.cs" />
+    <Compile Include="Assets\Scripts\Skeleton.cs" />
+    <Compile Include="Assets\Scripts\WordsManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharController : MonoBehaviour {
 
     [Header("Skeleton")]
-    public SkeletonAndreas skeleton;
+    public Skeleton skeleton;
 
     [Header("Animation")]
     public int selectedAnimationIndex;
