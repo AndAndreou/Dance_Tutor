@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 [System.Serializable]
 public class Skeleton
 {
-    public List<Joint> skeleton;
+    public List<Joint> joints;
 
     //[Header("MotionWord")]
     //public int motionWordStep = 5;
@@ -20,14 +21,50 @@ public class Skeleton
     public List<StyleWord> styleWords { get; private set; } 
     //private int styleWordStepCounter;
 
-    public struct MotionWord
+    public class MotionWord
     {
         // List is for joints and array of quaternion for rotation valus by frame
         public List<Quaternion[]> joint ;
 
+        public List<Vector3[]> GetDistanceBetweenWordsInDegrees(MotionWord[] motionWords)
+        {
+            List<Vector3[]> disWord = new List<Vector3[]>();
+            for (int i = 0; i < motionWords.Length; i++) // motion words
+            {
+                for (int j = 0; j< motionWords[i].joint.Count; j++) // joints
+                {
+                    disWord.Add(new Vector3[motionWords[i].joint.Count]);
+                    for (int x = 0; x < motionWords[i].joint[j].Length; x++) // frame
+                    { 
+                        disWord[j] = new Vector3[motionWords[i].joint[j].Length];
+                        if (i == 0)
+                        {
+                            disWord[j][x] = (motionWords[i].joint[j][x]).eulerAngles;
+                        }
+                        else
+                        {
+                            disWord[j][x] -= (motionWords[i].joint[j][x]).eulerAngles;
+                        }
+                    }
+                }
+                
+            }
+            return disWord;
+        }
+
+        public Vector3[] GetSumOfFrames(List<Vector3[]> distanceWord)
+        {
+            Vector3[] sum = new Vector3[distanceWord.Count];
+            for (int j = 0; j < distanceWord.Count; j++) // joints
+            {
+                for (int x = 0; x < distanceWord[j].Length; x++) // frame
+                    sum[j] += distanceWord[j][x];
+            }
+            return sum;
+        }
     }
 
-    public struct StyleWord
+    public class StyleWord
     {
         public float feetHipDistanceMax;
         public float feetHipDistanceMin;
@@ -141,13 +178,56 @@ public class Skeleton
         public float totalDistanceNo;
 
         public float totalAreaNo;
+
+        public float GetMax(StyleWord styleWord)
+        {
+            float maximum = 0;
+            foreach (var field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+            {
+                maximum = Mathf.Max(maximum, (float)field.GetValue(styleWord));
+            }
+            return maximum;
+        }
+
+        public StyleWord GetNormilizedWord(StyleWord styleWord, float valueForNormilized)
+        {
+            foreach (FieldInfo field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+            {
+                field.SetValue(styleWord, ((float)field.GetValue(styleWord) / valueForNormilized));
+            }
+            return styleWord;
+        }
+
+        public StyleWord GetDistanceBetweenWords(StyleWord[] styleWords)
+        {
+            StyleWord DisWord = styleWords[0];
+            for (int i = 1; i < styleWords.Length; i++)
+            {
+                foreach (FieldInfo field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+                {
+
+                    field.SetValue(DisWord, ((float)field.GetValue(DisWord) - (float)field.GetValue(styleWords[i])));
+                }
+            }
+            return DisWord;
+        }
+
+        public float GetSumOfVars(StyleWord styleWord)
+        {
+            float sum = 0;
+            foreach (var field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+            {
+                sum += (float)field.GetValue(styleWord);
+            }
+            return sum;
+        }
     }
 
     private List<Vector3> skeletonCentroid;
 
     public Skeleton()
     {
-        skeleton = new List<Joint>();
+        joints = new List<Joint>();
         skeletonCentroid = new List<Vector3>();
         motionWords = new List<MotionWord>();
         styleWords = new List<StyleWord>();
@@ -157,7 +237,7 @@ public class Skeleton
 
     public Skeleton(List<Joint> joints)
     {
-        skeleton = joints;
+        this.joints = joints;
 
         skeletonCentroid = new List<Vector3>();
         motionWords = new List<MotionWord>();
@@ -173,9 +253,9 @@ public class Skeleton
     /// <returns></returns>
     public Joint GetJointByName(JointName name)
     {
-        foreach(Joint joint in skeleton)
+        foreach(Joint joint in joints)
         {
-            if(joint.name == name)
+            if(joint.GetJointName() == name)
             {
                 return joint;
             }
@@ -189,14 +269,14 @@ public class Skeleton
     public void AutoAddFrameValuesForEachJoint()
     {
         Vector3 centroidForThisFrame = Vector3.zero;
-        foreach (Joint joint in skeleton)
+        foreach (Joint joint in joints)
         {
             Frame f = joint.AddFrame();
             centroidForThisFrame = f.position;
         }
 
         // Calculate centroid
-        centroidForThisFrame = centroidForThisFrame / skeleton.Count;
+        centroidForThisFrame = centroidForThisFrame / joints.Count;
         skeletonCentroid.Add(centroidForThisFrame);
 
     }
@@ -209,7 +289,7 @@ public class Skeleton
         MotionWord motionWord = new MotionWord();
         motionWord.joint = new List<Quaternion[]>();
 
-        foreach( Joint joint in skeleton)
+        foreach( Joint joint in joints)
         {
             // Get last frames per joint and get only rotations
             Frame[] framePerJoint = joint.GetLastFrames(motionWordWindowSize).ToArray();
@@ -232,7 +312,7 @@ public class Skeleton
     public StyleWord AddStyleWord(int styleWordWindowSize)
     {
         Dictionary<JointName, List<Frame>> jointsWithLastFrames = new Dictionary<JointName, List<Frame>>();
-        foreach(Joint joint in skeleton)
+        foreach(Joint joint in joints)
         {
             jointsWithLastFrames.Add(joint.GetJointName(),joint.GetLastFrames(styleWordWindowSize));
         }

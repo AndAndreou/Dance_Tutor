@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Assets\_OtherAssets\Eazy Tools\Sound Manager\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\CharController.cs" />
+    <Compile Include="Assets\Scripts\DataEditor.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Joint.cs" />
     <Compile Include="Assets\Scripts\MathHelper.cs" />

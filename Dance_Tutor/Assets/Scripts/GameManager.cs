@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    void Awake()
+    {
+        DataEditor.LoadGameData();
+    }
+
     // Use this for initialization
     void Start () {
         Invoke("PlaySong", songDelay);
@@ -38,4 +43,8 @@ public class GameManager : MonoBehaviour {
         SoundManager.PlayMusic(song, 0.5f);
     }
 
+    void OnApplicationQuit()
+    {
+        DataEditor.SaveGameData();
+    }
 }

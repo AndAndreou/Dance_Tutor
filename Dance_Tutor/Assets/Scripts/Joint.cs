@@ -82,7 +82,7 @@ public class Joint
         {
             frames = new List<Frame>();
         }
-        Frame newFrame = new Frame(jointGO.transform.position, jointGO.transform.rotation, Time.time);
+        Frame newFrame = new Frame(jointGO.transform.localPosition, jointGO.transform.localRotation, Time.time);
         frames.Add(newFrame);
         return newFrame;
     }

@@ -3301,7 +3301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton:
-    skeleton:
+    joints:
     - name: 0
       jointGO: {fileID: 1578509529530620}
     - name: 11
@@ -3313,7 +3313,7 @@ MonoBehaviour:
     - name: 3
       jointGO: {fileID: 1699224133940562}
     - name: 4
-      jointGO: {fileID: 1893517812314550}
+      jointGO: {fileID: 1040518208414302}
     - name: 5
       jointGO: {fileID: 1849362113323578}
     - name: 6
@@ -3346,6 +3346,14 @@ MonoBehaviour:
       jointGO: {fileID: 1209577687795368}
     - name: 43
       jointGO: {fileID: 1017932381242762}
+    - name: 60
+      jointGO: {fileID: 1377606132867504}
+    - name: 63
+      jointGO: {fileID: 1241560697785690}
+    - name: 56
+      jointGO: {fileID: 1869739311193262}
+    - name: 59
+      jointGO: {fileID: 1071918538765124}
     - name: 44
       jointGO: {fileID: 1860189506429296}
     - name: 47
@@ -3353,19 +3361,11 @@ MonoBehaviour:
     - name: 48
       jointGO: {fileID: 1773273044946902}
     - name: 51
-      jointGO: {fileID: 1000857623063594}
+      jointGO: {fileID: 1760064096266666}
     - name: 52
       jointGO: {fileID: 1064870871015740}
     - name: 55
       jointGO: {fileID: 1362217470974672}
-    - name: 56
-      jointGO: {fileID: 1869739311193262}
-    - name: 59
-      jointGO: {fileID: 1071918538765124}
-    - name: 60
-      jointGO: {fileID: 1377606132867504}
-    - name: 63
-      jointGO: {fileID: 1241560697785690}
     - name: 16
       jointGO: {fileID: 1197321453550068}
     - name: 17
@@ -3374,6 +3374,14 @@ MonoBehaviour:
       jointGO: {fileID: 1547659258730050}
     - name: 19
       jointGO: {fileID: 1924085685565966}
+    - name: 36
+      jointGO: {fileID: 1958163063701020}
+    - name: 39
+      jointGO: {fileID: 1159354808182332}
+    - name: 32
+      jointGO: {fileID: 1988439219429730}
+    - name: 35
+      jointGO: {fileID: 1636098271057956}
     - name: 20
       jointGO: {fileID: 1466722893117552}
     - name: 23
@@ -3386,18 +3394,6 @@ MonoBehaviour:
       jointGO: {fileID: 1397307303989488}
     - name: 31
       jointGO: {fileID: 1404932541378086}
-    - name: 32
-      jointGO: {fileID: 1988439219429730}
-    - name: 35
-      jointGO: {fileID: 1636098271057956}
-    - name: 36
-      jointGO: {fileID: 1958163063701020}
-    - name: 39
-      jointGO: {fileID: 1159354808182332}
-    motionWordStep: 5
-    motionWordWindowSize: 35
-    stykeWordStep: 5
-    styleWordWindowSize: 35
   selectedAnimationIndex: 0
   animations:
   - {fileID: 7400000, guid: f61fae1b3d1119d42a6178a1b032d3bb, type: 3}

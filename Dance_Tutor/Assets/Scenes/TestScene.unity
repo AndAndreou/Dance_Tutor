@@ -139,6 +139,8 @@ MonoBehaviour:
   motionWordWindowSize: 35
   stykeWordStep: 5
   styleWordWindowSize: 35
+  styleWordThreshold: 100
+  motionWordThreshold: 10
 --- !u!4 &817634173
 Transform:
   m_ObjectHideFlags: 0
