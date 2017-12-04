@@ -24,7 +24,7 @@ public class Skeleton
     public class MotionWord
     {
         // List is for joints and array of quaternion for rotation valus by frame
-        public List<Quaternion[]> joint ;
+        public List<Vector3[]> joint ;
 
         public List<Vector3[]> GetDistanceBetweenWordsInDegrees(MotionWord[] motionWords)
         {
@@ -33,18 +33,41 @@ public class Skeleton
             {
                 for (int j = 0; j< motionWords[i].joint.Count; j++) // joints
                 {
-                    disWord.Add(new Vector3[motionWords[i].joint.Count]);
+                    if (i == 0)
+                    {
+                        disWord.Add(new Vector3[motionWords[i].joint.Count]);
+                    }
                     for (int x = 0; x < motionWords[i].joint[j].Length; x++) // frame
                     { 
-                        disWord[j] = new Vector3[motionWords[i].joint[j].Length];
                         if (i == 0)
                         {
-                            disWord[j][x] = (motionWords[i].joint[j][x]).eulerAngles;
+                            disWord[j] = new Vector3[motionWords[i].joint[j].Length];
+                            disWord[j][x] = (motionWords[i].joint[j][x]);
                         }
                         else
                         {
-                            disWord[j][x] -= (motionWords[i].joint[j][x]).eulerAngles;
+                            disWord[j][x] -= (motionWords[i].joint[j][x]);
                         }
+
+                        /*
+                        // Normilaze degrees
+                        disWord[j][x].x = disWord[j][x].x % 360f;
+                        disWord[j][x].y = disWord[j][x].y % 360f;
+                        disWord[j][x].z = disWord[j][x].z % 360f;
+
+                        if(disWord[j][x].x < 0)
+                        {
+                            disWord[j][x].x = disWord[j][x].x + 360f;
+                        }
+                        if(disWord[j][x].y < 0)
+                        {
+                            disWord[j][x].y = disWord[j][x].y + 360f;
+                        }
+                        if(disWord[j][x].z < 0)
+                        {
+                            disWord[j][x].z = disWord[j][x].z + 360f;
+                        }
+                        */
                     }
                 }
                 
@@ -58,7 +81,26 @@ public class Skeleton
             for (int j = 0; j < distanceWord.Count; j++) // joints
             {
                 for (int x = 0; x < distanceWord[j].Length; x++) // frame
+                {
                     sum[j] += distanceWord[j][x];
+                }
+                // Normilaze degrees
+                sum[j].x = sum[j].x % 360f;
+                sum[j].y = sum[j].y % 360f;
+                sum[j].z = sum[j].z % 360f;
+
+                if (sum[j].x < 0)
+                {
+                    sum[j].x = sum[j].x + 360f;
+                }
+                if (sum[j].y < 0)
+                {
+                    sum[j].y = sum[j].y + 360f;
+                }
+                if (sum[j].z < 0)
+                {
+                    sum[j].z = sum[j].z + 360f;
+                }
             }
             return sum;
         }
@@ -205,8 +247,8 @@ public class Skeleton
             {
                 foreach (FieldInfo field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
                 {
-
-                    field.SetValue(DisWord, ((float)field.GetValue(DisWord) - (float)field.GetValue(styleWords[i])));
+                    //Debug.Log((float)field.GetValue(DisWord) + " , " + (float)field.GetValue(styleWords[i]));
+                    field.SetValue(DisWord, Mathf.Abs((float)field.GetValue(DisWord) - (float)field.GetValue(styleWords[i])));
                 }
             }
             return DisWord;
@@ -266,12 +308,13 @@ public class Skeleton
     /// <summary>
     /// Add values of each joint into a frame value
     /// </summary>
-    public void AutoAddFrameValuesForEachJoint()
+    public void AutoAddFrameValuesForEachJoint(Transform callerTransform)
     {
         Vector3 centroidForThisFrame = Vector3.zero;
         foreach (Joint joint in joints)
         {
-            Frame f = joint.AddFrame();
+            Frame f = joint.AddFrame(callerTransform);
+
             centroidForThisFrame = f.position;
         }
 
@@ -287,13 +330,13 @@ public class Skeleton
     public MotionWord AddMotionWord(int motionWordWindowSize)
     {
         MotionWord motionWord = new MotionWord();
-        motionWord.joint = new List<Quaternion[]>();
+        motionWord.joint = new List<Vector3[]>();
 
         foreach( Joint joint in joints)
         {
             // Get last frames per joint and get only rotations
             Frame[] framePerJoint = joint.GetLastFrames(motionWordWindowSize).ToArray();
-            Quaternion[] jointRotationByFrame = new Quaternion[motionWordWindowSize];
+            Vector3[] jointRotationByFrame = new Vector3[motionWordWindowSize];
             for (int i = 0; i < motionWordWindowSize; i++)
             {
                 jointRotationByFrame[i] = framePerJoint[i].rotation;
@@ -428,7 +471,7 @@ public class Skeleton
             {
                 // Head orientation
                 Vector3 rootForward = (jointsWithLastFrames[JointName.Root][i].position - jointsWithLastFrames[JointName.Root][i - 1].position);
-                Vector3 headOrientation = (jointsWithLastFrames[JointName.Head][i].rotation * Vector3.forward);
+                Vector3 headOrientation = (jointsWithLastFrames[JointName.Head][i].rotation /* * Vector3.forward*/);
                 f10[i] = Vector3.Angle(headOrientation, rootForward);
 
                 // jointsWithLastFrames[JointName.Root] Velocity

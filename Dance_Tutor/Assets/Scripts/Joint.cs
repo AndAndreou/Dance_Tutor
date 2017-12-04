@@ -46,7 +46,7 @@ public class Joint
     /// add new frame rotation
     /// </summary>
     /// <param name="rotation"></param>
-    public void SetFrameRotation(Quaternion rotation, int frameIndex)
+    public void SetFrameRotation(Vector3 rotation, int frameIndex)
     {
         Frame temp = frames[frameIndex];
         temp.rotation = rotation;
@@ -68,7 +68,7 @@ public class Joint
     /// </summary>
     /// <param name="frameIndex"></param>
     /// <returns></returns>
-    public Quaternion GetRotationForFrame(int frameIndex)
+    public Vector3 GetRotationForFrame(int frameIndex)
     {
         return frames[frameIndex].rotation;
     }
@@ -76,13 +76,13 @@ public class Joint
     /// <summary>
     /// Add frame by current values of joitn game object
     /// </summary>
-    public Frame AddFrame()
+    public Frame AddFrame(Transform callerTransform)
     {
         if (frames == null)
         {
             frames = new List<Frame>();
         }
-        Frame newFrame = new Frame(jointGO.transform.localPosition, jointGO.transform.localRotation, Time.time);
+        Frame newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), callerTransform.InverseTransformDirection(jointGO.transform.eulerAngles), Time.time);
         frames.Add(newFrame);
         return newFrame;
     }
@@ -92,7 +92,7 @@ public class Joint
     /// </summary>
     /// <param name="position"></param>
     /// <param name="rotetion"></param>
-    public void AddFrame(Vector3 position,Quaternion rotetion, float time)
+    public void AddFrame(Vector3 position,Vector3 rotetion, float time)
     {
         frames.Add(new Frame(position, rotetion,time));
     }
@@ -138,10 +138,10 @@ public class Joint
 public struct Frame
 {
     public Vector3 position;
-    public Quaternion rotation;
+    public Vector3 rotation;
     public float time;
 
-    public Frame(Vector3 pos, Quaternion rot, float t)
+    public Frame(Vector3 pos, Vector3 rot, float t)
     {
         position = pos;
         rotation = rot;

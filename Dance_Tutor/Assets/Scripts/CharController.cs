@@ -23,12 +23,21 @@ public class CharController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 
-        // if current animation in animator is the selected animation then in each frame write the values for each join
-        if((animator.GetCurrentAnimatorStateInfo(0).IsName(animations[selectedAnimationIndex].name)))
+        if (WordsManager.writeWords == true)
         {
-            skeleton.AutoAddFrameValuesForEachJoint();
-        }		
-	}
+            skeleton.AutoAddFrameValuesForEachJoint(this.transform);
+        }
+    }
+
+    public void AnimationStart()
+    {
+        WordsManager.StartWriteWords();
+    } 
+
+    public void AnimationStop()
+    {
+        WordsManager.StopWriteWords();
+    }
 }

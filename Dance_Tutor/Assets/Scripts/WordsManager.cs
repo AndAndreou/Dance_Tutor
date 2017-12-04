@@ -18,9 +18,18 @@ public class WordsManager : MonoBehaviour {
     public float styleWordThreshold;
     public float motionWordThreshold;
 
+    [HideInInspector]
+    public static List<float> styleWordResults;
+    [HideInInspector]
+    public static List<Vector3[]> motionWordResults;
+
     private float maxNumInStyleWords = 0; //used for styleword normilized
 
-    private CharController[] allCharCotrollers;
+    public static bool writeWords { get; private set; }
+    public static bool prevWriteWordsVal { get; private set; }
+
+    [HideInInspector]
+    public static CharController[] allCharCotrollers { get; private set; }
 
     private static WordsManager _instance = null;
     public static WordsManager instance
@@ -46,17 +55,40 @@ public class WordsManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        styleWordResults = new List<float>();
+        motionWordResults = new List<Vector3[]>();
+
         allCharCotrollers = FindObjectsOfType<CharController>();
+
         maxNumInStyleWords = DataEditor.gameData.maxNumInStyleWords;
+
+        writeWords = false;
+        prevWriteWordsVal = false;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+        if (writeWords == false)
+        {
+            if (prevWriteWordsVal == true)
+            {
+                // End writing of frames
+                DataEditor.SaveResultsData();
+            }
+        }
+
+        prevWriteWordsVal = writeWords;
+    }
 
     void LateUpdate()
     {
+        if (writeWords == false)
+        {
+            return;
+        }
+
         #region Check and Add new words
         //new words for this frame
         List<Skeleton.MotionWord> newMotionWords = null;
@@ -78,15 +110,17 @@ public class WordsManager : MonoBehaviour {
         styleWordStepCounter--;
         if (styleWordStepCounter <= 0)
         {
+            //print("!!!!!!!!!!!!!!!!!!");
             newStyleWords = new List<Skeleton.StyleWord>();
             foreach (CharController controller in allCharCotrollers)
             {
                 // Write style word for each controller
                 Skeleton.StyleWord controllerNewStyleWord = controller.skeleton.AddStyleWord(styleWordWindowSize);
                 newStyleWords.Add(controllerNewStyleWord);
-
+                //print(controllerNewStyleWord.centroidPelvisDistanceMax);
+                
                 // Get the maximum value of all style words
-                maxNumInStyleWords = Mathf.Max(maxNumInStyleWords, controllerNewStyleWord.GetMax(controllerNewStyleWord));
+                maxNumInStyleWords = Mathf.Max(maxNumInStyleWords, controllerNewStyleWord.GetMax(controllerNewStyleWord), DataEditor.gameData.maxNumInStyleWords);
                 DataEditor.gameData.maxNumInStyleWords = maxNumInStyleWords;
             }
             styleWordStepCounter = styleWordWindowSize;
@@ -106,18 +140,21 @@ public class WordsManager : MonoBehaviour {
             Skeleton.StyleWord distanceStyleWord = new Skeleton.StyleWord();
             // Get total distance
             distanceStyleWord = distanceStyleWord.GetDistanceBetweenWords(newStyleWords.ToArray());
-            // Get Sum of all ellements of distances style word
-            float totalDistance = distanceStyleWord.GetSumOfVars(distanceStyleWord);
+            //print(distanceStyleWord.centroidHeightMax);
 
-            if (totalDistance < styleWordThreshold)
+            // Get Sum of all ellements of distances style word
+            float totalDistanceStyleWord = distanceStyleWord.GetSumOfVars(distanceStyleWord);
+
+            if (totalDistanceStyleWord < styleWordThreshold)
             {
-                print("Style Word: " + totalDistance + " OK");
+                //print("Style Word: " + totalDistanceStyleWord + " OK");
             }
             else
             {
-                print("Style Word: " + totalDistance + " NOT OK");
+                //print("Style Word: " + totalDistanceStyleWord + " NOT OK");
             }
 
+            styleWordResults.Add(totalDistanceStyleWord);
         }
 
         if(newMotionWords != null)
@@ -131,14 +168,28 @@ public class WordsManager : MonoBehaviour {
             {
                 if ((totalDistanceMotion[i].x <= motionWordThreshold) && (totalDistanceMotion[i].y <= motionWordThreshold) && (totalDistanceMotion[i].z <= motionWordThreshold))
                 {
-                    print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " OK");
+                    //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " OK");
                 }
                 else
                 {
-                    print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " NOT OK");
+                    //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " NOT OK");
                 }
             }
+
+            motionWordResults.Add(totalDistanceMotion);
         }
         #endregion
+    }
+
+    public static bool StartWriteWords()
+    {
+        writeWords = true;
+        return writeWords;
+    }
+
+    public static bool StopWriteWords()
+    {
+        writeWords = false;
+        return writeWords;
     }
 }

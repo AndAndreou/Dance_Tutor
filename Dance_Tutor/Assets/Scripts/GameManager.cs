@@ -35,12 +35,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     void PlaySong()
     {
-        SoundManager.PlayMusic(song, 0.5f);
+        //SoundManager.PlayMusic(song, 0.5f);
     }
 
     void OnApplicationQuit()
