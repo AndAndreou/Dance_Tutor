@@ -23,7 +23,7 @@ public class WordsManager : MonoBehaviour {
     [HideInInspector]
     public static List<Vector3[]> motionWordResults;
 
-    private float maxNumInStyleWords = 0; //used for styleword normilized
+    private Skeleton.StyleWord maxStyleWords = new Skeleton.StyleWord(); //used for styleword normilized
 
     public static bool writeWords { get; private set; }
     public static bool prevWriteWordsVal { get; private set; }
@@ -60,7 +60,7 @@ public class WordsManager : MonoBehaviour {
 
         allCharCotrollers = FindObjectsOfType<CharController>();
 
-        maxNumInStyleWords = DataEditor.gameData.maxNumInStyleWords;
+        maxStyleWords = DataEditor.gameData.maxStyleWords;
 
         writeWords = false;
         prevWriteWordsVal = false;
@@ -118,10 +118,11 @@ public class WordsManager : MonoBehaviour {
                 Skeleton.StyleWord controllerNewStyleWord = controller.skeleton.AddStyleWord(styleWordWindowSize);
                 newStyleWords.Add(controllerNewStyleWord);
                 //print(controllerNewStyleWord.centroidPelvisDistanceMax);
-                
+
                 // Get the maximum value of all style words
-                maxNumInStyleWords = Mathf.Max(maxNumInStyleWords, controllerNewStyleWord.GetMax(controllerNewStyleWord), DataEditor.gameData.maxNumInStyleWords);
-                DataEditor.gameData.maxNumInStyleWords = maxNumInStyleWords;
+                //maxStyleWords = Mathf.Max(maxStyleWords, controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords), DataEditor.gameData.maxStyleWords);
+                maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+                DataEditor.gameData.maxStyleWords = maxStyleWords;
             }
             styleWordStepCounter = styleWordWindowSize;
         }
@@ -131,10 +132,11 @@ public class WordsManager : MonoBehaviour {
 
         if (newStyleWords != null)
         {
+
             for (int i = 0; i < newStyleWords.Count; i++)
             {
-                // Normalized all style words dependent on maxNumInStyleWords
-                newStyleWords[i] = newStyleWords[i].GetNormilizedWord(newStyleWords[i], maxNumInStyleWords);
+                // Normalized all style words dependent on maxStyleWords
+                newStyleWords[i] = newStyleWords[i].GetNormilizedWord(newStyleWords[i], maxStyleWords);
             }
 
             Skeleton.StyleWord distanceStyleWord = new Skeleton.StyleWord();

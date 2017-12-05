@@ -37,12 +37,12 @@ public class DataEditor : MonoBehaviour {
         else
         {
             gameData = new GameData();
+            gameData.maxStyleWords = new Skeleton.StyleWord();
         }
     }
 
     public static void SaveGameData()
     {
-
         string dataAsJson = JsonUtility.ToJson(gameData);
         string filePath = Application.dataPath + gameDataProjectFilePath;
         File.WriteAllText(filePath, dataAsJson);
@@ -98,5 +98,5 @@ public class DataEditor : MonoBehaviour {
 
 public struct GameData
 {
-    public float maxNumInStyleWords;
+    public Skeleton.StyleWord maxStyleWords;
 }

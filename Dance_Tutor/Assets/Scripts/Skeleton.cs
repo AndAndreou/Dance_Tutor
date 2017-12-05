@@ -106,138 +106,159 @@ public class Skeleton
         }
     }
 
+    [System.Serializable]
     public class StyleWord
     {
-        public float feetHipDistanceMax;
-        public float feetHipDistanceMin;
-        public float feetHipDistanceMean;
-        public float feetHipDistanceStd;
+        public float feetHipDistanceMax = 0;
+        public float feetHipDistanceMin = 0;
+        public float feetHipDistanceMean = 0;
+        public float feetHipDistanceStd = 0;
 
-        public float handsShoulderDistanceMax;
-        public float handsShoulderDistanceMin;
-        public float handsShoulderDistanceMean;
-        public float handsShoulderDistanceStd;
+        public float handsShoulderDistanceMax = 0;
+        public float handsShoulderDistanceMin = 0;
+        public float handsShoulderDistanceMean = 0;
+        public float handsShoulderDistanceStd = 0;
 
-        public float handsDistanceMax;
-        public float handsDistanceMin;
-        public float handsDistanceMean;
-        public float handsDistanceStd;
+        public float handsDistanceMax = 0;
+        public float handsDistanceMin = 0;
+        public float handsDistanceMean = 0;
+        public float handsDistanceStd = 0;
 
-        public float handsHeadDistanceMax;
-        public float handsHeadDistanceMin;
-        public float handsHeadDistanceMean;
-        public float handsHeadDistanceStd;
+        public float handsHeadDistanceMax = 0;
+        public float handsHeadDistanceMin = 0;
+        public float handsHeadDistanceMean = 0;
+        public float handsHeadDistanceStd = 0;
 
-        public float pelvisHeightMax;
-        public float pelvisHeightMin;
-        public float pelvisHeightMean;
-        public float pelvisHeightStd;
+        public float pelvisHeightMax = 0;
+        public float pelvisHeightMin = 0;
+        public float pelvisHeightMean = 0;
+        public float pelvisHeightStd = 0;
 
-        public float hipGroundMinusFeetHipMax;
-        public float hipGroundMinusFeetHipMin;
-        public float hipGroundMinusFeetHipMean;
-        public float hipGroundMinusFeetHipStd;
+        public float hipGroundMinusFeetHipMax = 0;
+        public float hipGroundMinusFeetHipMin = 0;
+        public float hipGroundMinusFeetHipMean = 0;
+        public float hipGroundMinusFeetHipStd = 0;
 
-        public float centroidHeightMax;
-        public float centroidHeightMin;
-        public float centroidHeightMean;
-        public float centroidHeightStd;
+        public float centroidHeightMax = 0;
+        public float centroidHeightMin = 0;
+        public float centroidHeightMean = 0;
+        public float centroidHeightStd = 0;
 
-        public float centroidPelvisDistanceMax;
-        public float centroidPelvisDistanceMin;
-        public float centroidPelvisDistanceMean;
-        public float centroidPelvisDistanceStd;
+        public float centroidPelvisDistanceMax = 0;
+        public float centroidPelvisDistanceMin = 0;
+        public float centroidPelvisDistanceMean = 0;
+        public float centroidPelvisDistanceStd = 0;
 
-        public float gaitSizeMax;
-        public float gaitSizeMin;
-        public float gaitSizeMean;
-        public float gaitSizeStd;
+        public float gaitSizeMax = 0;
+        public float gaitSizeMin = 0;
+        public float gaitSizeMean = 0;
+        public float gaitSizeStd = 0;
 
-        public float headOrientationMax;
-        public float headOrientationMin;
-        public float headOrientationMean;
+        public float headOrientationMax = 0;
+        public float headOrientationMin = 0;
+        public float headOrientationMean = 0;
 
-        public float decelerationPeaksNo;
+        public float decelerationPeaksNo = 0;
 
-        public float hipVelocityMax;
-        public float hipVelocityMin;
-        public float hipVelocityStd;
+        public float hipVelocityMax = 0;
+        public float hipVelocityMin = 0;
+        public float hipVelocityStd = 0;
 
-        public float handsVelocityMax;
-        public float handsVelocityMin;
-        public float handsVelocityStd;
+        public float handsVelocityMax = 0;
+        public float handsVelocityMin = 0;
+        public float handsVelocityStd = 0;
 
-        public float feetVelocityMax;
-        public float feetVelocityMin;
-        public float feetVelocityStd;
+        public float feetVelocityMax = 0;
+        public float feetVelocityMin = 0;
+        public float feetVelocityStd = 0;
 
-        public float hipAccelerationMax;
-        public float hipAccelerationStd;
+        public float hipAccelerationMax = 0;
+        public float hipAccelerationStd = 0;
 
-        public float handsAccelerationMax;
-        public float handsAccelerationStd;
+        public float handsAccelerationMax = 0;
+        public float handsAccelerationStd = 0;
 
-        public float feetAccelerationMax;
-        public float feetAccelerationStd;
+        public float feetAccelerationMax = 0;
+        public float feetAccelerationStd = 0;
 
-        public float jerkAccelerationMax;
-        public float jerkAccelerationStd;
+        public float jerkAccelerationMax = 0;
+        public float jerkAccelerationStd = 0;
 
-        public float volumeMax;
-        public float volumeMin;
-        public float volumeMean;
-        public float volumeStd;
+        public float volumeMax = 0;
+        public float volumeMin = 0;
+        public float volumeMean = 0;
+        public float volumeStd = 0;
 
-        public float volumeUpperBodyMax;
-        public float volumeUpperBodyMin;
-        public float volumeUpperBodyMean;
-        public float volumeUpperBodyStd;
+        public float volumeUpperBodyMax = 0;
+        public float volumeUpperBodyMin = 0;
+        public float volumeUpperBodyMean = 0;
+        public float volumeUpperBodyStd = 0;
 
-        public float volumeLowerBodyMax;
-        public float volumeLowerBodyMin;
-        public float volumeLowerBodyMean;
-        public float volumeLowerBodyStd;
+        public float volumeLowerBodyMax = 0;
+        public float volumeLowerBodyMin = 0;
+        public float volumeLowerBodyMean = 0;
+        public float volumeLowerBodyStd = 0;
 
-        public float volumeLeftSideMax;
-        public float volumeLeftSideMin;
-        public float volumeLeftSideMean;
-        public float volumeLeftSideStd;
+        public float volumeLeftSideMax = 0;
+        public float volumeLeftSideMin = 0;
+        public float volumeLeftSideMean = 0;
+        public float volumeLeftSideStd = 0;
 
-        public float volumeRightSideMax;
-        public float volumeRightSideMin;
-        public float volumeRightSideMean;
-        public float volumeRightSideStd;
+        public float volumeRightSideMax = 0;
+        public float volumeRightSideMin = 0;
+        public float volumeRightSideMean = 0;
+        public float volumeRightSideStd = 0;
 
-        public float torsoHeightMax;
-        public float torsoHeightMin;
-        public float torsoHeightMean;
-        public float torsoHeightStd;
+        public float torsoHeightMax = 0;
+        public float torsoHeightMin = 0;
+        public float torsoHeightMean = 0;
+        public float torsoHeightStd = 0;
 
-        public float handsLevelNo1;
-        public float handsLevelNo2;
-        public float handsLevelNo3;
+        public float handsLevelNo1 = 0;
+        public float handsLevelNo2 = 0;
+        public float handsLevelNo3 = 0;
 
-        public float totalDistanceNo;
+        public float totalDistanceNo = 0;
 
-        public float totalAreaNo;
+        public float totalAreaNo = 0;
 
-        public float GetMax(StyleWord styleWord)
+        public StyleWord GetMax(StyleWord styleWord,StyleWord maxStyleWord)
         {
-            float maximum = 0;
+            //float maximum = 0;
+            StyleWord newStyleWord = maxStyleWord;
             foreach (var field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
             {
-                maximum = Mathf.Max(maximum, (float)field.GetValue(styleWord));
+                field.SetValue(newStyleWord, Mathf.Max((float)field.GetValue(styleWord), (float)field.GetValue(maxStyleWord)));
+                //maximum = Mathf.Max(maximum, (float)field.GetValue(styleWord));
+                //Debug.Log((float)field.GetValue(styleWord) + " , " + (float)field.GetValue(maxStyleWord));
+                //Debug.Log(Mathf.Max((float)field.GetValue(styleWord), (float)field.GetValue(maxStyleWord)));
+                //Debug.Log("..");
+                //if (float.IsNaN((float)field.GetValue(styleWord))){
+                //    Debug.Log(0); Debug.Log(field.Name);
+                //}
+                //if (float.IsNaN((float)field.GetValue(maxStyleWord)))
+                //{
+                //    Debug.Log(1); Debug.Log(field.Name);
+                //}
+                //if (float.IsNaN(Mathf.Max((float)field.GetValue(styleWord), (float)field.GetValue(maxStyleWord))))
+                //{
+                //    Debug.Log(2); Debug.Log(field.Name);
+                //}
             }
-            return maximum;
+            //Debug.Log("*************************************************************");
+            return newStyleWord;
         }
 
-        public StyleWord GetNormilizedWord(StyleWord styleWord, float valueForNormilized)
+        public StyleWord GetNormilizedWord(StyleWord styleWord, StyleWord maxStyleWord)
         {
+            StyleWord newStyleWord = new StyleWord();
             foreach (FieldInfo field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
             {
-                field.SetValue(styleWord, ((float)field.GetValue(styleWord) / valueForNormilized));
+                float div = (float)field.GetValue(maxStyleWord);
+                div = (div != 0f? div:1f); // Division with 0 is NaN
+                field.SetValue(newStyleWord, ((float)field.GetValue(styleWord) / div));
             }
-            return styleWord;
+            return newStyleWord;
         }
 
         public StyleWord GetDistanceBetweenWords(StyleWord[] styleWords)
@@ -249,6 +270,7 @@ public class Skeleton
                 {
                     //Debug.Log((float)field.GetValue(DisWord) + " , " + (float)field.GetValue(styleWords[i]));
                     field.SetValue(DisWord, Mathf.Abs((float)field.GetValue(DisWord) - (float)field.GetValue(styleWords[i])));
+
                 }
             }
             return DisWord;
@@ -261,6 +283,7 @@ public class Skeleton
             {
                 sum += (float)field.GetValue(styleWord);
             }
+
             return sum;
         }
     }
