@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dance_Tutor", "Dance_Tutor.csproj", "{E39842BB-9A03-79F9-4E5A-A22F9AAFF80F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dance_Tutor.Editor", "Dance_Tutor.Editor.csproj", "{DDB38228-D85A-E2C4-C3C9-121AC5C389D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{E39842BB-9A03-79F9-4E5A-A22F9AAFF80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E39842BB-9A03-79F9-4E5A-A22F9AAFF80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E39842BB-9A03-79F9-4E5A-A22F9AAFF80F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDB38228-D85A-E2C4-C3C9-121AC5C389D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB38228-D85A-E2C4-C3C9-121AC5C389D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB38228-D85A-E2C4-C3C9-121AC5C389D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB38228-D85A-E2C4-C3C9-121AC5C389D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
