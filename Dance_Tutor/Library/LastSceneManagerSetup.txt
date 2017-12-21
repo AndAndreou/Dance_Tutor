@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_OtherAssets/KinectV2/KinectView/MainScene.unity
+- path: Assets/Scenes/Gameplay.unity
   isLoaded: 1
   isActive: 1
