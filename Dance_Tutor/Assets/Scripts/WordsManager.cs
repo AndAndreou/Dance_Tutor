@@ -18,6 +18,9 @@ public class WordsManager : MonoBehaviour {
     public float styleWordThreshold;
     public float motionWordThreshold;
 
+    [Header("Controllers")]
+    public MyStreamingGraph myStreamingGraphController;
+
     [HideInInspector]
     public static List<float> styleWordResults;
     [HideInInspector]
@@ -157,6 +160,7 @@ public class WordsManager : MonoBehaviour {
             }
 
             styleWordResults.Add(totalDistanceStyleWord);
+            myStreamingGraphController.AddNewStyleWord(totalDistanceStyleWord);
         }
 
         if(newMotionWords != null)
@@ -166,8 +170,11 @@ public class WordsManager : MonoBehaviour {
             distanceMotionWord = newMotionWords[0].GetDistanceBetweenWordsInDegrees(newMotionWords.ToArray());
             // Get Sum of all ellements of distances style word
             Vector3[] totalDistanceMotion = newMotionWords[0].GetSumOfFrames(distanceMotionWord);
+
+            float totalMagnitude = 0;
             for (int i = 0; i < totalDistanceMotion.Length; i++)
             {
+                totalMagnitude += totalDistanceMotion[i].magnitude;
                 if ((totalDistanceMotion[i].x <= motionWordThreshold) && (totalDistanceMotion[i].y <= motionWordThreshold) && (totalDistanceMotion[i].z <= motionWordThreshold))
                 {
                     //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " OK");
@@ -179,6 +186,7 @@ public class WordsManager : MonoBehaviour {
             }
 
             motionWordResults.Add(totalDistanceMotion);
+            myStreamingGraphController.AddNewMotionWord(totalMagnitude);
         }
         #endregion
     }

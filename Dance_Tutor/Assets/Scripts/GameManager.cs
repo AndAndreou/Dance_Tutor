@@ -2,11 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
 
     public AudioClip song;
     public float songDelay;
+
+    public bool showChoreography { get; private set; }
+
+    //events
+    [HideInInspector]
+    public UnityEvent TPoseDetectionEvent;
 
     private static GameManager _instance = null;
     public static GameManager instance
@@ -25,7 +32,19 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        //init
+        showChoreography = false;
+
         DataEditor.LoadGameData();
+
+        //create event for T-Pose Detect
+        if (TPoseDetectionEvent == null)
+        {
+            TPoseDetectionEvent = new UnityEvent();
+        }
+
+        //add listener for T-Pose Detect ations
+        TPoseDetectionEvent.AddListener(TPoseDetetionAction);
     }
 
     // Use this for initialization
@@ -41,6 +60,19 @@ public class GameManager : MonoBehaviour {
     void PlaySong()
     {
         //SoundManager.PlayMusic(song, 0.5f);
+    }
+
+    private void TPoseDetetionAction()
+    {
+        if(showChoreography == false)
+        {
+            showChoreography = true;
+        }
+    }
+
+    public void ChoreographyFinished()
+    {
+        showChoreography = false;
     }
 
     void OnApplicationQuit()

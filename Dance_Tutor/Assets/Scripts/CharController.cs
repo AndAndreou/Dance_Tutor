@@ -7,9 +7,20 @@ public class CharController : MonoBehaviour {
     [Header("Skeleton")]
     public Skeleton skeleton;
 
+    [Header("Role")]
+    public Role avatarRole;
+
+    public enum Role
+    {
+        Tutor = 0,
+        Student = 1
+    }
+
     [Header("Animation")]
     public int selectedAnimationIndex;
     public AnimationClip[] animations;
+
+    private bool animationIsActive = false;
 
     private Animator animator;
 
@@ -21,9 +32,20 @@ public class CharController : MonoBehaviour {
     // Use this for initialization
     void Start () {
     }
-	
-	// Update is called once per frame
-	void LateUpdate () {
+
+    private void Update()
+    {
+        if (avatarRole == Role.Tutor)
+        {
+            if ((animationIsActive == false) && (GameManager.instance.showChoreography))
+            {
+                animator.SetTrigger("StartShowChoreography"); // start the animation
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void LateUpdate () {
 
         if (WordsManager.writeWords == true)
         {
@@ -31,13 +53,22 @@ public class CharController : MonoBehaviour {
         }
     }
 
-    public void AnimationStart()
+    public void AnimationStart() //call from animation
     {
-        WordsManager.StartWriteWords();
+        if (avatarRole == Role.Tutor)
+        {
+            animationIsActive = true;
+            WordsManager.StartWriteWords();
+        }
     } 
 
-    public void AnimationStop()
+    public void AnimationStop() //call from animation
     {
-        WordsManager.StopWriteWords();
+        if (avatarRole == Role.Tutor)
+        {
+            GameManager.instance.ChoreographyFinished();
+            animationIsActive = false;
+            WordsManager.StopWriteWords();
+        }
     }
 }

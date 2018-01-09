@@ -174,12 +174,46 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\AutoFloatInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\AxisInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\BarChartInspetor.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\CategoryLabelsInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\ChartDataEditor.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\ChartEditorCommon.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\ChartOrientedSizeInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\EditorMenu.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\GraphChartInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\GroupLabelsInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\ItemLabelsBaseEditor.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\ItemLabelsInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\MaterialTilingInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\PieChartInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\RadarChartInspector.cs" />
+    <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\RenameWindow.cs" />
     <Compile Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\Standard Assets\Editor\KinectCopyPluginDataHelper.cs" />
     <Compile Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\Standard Assets\Editor\KinectFacePostBuildCopyPluginData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\results.txt" />
     <None Include="Assets\StreamingAssets\resultsFromUserAnimation.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Shaders\GradientCanvas.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Shaders\GradientWorldSpace.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Shaders\GradientWorldSpaceOutline.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Shaders\SolidCanvasShader.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\3d\Pie\Theme 5\Materials\StandardCullOff.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Fonts\ABeeZee\SIL Open Font License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Fonts\comprehension\SIL Open Font License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Fonts\enriqueta\SIL Open Font License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Fonts\fengardo-neue\SIL Open Font License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Fonts\overpass\SIL Open Font License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Fonts\rambla\SIL Open Font License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Fonts\scada\SIL Open Font License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Materials\bar-1\StandardCullOff.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Materials\bar-3\StandardCullOff.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Materials\pie-1\StandardCullOff.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Materials\pie-3d-3\StandardCullOff.shader" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Meshes\cc0-license\License.txt" />
+    <None Include="Assets\_OtherAssets\Chart and Graph\Themes\Common\Textures\cc0-license\License.txt" />
     <None Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\KinectDemos\FittingRoomDemo\Resources\Shaders\UserBlendShader.shader" />
     <None Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\KinectDemos\ProjectorDemo\Resources\calibration-empty.xml" />
     <None Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\KinectDemos\ProjectorDemo\Resources\calibration.xml" />
