@@ -26,16 +26,27 @@ public class MyStreamingGraph : MonoBehaviour
         motiomWordGraph.DataSource.ClearCategory("Player 1"); // clear the "Player 1" category. this category is defined using the GraphChart inspector
 
         motiomWordGraph.DataSource.EndBatch(); // finally we call EndBatch , this will cause the GraphChart to redraw itself
+
+        // put thresholds
+        styleWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManager.instance.styleWordThreshold);
+        motiomWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManager.instance.motionWordThreshold);
     }
 
     public void AddNewStyleWord(float newStyleWord)
     {
+        // put threshold
+        styleWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.styleWordThreshold);
+
         styleWordGraph.DataSource.AddPointToCategoryRealtime("Player 1", TakeTime(), newStyleWord, 1f);  //System.DateTime.Now
     }
 
     public void AddNewMotionWord(float newMotionWord)
     {
+        // put threshold
+        motiomWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.motionWordThreshold);
+
         motiomWordGraph.DataSource.AddPointToCategoryRealtime("Player 1", TakeTime(), newMotionWord, 1f);
+       
     }
 
     private double TakeTime()

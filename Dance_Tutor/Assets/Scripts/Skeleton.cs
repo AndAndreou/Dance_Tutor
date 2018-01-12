@@ -33,7 +33,7 @@ public class Skeleton
             {
                 for (int j = 0; j< motionWords[i].joint.Count; j++) // joints
                 {
-                    if (i == 0)
+                    if (i == 0) // The first motion word
                     {
                         disWord.Add(new Vector3[motionWords[i].joint.Count]);
                     }
@@ -41,15 +41,20 @@ public class Skeleton
                     { 
                         if (i == 0)
                         {
-                            disWord[j] = new Vector3[motionWords[i].joint[j].Length];
+                            if (x == 0)
+                            {
+                                disWord[j] = new Vector3[motionWords[i].joint[j].Length];
+                            }
                             disWord[j][x] = (motionWords[i].joint[j][x]);
+                            //Debug.Log("word:" + i + " wordRot:" + motionWords[i].joint[j][x] + " disWord:" + disWord[j][x]);
                         }
                         else
                         {
+                            //Debug.Log(motionWords[i-1].joint[j][x] + " * " + disWord[j][x] + " , " + motionWords[i].joint[j][x] + " - joint:" + j + " frame:" + x + " word:" + i);
                             disWord[j][x] -= (motionWords[i].joint[j][x]);
                         }
 
-                        /*
+                        
                         // Normilaze degrees
                         disWord[j][x].x = disWord[j][x].x % 360f;
                         disWord[j][x].y = disWord[j][x].y % 360f;
@@ -67,7 +72,7 @@ public class Skeleton
                         {
                             disWord[j][x].z = disWord[j][x].z + 360f;
                         }
-                        */
+                        
                     }
                 }
                 

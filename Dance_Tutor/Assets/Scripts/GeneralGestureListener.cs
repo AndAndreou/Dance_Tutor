@@ -29,7 +29,7 @@ public class GeneralGestureListener : MonoBehaviour, KinectGestures.GestureListe
 
         if (gestureInfo != null)
         {
-            gestureInfo.text = "No gesture find";
+            gestureInfo.text = "T-Pose to start";
         }
     }
 

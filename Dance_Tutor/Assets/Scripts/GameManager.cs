@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour {
     public AudioClip song;
     public float songDelay;
 
+    [Header("Debug")]
+    public bool isDebugMode;
+
     public bool showChoreography { get; private set; }
 
     //events
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour {
     void Awake()
     {
         //init
-        showChoreography = false;
+        showChoreography = isDebugMode;
 
         DataEditor.LoadGameData();
 

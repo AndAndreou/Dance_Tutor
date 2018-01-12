@@ -82,7 +82,11 @@ public class Joint
         {
             frames = new List<Frame>();
         }
-        Frame newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), callerTransform.InverseTransformDirection(jointGO.transform.eulerAngles), Time.time);
+        //Get position and direction relative to the caller transform
+        //Frame newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), callerTransform.InverseTransformDirection(jointGO.transform.eulerAngles), Time.time);
+        
+        //Get position relative to the caller transform and local euler angles
+        Frame newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), (jointGO.transform.localEulerAngles), Time.time);
         frames.Add(newFrame);
         return newFrame;
     }

@@ -166,15 +166,15 @@ public class WordsManager : MonoBehaviour {
         if(newMotionWords != null)
         {
             List<Vector3[]> distanceMotionWord = new List<Vector3[]>();
-            // Get total distance
+            // Get distance for all frames
             distanceMotionWord = newMotionWords[0].GetDistanceBetweenWordsInDegrees(newMotionWords.ToArray());
-            // Get Sum of all ellements of distances style word
+            // Get Sum of all frames of distances motion word
             Vector3[] totalDistanceMotion = newMotionWords[0].GetSumOfFrames(distanceMotionWord);
 
-            float totalMagnitude = 0;
-            for (int i = 0; i < totalDistanceMotion.Length; i++)
+            float avgError = 0;
+            for (int i = 0; i < totalDistanceMotion.Length; i++) // For each joint
             {
-                totalMagnitude += totalDistanceMotion[i].magnitude;
+                avgError += ((totalDistanceMotion[i].x + totalDistanceMotion[i].y + totalDistanceMotion[i].z)/3f); //avg of 3 axis error
                 if ((totalDistanceMotion[i].x <= motionWordThreshold) && (totalDistanceMotion[i].y <= motionWordThreshold) && (totalDistanceMotion[i].z <= motionWordThreshold))
                 {
                     //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " OK");
@@ -186,7 +186,7 @@ public class WordsManager : MonoBehaviour {
             }
 
             motionWordResults.Add(totalDistanceMotion);
-            myStreamingGraphController.AddNewMotionWord(totalMagnitude);
+            myStreamingGraphController.AddNewMotionWord(avgError/ totalDistanceMotion.Length);
         }
         #endregion
     }

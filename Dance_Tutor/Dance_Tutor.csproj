@@ -508,13 +508,13 @@
     <Compile Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\Standard Assets\Windows\Kinect\TrackingConfidence.cs" />
     <Compile Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\Standard Assets\Windows\Kinect\TrackingState.cs" />
     <Compile Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\Standard Assets\Windows\Kinect\Vector4.cs" />
-    <Compile Include="Assets\MyStreamingGraph.cs" />
     <Compile Include="Assets\Scripts\CharController.cs" />
     <Compile Include="Assets\Scripts\DataEditor.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GeneralGestureListener.cs" />
     <Compile Include="Assets\Scripts\Joint.cs" />
     <Compile Include="Assets\Scripts\MathHelper.cs" />
+    <Compile Include="Assets\Scripts\MyStreamingGraph.cs" />
     <Compile Include="Assets\Scripts\Skeleton.cs" />
     <Compile Include="Assets\Scripts\WordsManager.cs" />
   </ItemGroup>
