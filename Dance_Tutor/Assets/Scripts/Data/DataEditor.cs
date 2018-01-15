@@ -25,6 +25,9 @@ public class DataEditor : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Load all data from json file
+    /// </summary>
     public static void LoadGameData()
     {
         string filePath = Application.dataPath + gameDataProjectFilePath;
@@ -38,9 +41,13 @@ public class DataEditor : MonoBehaviour {
         {
             gameData = new GameData();
             gameData.maxStyleWords = new Skeleton.StyleWord();
+            gameData.Users = new List<User>();
         }
     }
 
+    /// <summary>
+    /// Save all date in json data file
+    /// </summary>
     public static void SaveGameData()
     {
         string dataAsJson = JsonUtility.ToJson(gameData);
@@ -48,6 +55,9 @@ public class DataEditor : MonoBehaviour {
         File.WriteAllText(filePath, dataAsJson);
     }
 
+    /// <summary>
+    /// Save the last chorography result in separate text file
+    /// </summary>
     public static void SaveResultsData()
     {
         string results ="";
@@ -94,9 +104,48 @@ public class DataEditor : MonoBehaviour {
 
         Debug.Log("+++++Save Results+++++");
     }
+
+    /// <summary>
+    /// Add new user in data if your email is unique
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="email"></param>
+    /// <param name="dateOfBirth"></param>
+    /// <param name="sex"></param>
+    /// <param name="expirience"></param>
+    /// <param name="country"></param>
+    /// <returns></returns>
+    public static User AddNewUser(string name, string email, string dateOfBirth, Sex sex, Experience expirience, string country)
+    {
+        User newUser = null;
+
+        if (FindUser(email) == null) 
+        {
+            newUser = new User(name, email, dateOfBirth, sex, expirience, country);
+            gameData.Users.Add(newUser);
+        }
+
+        return newUser;
+    }
+
+    public static User FindUser(string email)
+    {
+        User user = null;
+        foreach (User u in gameData.Users)
+        {
+            if (u.email == email)
+            {
+                user = u;
+                break;
+            }
+        }
+
+        return user;
+    }
 }
 
 public struct GameData
 {
     public Skeleton.StyleWord maxStyleWords;
+    public List<User> Users;
 }

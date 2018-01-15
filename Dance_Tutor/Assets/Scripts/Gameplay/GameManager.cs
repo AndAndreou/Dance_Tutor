@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour {
         showChoreography = false;
     }
 
+    /// <summary>
+    /// Before application quit save all data
+    /// </summary>
     void OnApplicationQuit()
     {
         DataEditor.SaveGameData();

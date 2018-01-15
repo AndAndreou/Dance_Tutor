@@ -16,10 +16,6 @@ public class CharController : MonoBehaviour {
         Student = 1
     }
 
-    [Header("Animation")]
-    public int selectedAnimationIndex;
-    public AnimationClip[] animations;
-
     private bool animationIsActive = false;
 
     private Animator animator;
