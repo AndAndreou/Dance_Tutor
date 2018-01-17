@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour {
 
     [Header("UI Compnents")]
+    public Image uiPhotoCompnent;
     public InputField uiNameCompnent;
     public InputField uiEmailCompnent;
     public InputField uiDateOfBirthCompnent;
@@ -19,10 +21,30 @@ public class MainMenuController : MonoBehaviour {
     [Space(20)]
     public GameObject uiUsersPanel;
 
+    [Space(20)]
+    public GameObject uiUsersPhotosPanel;
+
+    [Space(20)]
+    public GameObject uiLoadingPanel;
+    public Text uiLoadingTxt;
+
     [Header("Prefabs")]
     public GameObject userUIPrefab;
+    public GameObject userPhotoOptionPrefab;
 
     // Set ui element in correct fields
+    private Sprite uiPhoto
+    {
+        get
+        {
+            return uiPhotoCompnent.sprite;
+        }
+        set
+        {
+            uiPhotoCompnent.sprite = value;
+        }
+    }
+
     private string uiName
     {
         get
@@ -82,6 +104,7 @@ public class MainMenuController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         AddAllUserToMenu();
+        FillPhotoPanel();
     }
 	
 	// Update is called once per frame
@@ -89,12 +112,12 @@ public class MainMenuController : MonoBehaviour {
 		
 	}
 
-    public void RegisterUser()
+    public void RegisterUserButton()
     {
         if((uiName!= "") && (uiEmail != "") && (uiDateOfBirth != "") && (uiCountry != ""))
         {
             User newUser = null;
-            newUser = DataEditor.AddNewUser(uiName, uiEmail, uiDateOfBirth, uiSex, uiExpirience, uiCountry);
+            newUser = DataEditor.AddNewUser(uiPhoto.name,uiName, uiEmail, uiDateOfBirth, uiSex, uiExpirience, uiCountry);
             if (newUser != null)
             {
                 // User added
@@ -126,7 +149,9 @@ public class MainMenuController : MonoBehaviour {
         uiExpirienceCompnent.AddOptions(experienceDropdownList);
     }
 
-
+    /// <summary>
+    /// Fill the users panel with alrady registed users
+    /// </summary>
     private void AddAllUserToMenu()
     {
         // Clean user panel
@@ -139,11 +164,15 @@ public class MainMenuController : MonoBehaviour {
             UserUIComponentController goScript = go.GetComponent<UserUIComponentController>();
             if (goScript != null)
             {
-                goScript.SetUIComponents(u.name, u.email);
+                goScript.SetUIComponents(u.name, u.email, Resources.Load<Sprite>("UsersImages\\" + u.photoName));
+                go.GetComponent<Button>().onClick.AddListener(() => UserSelectedButton(u.email));
             }
         }
     }
 
+    /// <summary>
+    /// Clean all the users panel
+    /// </summary>
     private void CleanUIUsersPanel()
     {
         foreach (Transform child in uiUsersPanel.transform)
@@ -153,10 +182,72 @@ public class MainMenuController : MonoBehaviour {
     }
 
     /// <summary>
+    /// User select his/her account
+    /// </summary>
+    /// <param name="userEmail"></param>
+    public void UserSelectedButton(string userEmail)
+    {
+        PlayerPrefs.SetString("UserEmail", userEmail);
+        LoadLevel("Gameplay");
+    }
+
+    /// <summary>
+    /// Put the photo button to change profile photo
+    /// </summary>
+    public void ChangeUserPhotoButton()
+    {
+        uiUsersPhotosPanel.SetActive(!uiUsersPhotosPanel.activeSelf);
+    }
+
+    /// <summary>
+    /// Fill panel of user photo options with sprite from resources
+    /// </summary>
+    private void FillPhotoPanel()
+    {
+        Sprite[] userPhotosOptions = Resources.LoadAll<Sprite>("UsersImages");
+        foreach(Sprite s in userPhotosOptions)
+        {
+            GameObject userPhotoOption = Instantiate(userPhotoOptionPrefab, uiUsersPhotosPanel.transform);
+            userPhotoOption.GetComponent<Image>().sprite = s;
+            userPhotoOption.GetComponent<Button>().onClick.AddListener(() => SelectUserPhotoButton(s.name));
+        }
+    }
+
+    /// <summary>
+    /// User select a photofrom options
+    /// </summary>
+    /// <param name="spriteName"></param>
+    public void SelectUserPhotoButton(string spriteName)
+    {
+        uiPhoto = Resources.Load<Sprite>("UsersImages\\" + spriteName);
+        uiUsersPhotosPanel.SetActive(false);
+    }
+
+    /// <summary>
     /// Before application quit save all data
     /// </summary>
     void OnApplicationQuit()
     {
         DataEditor.SaveGameData();
+    }
+
+    public void LoadLevel(string sceneName) //The name of the scene
+    {
+
+        StartCoroutine(LevelCoroutine(sceneName));
+    }
+
+    IEnumerator LevelCoroutine(string sceneName)
+    {
+        uiLoadingPanel.SetActive(true);
+
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!async.isDone)
+        {
+            uiLoadingTxt.text = (int)(async.progress * 100) + "%";
+            yield return null;
+
+        }
     }
 }

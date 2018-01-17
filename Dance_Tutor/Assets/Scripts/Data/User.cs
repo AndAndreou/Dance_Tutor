@@ -4,6 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class User {
+    public string photoName;
     public string name;
     public string email;
     public string dateOfBirth;
@@ -22,8 +23,9 @@ public class User {
     /// <param name="sex"></param>
     /// <param name="expirience"></param>
     /// <param name="country"></param>
-    public User(string name, string email, string dateOfBirth, Sex sex, Experience expirience, string country)
+    public User(string photo, string name, string email, string dateOfBirth, Sex sex, Experience expirience, string country)
     {
+        this.photoName = photo;
         this.name = name;
         this.email = email;
         this.dateOfBirth = dateOfBirth;

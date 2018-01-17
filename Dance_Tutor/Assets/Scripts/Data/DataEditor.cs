@@ -115,13 +115,13 @@ public class DataEditor : MonoBehaviour {
     /// <param name="expirience"></param>
     /// <param name="country"></param>
     /// <returns></returns>
-    public static User AddNewUser(string name, string email, string dateOfBirth, Sex sex, Experience expirience, string country)
+    public static User AddNewUser(string photoName, string name, string email, string dateOfBirth, Sex sex, Experience expirience, string country)
     {
         User newUser = null;
 
         if (FindUser(email) == null) 
         {
-            newUser = new User(name, email, dateOfBirth, sex, expirience, country);
+            newUser = new User(photoName, name, email, dateOfBirth, sex, expirience, country);
             gameData.Users.Add(newUser);
         }
 
