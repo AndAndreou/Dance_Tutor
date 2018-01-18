@@ -521,6 +521,7 @@
     <Compile Include="Assets\Scripts\Gameplay\WordsManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\MainMenu\UserUIComponentController.cs" />
+    <Compile Include="Assets\Scripts\SelectAnimationClip\SelectionFlagController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\results.txt" />
