@@ -51,10 +51,10 @@ public class Skeleton
                         else
                         {
                             //Debug.Log(motionWords[i-1].joint[j][x] + " * " + disWord[j][x] + " , " + motionWords[i].joint[j][x] + " - joint:" + j + " frame:" + x + " word:" + i);
-                            disWord[j][x] -= (motionWords[i].joint[j][x]);
+                            //disWord[j][x] -= (motionWords[i].joint[j][x]);
+                            disWord[j][x] = new Vector3(Mathf.Abs(disWord[j][x].x - motionWords[i].joint[j][x].x), Mathf.Abs(disWord[j][x].y - motionWords[i].joint[j][x].y), Mathf.Abs(disWord[j][x].z - motionWords[i].joint[j][x].z));
                         }
 
-                        
                         // Normilaze degrees
                         disWord[j][x].x = disWord[j][x].x % 360f;
                         disWord[j][x].y = disWord[j][x].y % 360f;
@@ -72,7 +72,7 @@ public class Skeleton
                         {
                             disWord[j][x].z = disWord[j][x].z + 360f;
                         }
-                        
+                        //Debug.Log("-- " + disWord[j][x]);
                     }
                 }
                 
@@ -106,6 +106,7 @@ public class Skeleton
                 {
                     sum[j].z = sum[j].z + 360f;
                 }
+                //sum[j] = sum[j] / distanceWord[j].Length; // avg
             }
             return sum;
         }

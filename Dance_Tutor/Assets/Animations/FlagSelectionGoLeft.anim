@@ -511,7 +511,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 1
-    functionName: ResetUI
+    functionName: ResetFlagsUI
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -31,7 +31,7 @@ public class CharController : MonoBehaviour {
 
     private void Update()
     {
-        if (avatarRole == Role.Tutor)
+        //if (avatarRole == Role.Tutor)
         {
             if ((animationIsActive == false) && (GameManager.instance.showChoreography))
             {

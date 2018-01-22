@@ -8,10 +8,8 @@ public class SelectionFlagController : MonoBehaviour {
 
     [Header("UIComponents")]
     public Image[] uiFlags;
-
-    private Country[] countries;
-
-    private int selectedContryID;
+    [Space(20)]
+    public Image uiBackgroundImg;
 
     private Animator animator;
 
@@ -20,8 +18,7 @@ public class SelectionFlagController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
-        LoadCountries();
-        ResetUI();
+        ResetFlagsUI();
 
         enableScroll = true;
     }
@@ -35,11 +32,8 @@ public class SelectionFlagController : MonoBehaviour {
     {
         if (enableScroll)
         {
-            selectedContryID++;
-            if (selectedContryID > (countries.Length - 1))
-            {
-                selectedContryID = 0;
-            }
+            SelectAnimationSceneController.GoToNextCountry();
+
             animator.SetTrigger("GoLeft");
 
             enableScroll = false;
@@ -50,28 +44,31 @@ public class SelectionFlagController : MonoBehaviour {
     {
         if (enableScroll)
         {
-            selectedContryID--;
-            if (selectedContryID < 0)
-            {
-                selectedContryID = countries.Length - 1;
-            }
+            SelectAnimationSceneController.GoToPrevCountry();
+
             animator.SetTrigger("GoRight");
 
             enableScroll = false;
         }
     }
 
-    public void ResetUI()
+    public void ResetFlagsUI()
     {
+        // Set the middle flag
         int middleFlagID = (uiFlags.Length / 2);
-        uiFlags[middleFlagID].sprite = countries[selectedContryID].flag;
+        Country selectedCountry = SelectAnimationSceneController.GetCountry();
+        uiFlags[middleFlagID].sprite = selectedCountry.flag;
 
-        Debug.Log(countries[selectedContryID].name);
+        // Set background
+        uiBackgroundImg.sprite = selectedCountry.background;
 
+        //Debug.Log(SelectAnimationSceneController.countries[SelectAnimationSceneController.selectedContryID].name);
+
+        // Set other flags
         int prevFlagID = middleFlagID - 1;
-        int prevSelectedCountryID = selectedContryID - 1;
+        int prevSelectedCountryID = SelectAnimationSceneController.selectedContryID - 1;
         int nextFlagID = middleFlagID + 1;
-        int nextSelectedCountryID = selectedContryID + 1;
+        int nextSelectedCountryID = SelectAnimationSceneController.selectedContryID + 1;
         for (int i =0;i< middleFlagID; i++)
         {
             if (prevFlagID < 0)
@@ -80,9 +77,9 @@ public class SelectionFlagController : MonoBehaviour {
             }
             if (prevSelectedCountryID < 0)
             {
-                prevSelectedCountryID = countries.Length - 1;
+                prevSelectedCountryID = SelectAnimationSceneController.countries.Length - 1;
             }
-            uiFlags[prevFlagID].sprite = countries[prevSelectedCountryID].flag;
+            uiFlags[prevFlagID].sprite = SelectAnimationSceneController.countries[prevSelectedCountryID].flag;
             prevFlagID--;
             prevSelectedCountryID--;
 
@@ -90,11 +87,11 @@ public class SelectionFlagController : MonoBehaviour {
             {
                 nextFlagID = 0;
             }
-            if (nextSelectedCountryID > countries.Length - 1)
+            if (nextSelectedCountryID > SelectAnimationSceneController.countries.Length - 1)
             {
                 nextSelectedCountryID = 0;
             }
-            uiFlags[nextFlagID].sprite = countries[nextSelectedCountryID].flag;
+            uiFlags[nextFlagID].sprite = SelectAnimationSceneController.GetCountry(nextSelectedCountryID).flag;
             nextFlagID++;
             nextSelectedCountryID++;
 
@@ -102,39 +99,4 @@ public class SelectionFlagController : MonoBehaviour {
         }
     }
 
-    private void LoadCountries()
-    {
-        string[] countriesFoldersPaths = Directory.GetDirectories(Application.dataPath + "/Resources/Animations/Countries"); // Get the paths of all folder in this path
-        string[] countriesFoldersNames = new string[countriesFoldersPaths.Length];
-        for (int i = 0; i < countriesFoldersPaths.Length; i++)
-        {
-            var d = new DirectoryInfo(countriesFoldersPaths[i]);
-            countriesFoldersNames[i] = d.Name; // get only the name of folders
-        }
-
-        countries = new Country[countriesFoldersNames.Length];
-        
-        for(int i = 0; i < countriesFoldersNames.Length; i++)
-        {
-            countries[i].name = countriesFoldersNames[i];
-            countries[i].flag = Resources.LoadAll<Sprite>("Animations\\Countries\\" + countriesFoldersNames[i]+ "\\Flag")[0];
-            countries[i].background = Resources.LoadAll<Sprite>("Animations\\Countries\\" + countriesFoldersNames[i] + "\\BackgroundImage")[0];
-            countries[i].beginnerAnimations = Resources.LoadAll<Animation>("Animations\\Countries\\" + countriesFoldersNames[i] + "\\Clips\\Beginner");
-            countries[i].intermediateAnimations = Resources.LoadAll<Animation>("Animations\\Countries\\" + countriesFoldersNames[i] + "\\Clips\\Intermediate");
-            countries[i].expertAnimations = Resources.LoadAll<Animation>("Animations\\Countries\\" + countriesFoldersNames[i] + "\\Clips\\Expert");
-        }
-
-        selectedContryID = countries.Length / 2;
-    }
-
-}
-
-public struct Country
-{
-    public string name;
-    public Sprite flag;
-    public Sprite background;
-    public Animation[] beginnerAnimations;
-    public Animation[] intermediateAnimations;
-    public Animation[] expertAnimations;
 }
