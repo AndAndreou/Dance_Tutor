@@ -188,7 +188,7 @@ public class MainMenuController : MonoBehaviour {
     public void UserSelectedButton(string userEmail)
     {
         PlayerPrefs.SetString("UserEmail", userEmail);
-        LoadLevel("Gameplay");
+        LoadLevel("SelectAnimationClip");
     }
 
     /// <summary>
