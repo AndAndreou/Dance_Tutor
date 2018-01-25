@@ -77,14 +77,14 @@ public class SelectAnimationClipController : MonoBehaviour {
     {
         // Set the middle flag
         int middleAnimationClipID = (uiAnimationClipName.Length / 2);
-        AnimationClip selectedAnimationClip = SelectAnimationSceneController.GetAnimationClip();
+        AnimationClip selectedAnimationClip = DataEditor.GetAnimationClip();
         uiAnimationClipName[middleAnimationClipID].text = selectedAnimationClip.name;
 
         // Set other flags
         int prevAnimationClipID = middleAnimationClipID - 1;
-        int prevSelectedAnimationClipID = SelectAnimationSceneController.selectedAnimationClipID - 1;
+        int prevSelectedAnimationClipID = DataEditor.selectedAnimationClipID - 1;
         int nextAnimationClipID = middleAnimationClipID + 1;
-        int nextSelectedAnimationClipID = SelectAnimationSceneController.selectedAnimationClipID + 1;
+        int nextSelectedAnimationClipID = DataEditor.selectedAnimationClipID + 1;
         for (int i = 0; i < middleAnimationClipID; i++)
         {
             if (prevAnimationClipID < 0)
@@ -93,9 +93,9 @@ public class SelectAnimationClipController : MonoBehaviour {
             }
             if (prevSelectedAnimationClipID < 0)
             {
-                prevSelectedAnimationClipID = (SelectAnimationSceneController.GetAnimationsClipsLength() - 1);
+                prevSelectedAnimationClipID = (DataEditor.GetAnimationsClipsLength() - 1);
             }
-            uiAnimationClipName[prevAnimationClipID].text = SelectAnimationSceneController.GetAnimationClip(prevSelectedAnimationClipID).name;
+            uiAnimationClipName[prevAnimationClipID].text = DataEditor.GetAnimationClip(prevSelectedAnimationClipID).name;
             prevAnimationClipID--;
             prevSelectedAnimationClipID--;
 
@@ -103,11 +103,11 @@ public class SelectAnimationClipController : MonoBehaviour {
             {
                 nextAnimationClipID = 0;
             }
-            if (nextSelectedAnimationClipID > (SelectAnimationSceneController.GetAnimationsClipsLength() - 1))
+            if (nextSelectedAnimationClipID > (DataEditor.GetAnimationsClipsLength() - 1))
             {
                 nextSelectedAnimationClipID = 0;
             }
-            uiAnimationClipName[nextAnimationClipID].text = SelectAnimationSceneController.GetAnimationClip(nextSelectedAnimationClipID).name;
+            uiAnimationClipName[nextAnimationClipID].text = DataEditor.GetAnimationClip(nextSelectedAnimationClipID).name;
             nextAnimationClipID++;
             nextSelectedAnimationClipID++;
 
@@ -122,7 +122,7 @@ public class SelectAnimationClipController : MonoBehaviour {
 
     private void PreviewSelectedAnimationClip()
     {
-        AnimationClip previewAnimation = SelectAnimationSceneController.GetAnimationClip();
+        AnimationClip previewAnimation = DataEditor.GetAnimationClip();
         previewAnimation.legacy = true;
         avatarAnimation.AddClip(previewAnimation, previewAnimation.name);
         avatarAnimation.Play(previewAnimation.name);

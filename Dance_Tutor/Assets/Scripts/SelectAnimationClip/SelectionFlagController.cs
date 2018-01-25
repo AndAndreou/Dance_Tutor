@@ -56,7 +56,7 @@ public class SelectionFlagController : MonoBehaviour {
     {
         // Set the middle flag
         int middleFlagID = (uiFlags.Length / 2);
-        Country selectedCountry = SelectAnimationSceneController.GetCountry();
+        Country selectedCountry = DataEditor.GetCountry();
         uiFlags[middleFlagID].sprite = selectedCountry.flag;
 
         // Set background
@@ -66,9 +66,9 @@ public class SelectionFlagController : MonoBehaviour {
 
         // Set other flags
         int prevFlagID = middleFlagID - 1;
-        int prevSelectedCountryID = SelectAnimationSceneController.selectedContryID - 1;
+        int prevSelectedCountryID = DataEditor.selectedContryID - 1;
         int nextFlagID = middleFlagID + 1;
-        int nextSelectedCountryID = SelectAnimationSceneController.selectedContryID + 1;
+        int nextSelectedCountryID = DataEditor.selectedContryID + 1;
         for (int i =0;i< middleFlagID; i++)
         {
             if (prevFlagID < 0)
@@ -77,9 +77,9 @@ public class SelectionFlagController : MonoBehaviour {
             }
             if (prevSelectedCountryID < 0)
             {
-                prevSelectedCountryID = SelectAnimationSceneController.countries.Length - 1;
+                prevSelectedCountryID = DataEditor.countries.Length - 1;
             }
-            uiFlags[prevFlagID].sprite = SelectAnimationSceneController.countries[prevSelectedCountryID].flag;
+            uiFlags[prevFlagID].sprite = DataEditor.countries[prevSelectedCountryID].flag;
             prevFlagID--;
             prevSelectedCountryID--;
 
@@ -87,11 +87,11 @@ public class SelectionFlagController : MonoBehaviour {
             {
                 nextFlagID = 0;
             }
-            if (nextSelectedCountryID > SelectAnimationSceneController.countries.Length - 1)
+            if (nextSelectedCountryID > DataEditor.countries.Length - 1)
             {
                 nextSelectedCountryID = 0;
             }
-            uiFlags[nextFlagID].sprite = SelectAnimationSceneController.GetCountry(nextSelectedCountryID).flag;
+            uiFlags[nextFlagID].sprite = DataEditor.GetCountry(nextSelectedCountryID).flag;
             nextFlagID++;
             nextSelectedCountryID++;
 

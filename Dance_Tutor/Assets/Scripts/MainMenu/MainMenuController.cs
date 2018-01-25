@@ -97,8 +97,13 @@ public class MainMenuController : MonoBehaviour {
 
     private void Awake()
     {
+        DontDestroyOnLoad(this);
+
         FillExperienceDropdownList();
-        DataEditor.LoadGameData();
+        if (FindObjectOfType<DataEditor>() == null)
+        {
+            DataEditor.LoadGameData();
+        }
     }
 
     // Use this for initialization
@@ -187,7 +192,7 @@ public class MainMenuController : MonoBehaviour {
     /// <param name="userEmail"></param>
     public void UserSelectedButton(string userEmail)
     {
-        PlayerPrefs.SetString("UserEmail", userEmail);
+        DataEditor.SetSelectedUser(userEmail);
         LoadLevel("SelectAnimationClip");
     }
 

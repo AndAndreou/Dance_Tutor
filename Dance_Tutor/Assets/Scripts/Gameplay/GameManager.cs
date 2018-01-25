@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour {
         //init
         showChoreography = isDebugMode;
 
-        DataEditor.LoadGameData();
+        if (FindObjectOfType<DataEditor>() == null)
+        {
+            DataEditor.LoadGameData();
+        }
 
         //create event for T-Pose Detect
         if (TPoseDetectionEvent == null)
