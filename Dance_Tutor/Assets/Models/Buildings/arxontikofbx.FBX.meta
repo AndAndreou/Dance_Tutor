@@ -1,0 +1,4473 @@
+fileFormatVersion: 2
+guid: 83e2a8ec2304942409c530c868913f3d
+timeCreated: 1517819177
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: '* 1st Floor Kitchen Stair'
+    100002: '* 1st Floor Lower Floor'
+    100004: '* 1st Floor Lower FloorDown'
+    100006: '* Arc Grnd Floor'
+    100008: '* Ground Floor Wall 1'
+    100010: '* Ground Floor Wall 2'
+    100012: '*1st Floor Fat Wall'
+    100014: '*1st Floor Fat Wall 2'
+    100016: '*1st Floor Floor Down'
+    100018: '*1st Floor Floor Up'
+    100020: '*1st Floor Slim Wall 002'
+    100022: '*1st Floor Slim Wall 003'
+    100024: '*1st Floor Slim Wall 004'
+    100026: '*1st Floor Slim Wall 005'
+    100028: '*1st Floor Slim Wall 006'
+    100030: '*1st Floor Slim Wall 008'
+    100032: '*1st Floor Slim Wall 009'
+    100034: '*1st Floor Slim Wall 010'
+    100036: '*1st Floor Slim Wall 011'
+    100038: '*1st Floor Slim Wall 012'
+    100040: '*1st Floor Slim Wall 1'
+    100042: '*Arc 2 Ground Floor'
+    100044: '*Arc Wall Grnd Floor'
+    100046: '*Arc Wall Grnd Floor 2'
+    100048: '*Ground Floor'
+    100050: '*Group006'
+    100052: '*Temp'
+    100054: 1st Floor *
+    100056: 1st Floor Window Inside
+    100058: 1st Floor Window Inside001
+    100060: 1st Floor Window Inside002
+    100062: 1st Floor Window Inside003
+    100064: 1st Floor Window Inside004
+    100066: 1st Floor Window Inside005
+    100068: 1st Floor Window Inside006
+    100070: 1st Floor Window Inside007
+    100072: 1st Floor Window Inside008
+    100074: 1st Floor Window Inside009
+    100076: 1st Floor Window Inside010
+    100078: 1st Floor Window Inside011
+    100080: 1st Floor Window Inside013
+    100082: 1st Floor Window Inside014
+    100084: 1st Floor Window Inside015
+    100086: 1st Floor Window Inside016
+    100088: 1st Floor Window Inside018
+    100090: 1st Floor Window Inside019
+    100092: 1st Floor Window Inside022
+    100094: 1st Floor Window Inside023
+    100096: 1st Floor Window Inside024
+    100098: 1st Floor Window Inside025
+    100100: 1st Floor Window018
+    100102: 1st Floor Window021
+    100104: 1st Floor Window022
+    100106: 1st Floor Window023
+    100108: 1st Floor Window024
+    100110: 1st Floor Window025
+    100112: 1st Floor Window026
+    100114: 1st Floor Window027
+    100116: 1st Floor Window028
+    100118: 1st Floor Window029
+    100120: 1st Floor Window030
+    100122: 1st Floor Window031
+    100124: 1st Floor Window032
+    100126: 1st Floor Window033
+    100128: 1st Floor Window034
+    100130: 1st Floor Window035
+    100132: 1st Floor Window036
+    100134: 1st Floor Window037
+    100136: 1st Floor Window038
+    100138: 1st Floor Window039
+    100140: 1st Floor Window040
+    100142: 1st Floor Window041
+    100144: 1st Floor Window042
+    100146: 1st Floor Window043
+    100148: 1st Floor Window044
+    100150: 1st Floor Window045
+    100152: 1st Floor Window046
+    100154: 1st Floor Window047
+    100156: 1st Floor Window048
+    100158: 1st Floor Window049
+    100160: 1st Floor Window050
+    100162: 1st Floor Window051
+    100164: 1st Floor Window052
+    100166: 1st Floor Window055
+    100168: 1st Floor Window057
+    100170: 1st Floor Window059
+    100172: 1st Floor Window060
+    100174: 1st Floor Window061
+    100176: 1st Floor Window062
+    100178: 1st Floor Window063
+    100180: 1st Floor Window065
+    100182: 1st Floor Window067
+    100184: 1st Floor Window069
+    100186: 1st Floor WindowDone
+    100188: 1st Floor WindowDone001
+    100190: 1st Floor WindowDone002
+    100192: 1st Floor WindowDone003
+    100194: 1st Floor WindowDone004
+    100196: 1st Floor WindowDone005
+    100198: 1st Floor WindowDone006
+    100200: 1st Floor WindowDone007
+    100202: 1st Floor WindowDone008
+    100204: 1st Floor WindowDone009
+    100206: 1st Floor WindowDone010
+    100208: 1st Floor WindowDone011
+    100210: 1st Floor WindowDone013
+    100212: 1st Floor WindowDone014
+    100214: 1st Floor WindowDone015
+    100216: 1st Floor WindowDone016
+    100218: 1st Floor WindowDone018
+    100220: 1st Floor WindowDone019
+    100222: 1st Floor WindowDone022
+    100224: 1st Floor WindowDone023
+    100226: 1st Floor WindowDone035
+    100228: 1st Floor WindowDone036
+    100230: 1st Floor WindowDone037
+    100232: 1st Floor WindowDone038
+    100234: 1st Floor WindowDone039
+    100236: 1st Floor WindowDone040
+    100238: 1st Floor WindowDone041
+    100240: 1st Floor WindowDone042
+    100242: 1st Floor WindowDone043
+    100244: 1st Floor WindowDone044
+    100246: 1st Floor WindowDone045
+    100248: 1st Floor WindowDone046
+    100250: 1st Floor WindowDone047
+    100252: 1st Floor WindowDone048
+    100254: 1st Floor WindowDone049
+    100256: 1st Floor WindowDone050
+    100258: 1st Floor WindowDone051
+    100260: 1st Floor WindowDone052
+    100262: 1st Floor WindowDone053
+    100264: 1st Floor WindowDone054
+    100266: 1st Floor WindowDone055
+    100268: 1st Floor WindowDone056
+    100270: 1st Floor WindowDone057
+    100272: 1st Floor WindowDone058
+    100274: 1st Floor WindowDone059
+    100276: 1st Floor WindowDone060
+    100278: 1st Floor WindowDone061
+    100280: 1st Floor WindowDone062
+    100282: 1st Floor WindowDone063
+    100284: 1st Floor WindowDone064
+    100286: 1st Floor WindowDone065
+    100288: 1st Floor WindowDone066
+    100290: 1st Floor WindowDone067
+    100292: 1st Floor WindowDone068
+    100294: 1st Floor WindowDone069
+    100296: 1st Floor WindowDone070
+    100298: 1st Floor WindowDone071
+    100300: 1st Floor WindowDone072
+    100302: 1st Floor WindowDone073
+    100304: 1st Floor WindowDone074
+    100306: 1st Floor WindowDone075
+    100308: 1st Floor WindowDone076
+    100310: 1st Floor WindowDone077
+    100312: 1st Floor WindowDone078
+    100314: 1st Floor WindowDone079
+    100316: 1st Floor WindowDone080
+    100318: 1st Floor WindowDone081
+    100320: 1st Floor WindowDone082
+    100322: 1st Floor WindowDone083
+    100324: 1st Floor WindowDone084
+    100326: 1st Floor WindowDone105
+    100328: 1st Floor WindowDone106
+    100330: 1st Floor WindowDone107
+    100332: 1st Floor WindowDone108
+    100334: 1st Floor WindowDone109
+    100336: 1st Floor WindowDone110
+    100338: 1st Floor WindowDone111
+    100340: 1st Floor WindowDone112
+    100342: 1st Floor WindowDone113
+    100344: 1st Floor WindowDone114
+    100346: 1st Floor WindowDone117
+    100348: 1st Floor WindowDone119
+    100350: 1st Floor WindowDone120
+    100352: 1st Floor WindowDone123
+    100354: 1st Floor WindowDone124
+    100356: 1st Floor WindowDone125
+    100358: 1st Floor WindowDone126
+    100360: 1st Floor WindowDone127
+    100362: 1st Floor WindowDone128
+    100364: 1st Floor WindowDone129
+    100366: 1st Floor WindowDone130
+    100368: 1st Floor WindowDone131
+    100370: 1st Floor WindowDone132
+    100372: 1st Floor WindowDone133
+    100374: 1st Floor WindowDone134
+    100376: 1st Floor WindowDone135
+    100378: 1st Floor WindowDone136
+    100380: 1st Floor WindowDone137
+    100382: 1st Floor WindowDone147
+    100384: 1st Floor WindowDone148
+    100386: 1st Floor WindowDone149
+    100388: 1st Floor WindowDone150
+    100390: 1st Floor WindowDone151
+    100392: 1st Floor WindowDone152
+    100394: 1st Floor WindowDone153
+    100396: 1st Floor WindowDone154
+    100398: 1st Floor WindowDone155
+    100400: 1st Floor WindowDone156
+    100402: 1st Floor WindowDone157
+    100404: 1st Floor WindowDone158
+    100406: 1st Floor WindowDone159
+    100408: 1st Floor WindowDone160
+    100410: 1st Floor WindowDone166
+    100412: 1st Floor WindowDone167
+    100414: 1st Floor WindowDone168
+    100416: 1st Floor WindowDone169
+    100418: 1st Floor WindowDone170
+    100420: 1st Floor WindowDone171
+    100422: 1st Floor WindowDone172
+    100424: 1st Floor WindowDone173
+    100426: 1st Floor WindowDone174
+    100428: 1st Floor WindowDone175
+    100430: 1st Floor WindowDone176
+    100432: 1st Floor WindowDone177
+    100434: 1st Floor WindowDone178
+    100436: 1st Floor WindowDone179
+    100438: 1st Floor WindowDone180
+    100440: //RootNode
+    100442: Back Rooms 1st Floor
+    100444: BackRoom Isogeio*
+    100446: Balcony
+    100448: Balcony Side
+    100450: Balcony005
+    100452: Balcony006
+    100454: Balcony007
+    100456: Balcony008
+    100458: Balcony009
+    100460: Balcony014
+    100462: Balcony016
+    100464: Balcony017
+    100466: Balcony018
+    100468: Balcony019
+    100470: Balcony020
+    100472: Balcony021
+    100474: Balcony022
+    100476: Balcony023
+    100478: Balcony024
+    100480: Balcony025
+    100482: Balcony027
+    100484: Balcony028
+    100486: Balcony029
+    100488: Balcony030
+    100490: Balcony031
+    100492: Balcony032
+    100494: Balcony033
+    100496: Balcony034
+    100498: Balcony035
+    100500: Balcony036
+    100502: Balcony037
+    100504: Balcony038
+    100506: Balcony039
+    100508: Balcony040
+    100510: Balcony041
+    100512: Balcony042
+    100514: Balcony043
+    100516: Balcony044
+    100518: Balcony045
+    100520: Balcony046
+    100522: Balcony048
+    100524: Balcony049
+    100526: Balcony050
+    100528: Balcony051
+    100530: Balcony053
+    100532: Balcony057
+    100534: Balcony058
+    100536: Balcony059
+    100538: Balcony060
+    100540: Balcony061
+    100542: Balcony062
+    100544: Balcony063
+    100546: Balcony064
+    100548: Balcony065
+    100550: Balcony066
+    100552: Balcony067
+    100554: Balcony068
+    100556: Balcony069
+    100558: Balcony070
+    100560: Balcony071
+    100562: Balcony072
+    100564: Balcony073
+    100566: Balcony074
+    100568: Balcony075
+    100570: Balcony076
+    100572: Balcony077
+    100574: Balcony078
+    100576: Balcony079
+    100578: Balcony080
+    100580: Balcony081
+    100582: Balcony087
+    100584: Balcony092
+    100586: Balcony093
+    100588: Balcony094
+    100590: Balcony095
+    100592: Balcony096
+    100594: Balcony097
+    100596: Balcony098
+    100598: Balcony099
+    100600: Balcony100
+    100602: Balcony101
+    100604: Balcony102
+    100606: Balcony103
+    100608: Balcony104
+    100610: Balcony105
+    100612: Balcony106
+    100614: Balcony107
+    100616: Balcony108
+    100618: Balcony109
+    100620: Balcony110
+    100622: Balcony111
+    100624: Balcony112
+    100626: Balcony113
+    100628: Balcony114
+    100630: Balcony115
+    100632: Balcony116
+    100634: Balcony117
+    100636: Balcony118
+    100638: Balcony119
+    100640: Balcony120
+    100642: Balcony121
+    100644: Balcony122
+    100646: Balcony123
+    100648: Balcony124
+    100650: Balcony125
+    100652: Balcony126
+    100654: Balcony127
+    100656: Balcony128
+    100658: Balcony129
+    100660: Balcony130
+    100662: Balcony131
+    100664: Balcony132
+    100666: Balcony133
+    100668: Balcony134
+    100670: Balcony135
+    100672: Balcony136
+    100674: Balcony138
+    100676: Balcony139
+    100678: Balcony140
+    100680: Balcony141
+    100682: Balcony142
+    100684: Balcony143
+    100686: Balcony144
+    100688: Balcony145
+    100690: Balcony146
+    100692: Balcony147
+    100694: Balcony148
+    100696: Balcony149
+    100698: Balcony150
+    100700: Balcony151
+    100702: Balcony152
+    100704: Balcony153
+    100706: Balcony154
+    100708: Balcony155
+    100710: Balcony156
+    100712: Balcony157
+    100714: Balcony158
+    100716: Balcony159
+    100718: Bathroom Sink
+    100720: Bathroom Sink001
+    100722: Big Door 3 win Pouropetra Frame
+    100724: Big Door 3 win Pouropetra Frame001
+    100726: Big Door 3 win Pouropetra Frame003
+    100728: Big Door 3 win Pouropetra Frame004
+    100730: Big Door 3 win Pouropetra Frame005
+    100732: Big Door 3win Kasia
+    100734: Big Door 3win Kasia001
+    100736: Big Door 3win Kasia002
+    100738: Big Door 3win Kasia003
+    100740: Big Door 3win Kasia004
+    100742: Big Door 3win Kasia005
+    100744: Big Door 3win Kasia006
+    100746: Big Door 3win Kasia007
+    100748: Big Door 3win Kasia008
+    100750: Big Door 3win Kasia009
+    100752: Big Door 3win Kasia010
+    100754: Big Door 3win Kasia011
+    100756: Big Door 3win Kasia018
+    100758: Big Door 3win Kasia019
+    100760: Big Door 3win Kasia020
+    100762: Big Door 3win Kasia021
+    100764: Big Door 3win Kasia022
+    100766: Big Door 3win Kasia023
+    100768: Big Door 3win Kasia024
+    100770: Big Door 3win Kasia025
+    100772: Big Door 3win Kasia026
+    100774: Big Door 3win Kasia027
+    100776: Big Door 3win Kasia028
+    100778: Big Door 3win Kasia029
+    100780: Big Door 3win Kasia030
+    100782: Big Door 3win Kasia031
+    100784: Big Door 3win Kasia032
+    100786: Big Door 3win Kasia033
+    100788: Big Door 3win Kasia034
+    100790: Big Door 3win Porta
+    100792: Big Door 3win Porta001
+    100794: Big Door 3win Porta003
+    100796: Big Door 3win Porta004
+    100798: Big Door 3win Porta005
+    100800: Big Door 3win Skali
+    100802: Big Door 3win Skali001
+    100804: Big Door 3win Skali003
+    100806: Big Door 3win Skali004
+    100808: Big Door 3win Skali005
+    100810: Big Door 3win Top Plate
+    100812: Big Door 3win Top Plate001
+    100814: Big Door 3win Top Plate003
+    100816: Big Door 3win Top Plate004
+    100818: Big Door 3win Top Plate005
+    100820: Big Door005
+    100822: Big Door006
+    100824: Big Door007
+    100826: Big Door008
+    100828: Big Door009
+    100830: Big Door010
+    100832: Big Door011
+    100834: Big Door012
+    100836: Big Door017
+    100838: Big Door018
+    100840: Big Door019
+    100842: Big Door020
+    100844: Big Door021
+    100846: Big Door022
+    100848: Big Door023
+    100850: Big Door024
+    100852: Big Door025
+    100854: Big Door026
+    100856: Big Door027
+    100858: Big Door028
+    100860: Box001
+    100862: Box003
+    100864: Box004
+    100866: Box005
+    100868: Box011
+    100870: Box017
+    100872: Box018
+    100874: Box019
+    100876: Box020
+    100878: Box021
+    100880: Box022
+    100882: Box023
+    100884: Box024
+    100886: Box025
+    100888: Box027
+    100890: Box028
+    100892: Box029
+    100894: Box030
+    100896: Box031
+    100898: Box032
+    100900: Box033
+    100902: Box034
+    100904: Box035
+    100906: Box036
+    100908: Box037
+    100910: Box038
+    100912: Box039
+    100914: Box040
+    100916: Box041
+    100918: Box042
+    100920: Box043
+    100922: Box044
+    100924: Box045
+    100926: Box046
+    100928: Box047
+    100930: Box048
+    100932: Box049
+    100934: Box050
+    100936: Box051
+    100938: Box052
+    100940: Box053
+    100942: Box054
+    100944: Box055
+    100946: Box056
+    100948: Box057
+    100950: Box059
+    100952: Box060
+    100954: Box063
+    100956: Box064
+    100958: Box066
+    100960: Box067
+    100962: Box068
+    100964: Box070
+    100966: Box071
+    100968: Box072
+    100970: Box073
+    100972: Box074
+    100974: Box075
+    100976: Box076
+    100978: Box077
+    100980: Box078
+    100982: Box079
+    100984: Box080
+    100986: Box081
+    100988: Box082
+    100990: Box083
+    100992: Box084
+    100994: Box085
+    100996: Box086
+    100998: Box087
+    101000: Box088
+    101002: Box089
+    101004: Box090
+    101006: Box091
+    101008: Box092
+    101010: Box093
+    101012: Box094
+    101014: Box095
+    101016: Box096
+    101018: Box097
+    101020: Box098
+    101022: Box099
+    101024: Box100
+    101026: Box101
+    101028: Box102
+    101030: Box103
+    101032: Box104
+    101034: Box105
+    101036: Box106
+    101038: Box107
+    101040: Box108
+    101042: Box109
+    101044: Box110
+    101046: Box111
+    101048: Box112
+    101050: Box113
+    101052: Box115
+    101054: Box116
+    101056: Box117
+    101058: Box118
+    101060: Box119
+    101062: Box120
+    101064: Box121
+    101066: Box122
+    101068: Box123
+    101070: Box124
+    101072: Box125
+    101074: Box126
+    101076: Box127
+    101078: Box128
+    101080: Box129
+    101082: Box130
+    101084: Box131
+    101086: Box132
+    101088: Box133
+    101090: Box134
+    101092: Box135
+    101094: Box136
+    101096: Box137
+    101098: Box138
+    101100: Box139
+    101102: Box140
+    101104: Box141
+    101106: Box142
+    101108: Box143
+    101110: Box144
+    101112: Box145
+    101114: Box146
+    101116: Box147
+    101118: Box148
+    101120: Box149
+    101122: Box150
+    101124: Box151
+    101126: Box152
+    101128: Box153
+    101130: Box154
+    101132: Box155
+    101134: Box156
+    101136: Box157
+    101138: Box158
+    101140: Box159
+    101142: Box162
+    101144: Box163
+    101146: Box164
+    101148: Box165
+    101150: Box166
+    101152: Box167
+    101154: Box168
+    101156: Box169
+    101158: Box170
+    101160: Box171
+    101162: Box172
+    101164: Box173
+    101166: Box174
+    101168: Box175
+    101170: Box176
+    101172: Box177
+    101174: Box178
+    101176: Box179
+    101178: Box180
+    101180: Box181
+    101182: Box182
+    101184: Box183
+    101186: Box184
+    101188: Box185
+    101190: Box186
+    101192: Box187
+    101194: Box188
+    101196: Box189
+    101198: Box190
+    101200: Box197
+    101202: Box198
+    101204: Box199
+    101206: Box200
+    101208: Box201
+    101210: Box202
+    101212: Box203
+    101214: Box204
+    101216: Box205
+    101218: Box206
+    101220: Box207
+    101222: Box208
+    101224: Box209
+    101226: Box210
+    101228: Box212
+    101230: Box213
+    101232: Box214
+    101234: Box215
+    101236: Box216
+    101238: Box217
+    101240: Box218
+    101242: Box219
+    101244: Box221
+    101246: Box222
+    101248: Box223
+    101250: Box225
+    101252: Box230
+    101254: Box232
+    101256: Box233
+    101258: Box234
+    101260: Box235
+    101262: Box236
+    101264: Box237
+    101266: Box238
+    101268: Box239
+    101270: Box240
+    101272: Box241
+    101274: Box242
+    101276: Box243
+    101278: Box244
+    101280: Box245
+    101282: Box246
+    101284: Box247
+    101286: Box248
+    101288: Box249
+    101290: Box250
+    101292: Box251
+    101294: Box252
+    101296: Box253
+    101298: Box254
+    101300: Box256
+    101302: Box257
+    101304: Box259
+    101306: Box260
+    101308: Box261
+    101310: Box262
+    101312: Box263
+    101314: Box264
+    101316: Box265
+    101318: Box266
+    101320: Box267
+    101322: Box268
+    101324: Box269
+    101326: Box270
+    101328: Box271
+    101330: Box273
+    101332: Box274
+    101334: Box275
+    101336: Box276
+    101338: Box277
+    101340: Box278
+    101342: Box279
+    101344: Box280
+    101346: Box281
+    101348: Box282
+    101350: Box283
+    101352: Box288
+    101354: Box289
+    101356: Box290
+    101358: Box291
+    101360: Box292
+    101362: Box293
+    101364: Box294
+    101366: Box295
+    101368: Box296
+    101370: Box297
+    101372: Box298
+    101374: Box299
+    101376: Box300
+    101378: Box301
+    101380: Box302
+    101382: Box303
+    101384: Box304
+    101386: Box305
+    101388: Box309
+    101390: Box310
+    101392: Box311
+    101394: Box312
+    101396: Box313
+    101398: Box314
+    101400: Box315
+    101402: Box316
+    101404: Box317
+    101406: Box318
+    101408: Box319
+    101410: Box320
+    101412: Box321
+    101414: Box322
+    101416: Box323
+    101418: Capsule006
+    101420: Capsule009
+    101422: Cylinder001
+    101424: Cylinder002
+    101426: Cylinder003
+    101428: Cylinder004
+    101430: Cylinder005
+    101432: Cylinder006
+    101434: Cylinder007
+    101436: Cylinder008
+    101438: Cylinder009
+    101440: Cylinder010
+    101442: Cylinder011
+    101444: Cylinder012
+    101446: Cylinder013
+    101448: Cylinder014
+    101450: Dipli Priza
+    101452: Dipli Priza001
+    101454: Dipli Priza002
+    101456: Dipli Priza003
+    101458: Dipli Priza004
+    101460: Dipli Priza005
+    101462: Dipli Priza006
+    101464: Dipli Priza007
+    101466: Dipli Priza008
+    101468: Dipli Priza009
+    101470: Dipli Priza010
+    101472: Dipli Priza011
+    101474: Dipli Priza012
+    101476: Dipli Priza013
+    101478: Dipli Priza014
+    101480: Dipli Priza015
+    101482: Dipli Priza016
+    101484: Dipli Priza017
+    101486: Dipli Priza018
+    101488: Dipli Priza019
+    101490: Dipli Priza020
+    101492: Dipli Priza021
+    101494: Dipli Priza022
+    101496: Door Yard003
+    101498: Door1st Floor
+    101500: Doors Inside
+    101502: Extention Bathroom
+    101504: Floor Ceiling *
+    101506: Frame Portas 3 win
+    101508: Frame Portas 3 win001
+    101510: Frame Portas 3 win003
+    101512: Frame Portas 3 win004
+    101514: Frame Portas 3 win005
+    101516: Front Arianou Gr
+    101518: GlassMain Door
+    101520: Grnd Floor Backrooms
+    101522: Ground Floor *
+    101524: Ground Floor Back Room Stair
+    101526: Group002
+    101528: Group003
+    101530: Group004
+    101532: Group005
+    101534: Homa002
+    101536: Homa1
+    101538: I Beam
+    101540: I Beam002
+    101542: I Beam003
+    101544: I Beam004
+    101546: I Beam005
+    101548: I Beam006
+    101550: I Beams
+    101552: Kitchenette
+    101554: Line002
+    101556: Line015
+    101558: Line018
+    101560: Line020
+    101562: Line021
+    101564: Line022
+    101566: Line023
+    101568: Line024
+    101570: Line025
+    101572: Line026
+    101574: Line027
+    101576: Line028
+    101578: Line029
+    101580: Line030
+    101582: Line031
+    101584: Line032
+    101586: Line033
+    101588: Line034
+    101590: Line037
+    101592: Line045
+    101594: Line046
+    101596: Line047
+    101598: Line048
+    101600: Line049
+    101602: Line050
+    101604: Main Door001
+    101606: MainDoor Right
+    101608: Mesopatoma floor
+    101610: Outer Wall Things
+    101612: Outer Walls*
+    101614: Plane001
+    101616: Plane002
+    101618: Plane003
+    101620: Plane004
+    101622: Plane005
+    101624: Plane006
+    101626: Pouropetres Gonias
+    101628: Psif
+    101630: Rectangle001
+    101632: Rectangle002
+    101634: Rectangle003
+    101636: Rectangle004
+    101638: Rectangle005
+    101640: Rectangle006
+    101642: Rectangle007
+    101644: Rectangle008
+    101646: Rectangle009
+    101648: Rectangle010
+    101650: Rectangle011
+    101652: Rectangle012
+    101654: RoofCeiling1st Floor*
+    101656: Sink Marble
+    101658: Small Door
+    101660: Small Window015
+    101662: Small Window016
+    101664: Small Window017
+    101666: Small Window021
+    101668: Small Window022
+    101670: Small Window023
+    101672: Small Window024
+    101674: Small Window026
+    101676: Small Window027
+    101678: Small Window028
+    101680: Small Window029
+    101682: Small Window030
+    101684: Small Window031
+    101686: Small Window032
+    101688: Small Window033
+    101690: Small Window034
+    101692: Small Window035
+    101694: Small Window036
+    101696: Small Window037
+    101698: Small Window038
+    101700: Small Window039
+    101702: Small Window040
+    101704: Small Window041
+    101706: Small Window042
+    101708: Small Window043
+    101710: Small Window044
+    101712: Small Window045
+    101714: Small Window046
+    101716: Small Window047
+    101718: Small Window048
+    101720: Small Window049
+    101722: Small Window050
+    101724: Small Window051
+    101726: Small Window052
+    101728: Small Window053
+    101730: Small Window054
+    101732: Small Window055
+    101734: Small Window056
+    101736: Small Window057
+    101738: Small Window058
+    101740: Small Window059
+    101742: Small Window060
+    101744: Small Window061
+    101746: Small Window062
+    101748: Small Window063
+    101750: Small Window064
+    101752: Small Window065
+    101754: Small Window066
+    101756: Small Window067
+    101758: Small_win_Glass
+    101760: Small_win_Glass001
+    101762: Small_win_Glass002
+    101764: Small_win_Glass003
+    101766: Small_window_frame
+    101768: Small_window_frame001
+    101770: Sphere001
+    101772: Sphere002
+    101774: Sphere003
+    101776: Sphere004
+    101778: Sphere005
+    101780: Sphere006
+    101782: Sphere007
+    101784: Sphere008
+    101786: Sphere009
+    101788: Sphere010
+    101790: Stair Steps
+    101792: StairCase
+    101794: Step003
+    101796: Step004
+    101798: Step014
+    101800: Step015
+    101802: Step016
+    101804: Step017
+    101806: Step018
+    101808: Step019
+    101810: Step020
+    101812: Step021
+    101814: Step022
+    101816: Tavani orofou
+    101818: Toilette
+    101820: Toilette001
+    101822: Toilette002
+    101824: Toilette003
+    101826: Toilette004
+    101828: Toilette005
+    101830: Tube001
+    101832: Tube002
+    101834: Tube003
+    101836: Tube004
+    101838: Tube005
+    101840: Tube006
+    101842: Win
+    101844: Win001
+    400000: '* 1st Floor Kitchen Stair'
+    400002: '* 1st Floor Lower Floor'
+    400004: '* 1st Floor Lower FloorDown'
+    400006: '* Arc Grnd Floor'
+    400008: '* Ground Floor Wall 1'
+    400010: '* Ground Floor Wall 2'
+    400012: '*1st Floor Fat Wall'
+    400014: '*1st Floor Fat Wall 2'
+    400016: '*1st Floor Floor Down'
+    400018: '*1st Floor Floor Up'
+    400020: '*1st Floor Slim Wall 002'
+    400022: '*1st Floor Slim Wall 003'
+    400024: '*1st Floor Slim Wall 004'
+    400026: '*1st Floor Slim Wall 005'
+    400028: '*1st Floor Slim Wall 006'
+    400030: '*1st Floor Slim Wall 008'
+    400032: '*1st Floor Slim Wall 009'
+    400034: '*1st Floor Slim Wall 010'
+    400036: '*1st Floor Slim Wall 011'
+    400038: '*1st Floor Slim Wall 012'
+    400040: '*1st Floor Slim Wall 1'
+    400042: '*Arc 2 Ground Floor'
+    400044: '*Arc Wall Grnd Floor'
+    400046: '*Arc Wall Grnd Floor 2'
+    400048: '*Ground Floor'
+    400050: '*Group006'
+    400052: '*Temp'
+    400054: 1st Floor *
+    400056: 1st Floor Window Inside
+    400058: 1st Floor Window Inside001
+    400060: 1st Floor Window Inside002
+    400062: 1st Floor Window Inside003
+    400064: 1st Floor Window Inside004
+    400066: 1st Floor Window Inside005
+    400068: 1st Floor Window Inside006
+    400070: 1st Floor Window Inside007
+    400072: 1st Floor Window Inside008
+    400074: 1st Floor Window Inside009
+    400076: 1st Floor Window Inside010
+    400078: 1st Floor Window Inside011
+    400080: 1st Floor Window Inside013
+    400082: 1st Floor Window Inside014
+    400084: 1st Floor Window Inside015
+    400086: 1st Floor Window Inside016
+    400088: 1st Floor Window Inside018
+    400090: 1st Floor Window Inside019
+    400092: 1st Floor Window Inside022
+    400094: 1st Floor Window Inside023
+    400096: 1st Floor Window Inside024
+    400098: 1st Floor Window Inside025
+    400100: 1st Floor Window018
+    400102: 1st Floor Window021
+    400104: 1st Floor Window022
+    400106: 1st Floor Window023
+    400108: 1st Floor Window024
+    400110: 1st Floor Window025
+    400112: 1st Floor Window026
+    400114: 1st Floor Window027
+    400116: 1st Floor Window028
+    400118: 1st Floor Window029
+    400120: 1st Floor Window030
+    400122: 1st Floor Window031
+    400124: 1st Floor Window032
+    400126: 1st Floor Window033
+    400128: 1st Floor Window034
+    400130: 1st Floor Window035
+    400132: 1st Floor Window036
+    400134: 1st Floor Window037
+    400136: 1st Floor Window038
+    400138: 1st Floor Window039
+    400140: 1st Floor Window040
+    400142: 1st Floor Window041
+    400144: 1st Floor Window042
+    400146: 1st Floor Window043
+    400148: 1st Floor Window044
+    400150: 1st Floor Window045
+    400152: 1st Floor Window046
+    400154: 1st Floor Window047
+    400156: 1st Floor Window048
+    400158: 1st Floor Window049
+    400160: 1st Floor Window050
+    400162: 1st Floor Window051
+    400164: 1st Floor Window052
+    400166: 1st Floor Window055
+    400168: 1st Floor Window057
+    400170: 1st Floor Window059
+    400172: 1st Floor Window060
+    400174: 1st Floor Window061
+    400176: 1st Floor Window062
+    400178: 1st Floor Window063
+    400180: 1st Floor Window065
+    400182: 1st Floor Window067
+    400184: 1st Floor Window069
+    400186: 1st Floor WindowDone
+    400188: 1st Floor WindowDone001
+    400190: 1st Floor WindowDone002
+    400192: 1st Floor WindowDone003
+    400194: 1st Floor WindowDone004
+    400196: 1st Floor WindowDone005
+    400198: 1st Floor WindowDone006
+    400200: 1st Floor WindowDone007
+    400202: 1st Floor WindowDone008
+    400204: 1st Floor WindowDone009
+    400206: 1st Floor WindowDone010
+    400208: 1st Floor WindowDone011
+    400210: 1st Floor WindowDone013
+    400212: 1st Floor WindowDone014
+    400214: 1st Floor WindowDone015
+    400216: 1st Floor WindowDone016
+    400218: 1st Floor WindowDone018
+    400220: 1st Floor WindowDone019
+    400222: 1st Floor WindowDone022
+    400224: 1st Floor WindowDone023
+    400226: 1st Floor WindowDone035
+    400228: 1st Floor WindowDone036
+    400230: 1st Floor WindowDone037
+    400232: 1st Floor WindowDone038
+    400234: 1st Floor WindowDone039
+    400236: 1st Floor WindowDone040
+    400238: 1st Floor WindowDone041
+    400240: 1st Floor WindowDone042
+    400242: 1st Floor WindowDone043
+    400244: 1st Floor WindowDone044
+    400246: 1st Floor WindowDone045
+    400248: 1st Floor WindowDone046
+    400250: 1st Floor WindowDone047
+    400252: 1st Floor WindowDone048
+    400254: 1st Floor WindowDone049
+    400256: 1st Floor WindowDone050
+    400258: 1st Floor WindowDone051
+    400260: 1st Floor WindowDone052
+    400262: 1st Floor WindowDone053
+    400264: 1st Floor WindowDone054
+    400266: 1st Floor WindowDone055
+    400268: 1st Floor WindowDone056
+    400270: 1st Floor WindowDone057
+    400272: 1st Floor WindowDone058
+    400274: 1st Floor WindowDone059
+    400276: 1st Floor WindowDone060
+    400278: 1st Floor WindowDone061
+    400280: 1st Floor WindowDone062
+    400282: 1st Floor WindowDone063
+    400284: 1st Floor WindowDone064
+    400286: 1st Floor WindowDone065
+    400288: 1st Floor WindowDone066
+    400290: 1st Floor WindowDone067
+    400292: 1st Floor WindowDone068
+    400294: 1st Floor WindowDone069
+    400296: 1st Floor WindowDone070
+    400298: 1st Floor WindowDone071
+    400300: 1st Floor WindowDone072
+    400302: 1st Floor WindowDone073
+    400304: 1st Floor WindowDone074
+    400306: 1st Floor WindowDone075
+    400308: 1st Floor WindowDone076
+    400310: 1st Floor WindowDone077
+    400312: 1st Floor WindowDone078
+    400314: 1st Floor WindowDone079
+    400316: 1st Floor WindowDone080
+    400318: 1st Floor WindowDone081
+    400320: 1st Floor WindowDone082
+    400322: 1st Floor WindowDone083
+    400324: 1st Floor WindowDone084
+    400326: 1st Floor WindowDone105
+    400328: 1st Floor WindowDone106
+    400330: 1st Floor WindowDone107
+    400332: 1st Floor WindowDone108
+    400334: 1st Floor WindowDone109
+    400336: 1st Floor WindowDone110
+    400338: 1st Floor WindowDone111
+    400340: 1st Floor WindowDone112
+    400342: 1st Floor WindowDone113
+    400344: 1st Floor WindowDone114
+    400346: 1st Floor WindowDone117
+    400348: 1st Floor WindowDone119
+    400350: 1st Floor WindowDone120
+    400352: 1st Floor WindowDone123
+    400354: 1st Floor WindowDone124
+    400356: 1st Floor WindowDone125
+    400358: 1st Floor WindowDone126
+    400360: 1st Floor WindowDone127
+    400362: 1st Floor WindowDone128
+    400364: 1st Floor WindowDone129
+    400366: 1st Floor WindowDone130
+    400368: 1st Floor WindowDone131
+    400370: 1st Floor WindowDone132
+    400372: 1st Floor WindowDone133
+    400374: 1st Floor WindowDone134
+    400376: 1st Floor WindowDone135
+    400378: 1st Floor WindowDone136
+    400380: 1st Floor WindowDone137
+    400382: 1st Floor WindowDone147
+    400384: 1st Floor WindowDone148
+    400386: 1st Floor WindowDone149
+    400388: 1st Floor WindowDone150
+    400390: 1st Floor WindowDone151
+    400392: 1st Floor WindowDone152
+    400394: 1st Floor WindowDone153
+    400396: 1st Floor WindowDone154
+    400398: 1st Floor WindowDone155
+    400400: 1st Floor WindowDone156
+    400402: 1st Floor WindowDone157
+    400404: 1st Floor WindowDone158
+    400406: 1st Floor WindowDone159
+    400408: 1st Floor WindowDone160
+    400410: 1st Floor WindowDone166
+    400412: 1st Floor WindowDone167
+    400414: 1st Floor WindowDone168
+    400416: 1st Floor WindowDone169
+    400418: 1st Floor WindowDone170
+    400420: 1st Floor WindowDone171
+    400422: 1st Floor WindowDone172
+    400424: 1st Floor WindowDone173
+    400426: 1st Floor WindowDone174
+    400428: 1st Floor WindowDone175
+    400430: 1st Floor WindowDone176
+    400432: 1st Floor WindowDone177
+    400434: 1st Floor WindowDone178
+    400436: 1st Floor WindowDone179
+    400438: 1st Floor WindowDone180
+    400440: //RootNode
+    400442: Back Rooms 1st Floor
+    400444: BackRoom Isogeio*
+    400446: Balcony
+    400448: Balcony Side
+    400450: Balcony005
+    400452: Balcony006
+    400454: Balcony007
+    400456: Balcony008
+    400458: Balcony009
+    400460: Balcony014
+    400462: Balcony016
+    400464: Balcony017
+    400466: Balcony018
+    400468: Balcony019
+    400470: Balcony020
+    400472: Balcony021
+    400474: Balcony022
+    400476: Balcony023
+    400478: Balcony024
+    400480: Balcony025
+    400482: Balcony027
+    400484: Balcony028
+    400486: Balcony029
+    400488: Balcony030
+    400490: Balcony031
+    400492: Balcony032
+    400494: Balcony033
+    400496: Balcony034
+    400498: Balcony035
+    400500: Balcony036
+    400502: Balcony037
+    400504: Balcony038
+    400506: Balcony039
+    400508: Balcony040
+    400510: Balcony041
+    400512: Balcony042
+    400514: Balcony043
+    400516: Balcony044
+    400518: Balcony045
+    400520: Balcony046
+    400522: Balcony048
+    400524: Balcony049
+    400526: Balcony050
+    400528: Balcony051
+    400530: Balcony053
+    400532: Balcony057
+    400534: Balcony058
+    400536: Balcony059
+    400538: Balcony060
+    400540: Balcony061
+    400542: Balcony062
+    400544: Balcony063
+    400546: Balcony064
+    400548: Balcony065
+    400550: Balcony066
+    400552: Balcony067
+    400554: Balcony068
+    400556: Balcony069
+    400558: Balcony070
+    400560: Balcony071
+    400562: Balcony072
+    400564: Balcony073
+    400566: Balcony074
+    400568: Balcony075
+    400570: Balcony076
+    400572: Balcony077
+    400574: Balcony078
+    400576: Balcony079
+    400578: Balcony080
+    400580: Balcony081
+    400582: Balcony087
+    400584: Balcony092
+    400586: Balcony093
+    400588: Balcony094
+    400590: Balcony095
+    400592: Balcony096
+    400594: Balcony097
+    400596: Balcony098
+    400598: Balcony099
+    400600: Balcony100
+    400602: Balcony101
+    400604: Balcony102
+    400606: Balcony103
+    400608: Balcony104
+    400610: Balcony105
+    400612: Balcony106
+    400614: Balcony107
+    400616: Balcony108
+    400618: Balcony109
+    400620: Balcony110
+    400622: Balcony111
+    400624: Balcony112
+    400626: Balcony113
+    400628: Balcony114
+    400630: Balcony115
+    400632: Balcony116
+    400634: Balcony117
+    400636: Balcony118
+    400638: Balcony119
+    400640: Balcony120
+    400642: Balcony121
+    400644: Balcony122
+    400646: Balcony123
+    400648: Balcony124
+    400650: Balcony125
+    400652: Balcony126
+    400654: Balcony127
+    400656: Balcony128
+    400658: Balcony129
+    400660: Balcony130
+    400662: Balcony131
+    400664: Balcony132
+    400666: Balcony133
+    400668: Balcony134
+    400670: Balcony135
+    400672: Balcony136
+    400674: Balcony138
+    400676: Balcony139
+    400678: Balcony140
+    400680: Balcony141
+    400682: Balcony142
+    400684: Balcony143
+    400686: Balcony144
+    400688: Balcony145
+    400690: Balcony146
+    400692: Balcony147
+    400694: Balcony148
+    400696: Balcony149
+    400698: Balcony150
+    400700: Balcony151
+    400702: Balcony152
+    400704: Balcony153
+    400706: Balcony154
+    400708: Balcony155
+    400710: Balcony156
+    400712: Balcony157
+    400714: Balcony158
+    400716: Balcony159
+    400718: Bathroom Sink
+    400720: Bathroom Sink001
+    400722: Big Door 3 win Pouropetra Frame
+    400724: Big Door 3 win Pouropetra Frame001
+    400726: Big Door 3 win Pouropetra Frame003
+    400728: Big Door 3 win Pouropetra Frame004
+    400730: Big Door 3 win Pouropetra Frame005
+    400732: Big Door 3win Kasia
+    400734: Big Door 3win Kasia001
+    400736: Big Door 3win Kasia002
+    400738: Big Door 3win Kasia003
+    400740: Big Door 3win Kasia004
+    400742: Big Door 3win Kasia005
+    400744: Big Door 3win Kasia006
+    400746: Big Door 3win Kasia007
+    400748: Big Door 3win Kasia008
+    400750: Big Door 3win Kasia009
+    400752: Big Door 3win Kasia010
+    400754: Big Door 3win Kasia011
+    400756: Big Door 3win Kasia018
+    400758: Big Door 3win Kasia019
+    400760: Big Door 3win Kasia020
+    400762: Big Door 3win Kasia021
+    400764: Big Door 3win Kasia022
+    400766: Big Door 3win Kasia023
+    400768: Big Door 3win Kasia024
+    400770: Big Door 3win Kasia025
+    400772: Big Door 3win Kasia026
+    400774: Big Door 3win Kasia027
+    400776: Big Door 3win Kasia028
+    400778: Big Door 3win Kasia029
+    400780: Big Door 3win Kasia030
+    400782: Big Door 3win Kasia031
+    400784: Big Door 3win Kasia032
+    400786: Big Door 3win Kasia033
+    400788: Big Door 3win Kasia034
+    400790: Big Door 3win Porta
+    400792: Big Door 3win Porta001
+    400794: Big Door 3win Porta003
+    400796: Big Door 3win Porta004
+    400798: Big Door 3win Porta005
+    400800: Big Door 3win Skali
+    400802: Big Door 3win Skali001
+    400804: Big Door 3win Skali003
+    400806: Big Door 3win Skali004
+    400808: Big Door 3win Skali005
+    400810: Big Door 3win Top Plate
+    400812: Big Door 3win Top Plate001
+    400814: Big Door 3win Top Plate003
+    400816: Big Door 3win Top Plate004
+    400818: Big Door 3win Top Plate005
+    400820: Big Door005
+    400822: Big Door006
+    400824: Big Door007
+    400826: Big Door008
+    400828: Big Door009
+    400830: Big Door010
+    400832: Big Door011
+    400834: Big Door012
+    400836: Big Door017
+    400838: Big Door018
+    400840: Big Door019
+    400842: Big Door020
+    400844: Big Door021
+    400846: Big Door022
+    400848: Big Door023
+    400850: Big Door024
+    400852: Big Door025
+    400854: Big Door026
+    400856: Big Door027
+    400858: Big Door028
+    400860: Box001
+    400862: Box003
+    400864: Box004
+    400866: Box005
+    400868: Box011
+    400870: Box017
+    400872: Box018
+    400874: Box019
+    400876: Box020
+    400878: Box021
+    400880: Box022
+    400882: Box023
+    400884: Box024
+    400886: Box025
+    400888: Box027
+    400890: Box028
+    400892: Box029
+    400894: Box030
+    400896: Box031
+    400898: Box032
+    400900: Box033
+    400902: Box034
+    400904: Box035
+    400906: Box036
+    400908: Box037
+    400910: Box038
+    400912: Box039
+    400914: Box040
+    400916: Box041
+    400918: Box042
+    400920: Box043
+    400922: Box044
+    400924: Box045
+    400926: Box046
+    400928: Box047
+    400930: Box048
+    400932: Box049
+    400934: Box050
+    400936: Box051
+    400938: Box052
+    400940: Box053
+    400942: Box054
+    400944: Box055
+    400946: Box056
+    400948: Box057
+    400950: Box059
+    400952: Box060
+    400954: Box063
+    400956: Box064
+    400958: Box066
+    400960: Box067
+    400962: Box068
+    400964: Box070
+    400966: Box071
+    400968: Box072
+    400970: Box073
+    400972: Box074
+    400974: Box075
+    400976: Box076
+    400978: Box077
+    400980: Box078
+    400982: Box079
+    400984: Box080
+    400986: Box081
+    400988: Box082
+    400990: Box083
+    400992: Box084
+    400994: Box085
+    400996: Box086
+    400998: Box087
+    401000: Box088
+    401002: Box089
+    401004: Box090
+    401006: Box091
+    401008: Box092
+    401010: Box093
+    401012: Box094
+    401014: Box095
+    401016: Box096
+    401018: Box097
+    401020: Box098
+    401022: Box099
+    401024: Box100
+    401026: Box101
+    401028: Box102
+    401030: Box103
+    401032: Box104
+    401034: Box105
+    401036: Box106
+    401038: Box107
+    401040: Box108
+    401042: Box109
+    401044: Box110
+    401046: Box111
+    401048: Box112
+    401050: Box113
+    401052: Box115
+    401054: Box116
+    401056: Box117
+    401058: Box118
+    401060: Box119
+    401062: Box120
+    401064: Box121
+    401066: Box122
+    401068: Box123
+    401070: Box124
+    401072: Box125
+    401074: Box126
+    401076: Box127
+    401078: Box128
+    401080: Box129
+    401082: Box130
+    401084: Box131
+    401086: Box132
+    401088: Box133
+    401090: Box134
+    401092: Box135
+    401094: Box136
+    401096: Box137
+    401098: Box138
+    401100: Box139
+    401102: Box140
+    401104: Box141
+    401106: Box142
+    401108: Box143
+    401110: Box144
+    401112: Box145
+    401114: Box146
+    401116: Box147
+    401118: Box148
+    401120: Box149
+    401122: Box150
+    401124: Box151
+    401126: Box152
+    401128: Box153
+    401130: Box154
+    401132: Box155
+    401134: Box156
+    401136: Box157
+    401138: Box158
+    401140: Box159
+    401142: Box162
+    401144: Box163
+    401146: Box164
+    401148: Box165
+    401150: Box166
+    401152: Box167
+    401154: Box168
+    401156: Box169
+    401158: Box170
+    401160: Box171
+    401162: Box172
+    401164: Box173
+    401166: Box174
+    401168: Box175
+    401170: Box176
+    401172: Box177
+    401174: Box178
+    401176: Box179
+    401178: Box180
+    401180: Box181
+    401182: Box182
+    401184: Box183
+    401186: Box184
+    401188: Box185
+    401190: Box186
+    401192: Box187
+    401194: Box188
+    401196: Box189
+    401198: Box190
+    401200: Box197
+    401202: Box198
+    401204: Box199
+    401206: Box200
+    401208: Box201
+    401210: Box202
+    401212: Box203
+    401214: Box204
+    401216: Box205
+    401218: Box206
+    401220: Box207
+    401222: Box208
+    401224: Box209
+    401226: Box210
+    401228: Box212
+    401230: Box213
+    401232: Box214
+    401234: Box215
+    401236: Box216
+    401238: Box217
+    401240: Box218
+    401242: Box219
+    401244: Box221
+    401246: Box222
+    401248: Box223
+    401250: Box225
+    401252: Box230
+    401254: Box232
+    401256: Box233
+    401258: Box234
+    401260: Box235
+    401262: Box236
+    401264: Box237
+    401266: Box238
+    401268: Box239
+    401270: Box240
+    401272: Box241
+    401274: Box242
+    401276: Box243
+    401278: Box244
+    401280: Box245
+    401282: Box246
+    401284: Box247
+    401286: Box248
+    401288: Box249
+    401290: Box250
+    401292: Box251
+    401294: Box252
+    401296: Box253
+    401298: Box254
+    401300: Box256
+    401302: Box257
+    401304: Box259
+    401306: Box260
+    401308: Box261
+    401310: Box262
+    401312: Box263
+    401314: Box264
+    401316: Box265
+    401318: Box266
+    401320: Box267
+    401322: Box268
+    401324: Box269
+    401326: Box270
+    401328: Box271
+    401330: Box273
+    401332: Box274
+    401334: Box275
+    401336: Box276
+    401338: Box277
+    401340: Box278
+    401342: Box279
+    401344: Box280
+    401346: Box281
+    401348: Box282
+    401350: Box283
+    401352: Box288
+    401354: Box289
+    401356: Box290
+    401358: Box291
+    401360: Box292
+    401362: Box293
+    401364: Box294
+    401366: Box295
+    401368: Box296
+    401370: Box297
+    401372: Box298
+    401374: Box299
+    401376: Box300
+    401378: Box301
+    401380: Box302
+    401382: Box303
+    401384: Box304
+    401386: Box305
+    401388: Box309
+    401390: Box310
+    401392: Box311
+    401394: Box312
+    401396: Box313
+    401398: Box314
+    401400: Box315
+    401402: Box316
+    401404: Box317
+    401406: Box318
+    401408: Box319
+    401410: Box320
+    401412: Box321
+    401414: Box322
+    401416: Box323
+    401418: Capsule006
+    401420: Capsule009
+    401422: Cylinder001
+    401424: Cylinder002
+    401426: Cylinder003
+    401428: Cylinder004
+    401430: Cylinder005
+    401432: Cylinder006
+    401434: Cylinder007
+    401436: Cylinder008
+    401438: Cylinder009
+    401440: Cylinder010
+    401442: Cylinder011
+    401444: Cylinder012
+    401446: Cylinder013
+    401448: Cylinder014
+    401450: Dipli Priza
+    401452: Dipli Priza001
+    401454: Dipli Priza002
+    401456: Dipli Priza003
+    401458: Dipli Priza004
+    401460: Dipli Priza005
+    401462: Dipli Priza006
+    401464: Dipli Priza007
+    401466: Dipli Priza008
+    401468: Dipli Priza009
+    401470: Dipli Priza010
+    401472: Dipli Priza011
+    401474: Dipli Priza012
+    401476: Dipli Priza013
+    401478: Dipli Priza014
+    401480: Dipli Priza015
+    401482: Dipli Priza016
+    401484: Dipli Priza017
+    401486: Dipli Priza018
+    401488: Dipli Priza019
+    401490: Dipli Priza020
+    401492: Dipli Priza021
+    401494: Dipli Priza022
+    401496: Door Yard003
+    401498: Door1st Floor
+    401500: Doors Inside
+    401502: Extention Bathroom
+    401504: Floor Ceiling *
+    401506: Frame Portas 3 win
+    401508: Frame Portas 3 win001
+    401510: Frame Portas 3 win003
+    401512: Frame Portas 3 win004
+    401514: Frame Portas 3 win005
+    401516: Front Arianou Gr
+    401518: GlassMain Door
+    401520: Grnd Floor Backrooms
+    401522: Ground Floor *
+    401524: Ground Floor Back Room Stair
+    401526: Group002
+    401528: Group003
+    401530: Group004
+    401532: Group005
+    401534: Homa002
+    401536: Homa1
+    401538: I Beam
+    401540: I Beam002
+    401542: I Beam003
+    401544: I Beam004
+    401546: I Beam005
+    401548: I Beam006
+    401550: I Beams
+    401552: Kitchenette
+    401554: Line002
+    401556: Line015
+    401558: Line018
+    401560: Line020
+    401562: Line021
+    401564: Line022
+    401566: Line023
+    401568: Line024
+    401570: Line025
+    401572: Line026
+    401574: Line027
+    401576: Line028
+    401578: Line029
+    401580: Line030
+    401582: Line031
+    401584: Line032
+    401586: Line033
+    401588: Line034
+    401590: Line037
+    401592: Line045
+    401594: Line046
+    401596: Line047
+    401598: Line048
+    401600: Line049
+    401602: Line050
+    401604: Main Door001
+    401606: MainDoor Right
+    401608: Mesopatoma floor
+    401610: Outer Wall Things
+    401612: Outer Walls*
+    401614: Plane001
+    401616: Plane002
+    401618: Plane003
+    401620: Plane004
+    401622: Plane005
+    401624: Plane006
+    401626: Pouropetres Gonias
+    401628: Psif
+    401630: Rectangle001
+    401632: Rectangle002
+    401634: Rectangle003
+    401636: Rectangle004
+    401638: Rectangle005
+    401640: Rectangle006
+    401642: Rectangle007
+    401644: Rectangle008
+    401646: Rectangle009
+    401648: Rectangle010
+    401650: Rectangle011
+    401652: Rectangle012
+    401654: RoofCeiling1st Floor*
+    401656: Sink Marble
+    401658: Small Door
+    401660: Small Window015
+    401662: Small Window016
+    401664: Small Window017
+    401666: Small Window021
+    401668: Small Window022
+    401670: Small Window023
+    401672: Small Window024
+    401674: Small Window026
+    401676: Small Window027
+    401678: Small Window028
+    401680: Small Window029
+    401682: Small Window030
+    401684: Small Window031
+    401686: Small Window032
+    401688: Small Window033
+    401690: Small Window034
+    401692: Small Window035
+    401694: Small Window036
+    401696: Small Window037
+    401698: Small Window038
+    401700: Small Window039
+    401702: Small Window040
+    401704: Small Window041
+    401706: Small Window042
+    401708: Small Window043
+    401710: Small Window044
+    401712: Small Window045
+    401714: Small Window046
+    401716: Small Window047
+    401718: Small Window048
+    401720: Small Window049
+    401722: Small Window050
+    401724: Small Window051
+    401726: Small Window052
+    401728: Small Window053
+    401730: Small Window054
+    401732: Small Window055
+    401734: Small Window056
+    401736: Small Window057
+    401738: Small Window058
+    401740: Small Window059
+    401742: Small Window060
+    401744: Small Window061
+    401746: Small Window062
+    401748: Small Window063
+    401750: Small Window064
+    401752: Small Window065
+    401754: Small Window066
+    401756: Small Window067
+    401758: Small_win_Glass
+    401760: Small_win_Glass001
+    401762: Small_win_Glass002
+    401764: Small_win_Glass003
+    401766: Small_window_frame
+    401768: Small_window_frame001
+    401770: Sphere001
+    401772: Sphere002
+    401774: Sphere003
+    401776: Sphere004
+    401778: Sphere005
+    401780: Sphere006
+    401782: Sphere007
+    401784: Sphere008
+    401786: Sphere009
+    401788: Sphere010
+    401790: Stair Steps
+    401792: StairCase
+    401794: Step003
+    401796: Step004
+    401798: Step014
+    401800: Step015
+    401802: Step016
+    401804: Step017
+    401806: Step018
+    401808: Step019
+    401810: Step020
+    401812: Step021
+    401814: Step022
+    401816: Tavani orofou
+    401818: Toilette
+    401820: Toilette001
+    401822: Toilette002
+    401824: Toilette003
+    401826: Toilette004
+    401828: Toilette005
+    401830: Tube001
+    401832: Tube002
+    401834: Tube003
+    401836: Tube004
+    401838: Tube005
+    401840: Tube006
+    401842: Win
+    401844: Win001
+    2300000: '* 1st Floor Kitchen Stair'
+    2300002: '* 1st Floor Lower Floor'
+    2300004: '* 1st Floor Lower FloorDown'
+    2300006: '* Arc Grnd Floor'
+    2300008: '* Ground Floor Wall 1'
+    2300010: '* Ground Floor Wall 2'
+    2300012: '*1st Floor Fat Wall'
+    2300014: '*1st Floor Fat Wall 2'
+    2300016: '*1st Floor Floor Down'
+    2300018: '*1st Floor Floor Up'
+    2300020: '*1st Floor Slim Wall 002'
+    2300022: '*1st Floor Slim Wall 003'
+    2300024: '*1st Floor Slim Wall 004'
+    2300026: '*1st Floor Slim Wall 005'
+    2300028: '*1st Floor Slim Wall 006'
+    2300030: '*1st Floor Slim Wall 008'
+    2300032: '*1st Floor Slim Wall 009'
+    2300034: '*1st Floor Slim Wall 010'
+    2300036: '*1st Floor Slim Wall 011'
+    2300038: '*1st Floor Slim Wall 012'
+    2300040: '*1st Floor Slim Wall 1'
+    2300042: '*Arc 2 Ground Floor'
+    2300044: '*Arc Wall Grnd Floor'
+    2300046: '*Arc Wall Grnd Floor 2'
+    2300048: '*Ground Floor'
+    2300050: 1st Floor Window Inside
+    2300052: 1st Floor Window Inside001
+    2300054: 1st Floor Window Inside002
+    2300056: 1st Floor Window Inside003
+    2300058: 1st Floor Window Inside004
+    2300060: 1st Floor Window Inside005
+    2300062: 1st Floor Window Inside006
+    2300064: 1st Floor Window Inside007
+    2300066: 1st Floor Window Inside008
+    2300068: 1st Floor Window Inside009
+    2300070: 1st Floor Window Inside010
+    2300072: 1st Floor Window Inside011
+    2300074: 1st Floor Window Inside013
+    2300076: 1st Floor Window Inside014
+    2300078: 1st Floor Window Inside015
+    2300080: 1st Floor Window Inside016
+    2300082: 1st Floor Window Inside018
+    2300084: 1st Floor Window Inside019
+    2300086: 1st Floor Window Inside022
+    2300088: 1st Floor Window Inside023
+    2300090: 1st Floor Window Inside024
+    2300092: 1st Floor Window Inside025
+    2300094: 1st Floor Window018
+    2300096: 1st Floor Window021
+    2300098: 1st Floor Window022
+    2300100: 1st Floor Window023
+    2300102: 1st Floor Window024
+    2300104: 1st Floor Window025
+    2300106: 1st Floor Window026
+    2300108: 1st Floor Window027
+    2300110: 1st Floor Window028
+    2300112: 1st Floor Window029
+    2300114: 1st Floor Window030
+    2300116: 1st Floor Window031
+    2300118: 1st Floor Window032
+    2300120: 1st Floor Window033
+    2300122: 1st Floor Window034
+    2300124: 1st Floor Window035
+    2300126: 1st Floor Window036
+    2300128: 1st Floor Window037
+    2300130: 1st Floor Window038
+    2300132: 1st Floor Window039
+    2300134: 1st Floor Window040
+    2300136: 1st Floor Window041
+    2300138: 1st Floor Window042
+    2300140: 1st Floor Window043
+    2300142: 1st Floor Window044
+    2300144: 1st Floor Window045
+    2300146: 1st Floor Window046
+    2300148: 1st Floor Window047
+    2300150: 1st Floor Window048
+    2300152: 1st Floor Window049
+    2300154: 1st Floor Window050
+    2300156: 1st Floor Window051
+    2300158: 1st Floor Window052
+    2300160: 1st Floor Window055
+    2300162: 1st Floor Window057
+    2300164: 1st Floor Window059
+    2300166: 1st Floor Window060
+    2300168: 1st Floor Window061
+    2300170: 1st Floor Window062
+    2300172: 1st Floor Window063
+    2300174: 1st Floor Window065
+    2300176: 1st Floor Window067
+    2300178: 1st Floor Window069
+    2300180: 1st Floor WindowDone
+    2300182: 1st Floor WindowDone001
+    2300184: 1st Floor WindowDone002
+    2300186: 1st Floor WindowDone003
+    2300188: 1st Floor WindowDone004
+    2300190: 1st Floor WindowDone005
+    2300192: 1st Floor WindowDone006
+    2300194: 1st Floor WindowDone007
+    2300196: 1st Floor WindowDone008
+    2300198: 1st Floor WindowDone009
+    2300200: 1st Floor WindowDone010
+    2300202: 1st Floor WindowDone011
+    2300204: 1st Floor WindowDone013
+    2300206: 1st Floor WindowDone014
+    2300208: 1st Floor WindowDone015
+    2300210: 1st Floor WindowDone016
+    2300212: 1st Floor WindowDone018
+    2300214: 1st Floor WindowDone019
+    2300216: 1st Floor WindowDone022
+    2300218: 1st Floor WindowDone023
+    2300220: 1st Floor WindowDone035
+    2300222: 1st Floor WindowDone036
+    2300224: 1st Floor WindowDone037
+    2300226: 1st Floor WindowDone038
+    2300228: 1st Floor WindowDone039
+    2300230: 1st Floor WindowDone040
+    2300232: 1st Floor WindowDone041
+    2300234: 1st Floor WindowDone042
+    2300236: 1st Floor WindowDone043
+    2300238: 1st Floor WindowDone044
+    2300240: 1st Floor WindowDone045
+    2300242: 1st Floor WindowDone046
+    2300244: 1st Floor WindowDone047
+    2300246: 1st Floor WindowDone048
+    2300248: 1st Floor WindowDone049
+    2300250: 1st Floor WindowDone050
+    2300252: 1st Floor WindowDone051
+    2300254: 1st Floor WindowDone052
+    2300256: 1st Floor WindowDone053
+    2300258: 1st Floor WindowDone054
+    2300260: 1st Floor WindowDone055
+    2300262: 1st Floor WindowDone056
+    2300264: 1st Floor WindowDone057
+    2300266: 1st Floor WindowDone058
+    2300268: 1st Floor WindowDone059
+    2300270: 1st Floor WindowDone060
+    2300272: 1st Floor WindowDone061
+    2300274: 1st Floor WindowDone062
+    2300276: 1st Floor WindowDone063
+    2300278: 1st Floor WindowDone064
+    2300280: 1st Floor WindowDone065
+    2300282: 1st Floor WindowDone066
+    2300284: 1st Floor WindowDone067
+    2300286: 1st Floor WindowDone068
+    2300288: 1st Floor WindowDone069
+    2300290: 1st Floor WindowDone070
+    2300292: 1st Floor WindowDone071
+    2300294: 1st Floor WindowDone072
+    2300296: 1st Floor WindowDone073
+    2300298: 1st Floor WindowDone074
+    2300300: 1st Floor WindowDone075
+    2300302: 1st Floor WindowDone076
+    2300304: 1st Floor WindowDone077
+    2300306: 1st Floor WindowDone078
+    2300308: 1st Floor WindowDone079
+    2300310: 1st Floor WindowDone080
+    2300312: 1st Floor WindowDone081
+    2300314: 1st Floor WindowDone082
+    2300316: 1st Floor WindowDone083
+    2300318: 1st Floor WindowDone084
+    2300320: 1st Floor WindowDone105
+    2300322: 1st Floor WindowDone106
+    2300324: 1st Floor WindowDone107
+    2300326: 1st Floor WindowDone108
+    2300328: 1st Floor WindowDone109
+    2300330: 1st Floor WindowDone110
+    2300332: 1st Floor WindowDone111
+    2300334: 1st Floor WindowDone112
+    2300336: 1st Floor WindowDone113
+    2300338: 1st Floor WindowDone114
+    2300340: 1st Floor WindowDone117
+    2300342: 1st Floor WindowDone119
+    2300344: 1st Floor WindowDone120
+    2300346: 1st Floor WindowDone123
+    2300348: 1st Floor WindowDone124
+    2300350: 1st Floor WindowDone125
+    2300352: 1st Floor WindowDone126
+    2300354: 1st Floor WindowDone127
+    2300356: 1st Floor WindowDone128
+    2300358: 1st Floor WindowDone129
+    2300360: 1st Floor WindowDone130
+    2300362: 1st Floor WindowDone131
+    2300364: 1st Floor WindowDone132
+    2300366: 1st Floor WindowDone133
+    2300368: 1st Floor WindowDone134
+    2300370: 1st Floor WindowDone135
+    2300372: 1st Floor WindowDone136
+    2300374: 1st Floor WindowDone137
+    2300376: 1st Floor WindowDone147
+    2300378: 1st Floor WindowDone148
+    2300380: 1st Floor WindowDone149
+    2300382: 1st Floor WindowDone150
+    2300384: 1st Floor WindowDone151
+    2300386: 1st Floor WindowDone152
+    2300388: 1st Floor WindowDone153
+    2300390: 1st Floor WindowDone154
+    2300392: 1st Floor WindowDone155
+    2300394: 1st Floor WindowDone156
+    2300396: 1st Floor WindowDone157
+    2300398: 1st Floor WindowDone158
+    2300400: 1st Floor WindowDone159
+    2300402: 1st Floor WindowDone160
+    2300404: 1st Floor WindowDone166
+    2300406: 1st Floor WindowDone167
+    2300408: 1st Floor WindowDone168
+    2300410: 1st Floor WindowDone169
+    2300412: 1st Floor WindowDone170
+    2300414: 1st Floor WindowDone171
+    2300416: 1st Floor WindowDone172
+    2300418: 1st Floor WindowDone173
+    2300420: 1st Floor WindowDone174
+    2300422: 1st Floor WindowDone175
+    2300424: 1st Floor WindowDone176
+    2300426: 1st Floor WindowDone177
+    2300428: 1st Floor WindowDone178
+    2300430: 1st Floor WindowDone179
+    2300432: 1st Floor WindowDone180
+    2300434: Balcony005
+    2300436: Balcony006
+    2300438: Balcony007
+    2300440: Balcony008
+    2300442: Balcony014
+    2300444: Balcony016
+    2300446: Balcony017
+    2300448: Balcony018
+    2300450: Balcony019
+    2300452: Balcony020
+    2300454: Balcony021
+    2300456: Balcony022
+    2300458: Balcony023
+    2300460: Balcony024
+    2300462: Balcony025
+    2300464: Balcony027
+    2300466: Balcony028
+    2300468: Balcony029
+    2300470: Balcony030
+    2300472: Balcony031
+    2300474: Balcony032
+    2300476: Balcony033
+    2300478: Balcony034
+    2300480: Balcony035
+    2300482: Balcony036
+    2300484: Balcony037
+    2300486: Balcony038
+    2300488: Balcony039
+    2300490: Balcony040
+    2300492: Balcony041
+    2300494: Balcony042
+    2300496: Balcony043
+    2300498: Balcony044
+    2300500: Balcony045
+    2300502: Balcony046
+    2300504: Balcony048
+    2300506: Balcony049
+    2300508: Balcony050
+    2300510: Balcony051
+    2300512: Balcony053
+    2300514: Balcony057
+    2300516: Balcony058
+    2300518: Balcony059
+    2300520: Balcony060
+    2300522: Balcony061
+    2300524: Balcony062
+    2300526: Balcony063
+    2300528: Balcony064
+    2300530: Balcony065
+    2300532: Balcony066
+    2300534: Balcony067
+    2300536: Balcony068
+    2300538: Balcony069
+    2300540: Balcony070
+    2300542: Balcony071
+    2300544: Balcony072
+    2300546: Balcony073
+    2300548: Balcony074
+    2300550: Balcony075
+    2300552: Balcony076
+    2300554: Balcony077
+    2300556: Balcony078
+    2300558: Balcony079
+    2300560: Balcony080
+    2300562: Balcony081
+    2300564: Balcony087
+    2300566: Balcony092
+    2300568: Balcony093
+    2300570: Balcony094
+    2300572: Balcony095
+    2300574: Balcony096
+    2300576: Balcony097
+    2300578: Balcony098
+    2300580: Balcony099
+    2300582: Balcony100
+    2300584: Balcony101
+    2300586: Balcony102
+    2300588: Balcony103
+    2300590: Balcony104
+    2300592: Balcony105
+    2300594: Balcony106
+    2300596: Balcony107
+    2300598: Balcony108
+    2300600: Balcony109
+    2300602: Balcony110
+    2300604: Balcony111
+    2300606: Balcony112
+    2300608: Balcony113
+    2300610: Balcony114
+    2300612: Balcony115
+    2300614: Balcony116
+    2300616: Balcony117
+    2300618: Balcony118
+    2300620: Balcony119
+    2300622: Balcony120
+    2300624: Balcony121
+    2300626: Balcony122
+    2300628: Balcony123
+    2300630: Balcony124
+    2300632: Balcony125
+    2300634: Balcony126
+    2300636: Balcony127
+    2300638: Balcony128
+    2300640: Balcony129
+    2300642: Balcony130
+    2300644: Balcony131
+    2300646: Balcony132
+    2300648: Balcony133
+    2300650: Balcony134
+    2300652: Balcony135
+    2300654: Balcony136
+    2300656: Balcony138
+    2300658: Balcony139
+    2300660: Balcony140
+    2300662: Balcony141
+    2300664: Balcony142
+    2300666: Balcony143
+    2300668: Balcony144
+    2300670: Balcony145
+    2300672: Balcony146
+    2300674: Balcony147
+    2300676: Balcony148
+    2300678: Balcony149
+    2300680: Balcony150
+    2300682: Balcony151
+    2300684: Balcony152
+    2300686: Balcony153
+    2300688: Balcony154
+    2300690: Balcony155
+    2300692: Balcony156
+    2300694: Balcony157
+    2300696: Balcony158
+    2300698: Balcony159
+    2300700: Big Door 3win Kasia
+    2300702: Big Door 3win Kasia001
+    2300704: Big Door 3win Kasia002
+    2300706: Big Door 3win Kasia003
+    2300708: Big Door 3win Kasia004
+    2300710: Big Door 3win Kasia005
+    2300712: Big Door 3win Kasia006
+    2300714: Big Door 3win Kasia007
+    2300716: Big Door 3win Kasia008
+    2300718: Big Door 3win Kasia009
+    2300720: Big Door 3win Kasia010
+    2300722: Big Door 3win Kasia011
+    2300724: Big Door 3win Kasia018
+    2300726: Big Door 3win Kasia019
+    2300728: Big Door 3win Kasia020
+    2300730: Big Door 3win Kasia021
+    2300732: Big Door 3win Kasia022
+    2300734: Big Door 3win Kasia023
+    2300736: Big Door 3win Kasia024
+    2300738: Big Door 3win Kasia025
+    2300740: Big Door 3win Kasia026
+    2300742: Big Door 3win Kasia027
+    2300744: Big Door 3win Kasia028
+    2300746: Big Door 3win Kasia029
+    2300748: Big Door 3win Kasia030
+    2300750: Big Door 3win Kasia031
+    2300752: Big Door 3win Kasia032
+    2300754: Big Door 3win Kasia033
+    2300756: Big Door 3win Kasia034
+    2300758: Big Door 3win Porta
+    2300760: Big Door 3win Porta001
+    2300762: Big Door 3win Porta003
+    2300764: Big Door 3win Porta004
+    2300766: Big Door 3win Porta005
+    2300768: Big Door 3win Skali
+    2300770: Big Door 3win Skali001
+    2300772: Big Door 3win Skali003
+    2300774: Big Door 3win Skali004
+    2300776: Big Door 3win Skali005
+    2300778: Big Door 3win Top Plate
+    2300780: Big Door 3win Top Plate001
+    2300782: Big Door 3win Top Plate003
+    2300784: Big Door 3win Top Plate004
+    2300786: Big Door 3win Top Plate005
+    2300788: Big Door005
+    2300790: Big Door006
+    2300792: Big Door007
+    2300794: Big Door008
+    2300796: Big Door009
+    2300798: Big Door010
+    2300800: Big Door011
+    2300802: Big Door012
+    2300804: Big Door017
+    2300806: Big Door018
+    2300808: Big Door019
+    2300810: Big Door020
+    2300812: Big Door021
+    2300814: Big Door022
+    2300816: Big Door023
+    2300818: Big Door024
+    2300820: Big Door025
+    2300822: Big Door026
+    2300824: Big Door027
+    2300826: Big Door028
+    2300828: Box001
+    2300830: Box003
+    2300832: Box004
+    2300834: Box005
+    2300836: Box011
+    2300838: Box017
+    2300840: Box018
+    2300842: Box019
+    2300844: Box020
+    2300846: Box021
+    2300848: Box022
+    2300850: Box023
+    2300852: Box024
+    2300854: Box025
+    2300856: Box027
+    2300858: Box028
+    2300860: Box029
+    2300862: Box030
+    2300864: Box031
+    2300866: Box032
+    2300868: Box033
+    2300870: Box034
+    2300872: Box035
+    2300874: Box036
+    2300876: Box037
+    2300878: Box038
+    2300880: Box039
+    2300882: Box040
+    2300884: Box041
+    2300886: Box042
+    2300888: Box043
+    2300890: Box044
+    2300892: Box045
+    2300894: Box046
+    2300896: Box047
+    2300898: Box048
+    2300900: Box049
+    2300902: Box050
+    2300904: Box051
+    2300906: Box052
+    2300908: Box053
+    2300910: Box054
+    2300912: Box055
+    2300914: Box056
+    2300916: Box057
+    2300918: Box059
+    2300920: Box060
+    2300922: Box063
+    2300924: Box064
+    2300926: Box066
+    2300928: Box067
+    2300930: Box068
+    2300932: Box070
+    2300934: Box071
+    2300936: Box072
+    2300938: Box073
+    2300940: Box074
+    2300942: Box075
+    2300944: Box076
+    2300946: Box077
+    2300948: Box078
+    2300950: Box079
+    2300952: Box080
+    2300954: Box081
+    2300956: Box082
+    2300958: Box083
+    2300960: Box084
+    2300962: Box085
+    2300964: Box086
+    2300966: Box087
+    2300968: Box088
+    2300970: Box089
+    2300972: Box090
+    2300974: Box091
+    2300976: Box092
+    2300978: Box093
+    2300980: Box094
+    2300982: Box095
+    2300984: Box096
+    2300986: Box097
+    2300988: Box098
+    2300990: Box099
+    2300992: Box100
+    2300994: Box101
+    2300996: Box102
+    2300998: Box103
+    2301000: Box104
+    2301002: Box105
+    2301004: Box106
+    2301006: Box107
+    2301008: Box108
+    2301010: Box109
+    2301012: Box110
+    2301014: Box111
+    2301016: Box112
+    2301018: Box113
+    2301020: Box115
+    2301022: Box116
+    2301024: Box117
+    2301026: Box118
+    2301028: Box119
+    2301030: Box120
+    2301032: Box121
+    2301034: Box122
+    2301036: Box123
+    2301038: Box124
+    2301040: Box125
+    2301042: Box126
+    2301044: Box127
+    2301046: Box128
+    2301048: Box129
+    2301050: Box130
+    2301052: Box131
+    2301054: Box132
+    2301056: Box133
+    2301058: Box134
+    2301060: Box135
+    2301062: Box136
+    2301064: Box137
+    2301066: Box138
+    2301068: Box139
+    2301070: Box140
+    2301072: Box141
+    2301074: Box142
+    2301076: Box143
+    2301078: Box144
+    2301080: Box145
+    2301082: Box146
+    2301084: Box147
+    2301086: Box148
+    2301088: Box149
+    2301090: Box150
+    2301092: Box151
+    2301094: Box152
+    2301096: Box153
+    2301098: Box154
+    2301100: Box155
+    2301102: Box156
+    2301104: Box157
+    2301106: Box158
+    2301108: Box159
+    2301110: Box162
+    2301112: Box163
+    2301114: Box164
+    2301116: Box165
+    2301118: Box166
+    2301120: Box167
+    2301122: Box168
+    2301124: Box169
+    2301126: Box170
+    2301128: Box171
+    2301130: Box172
+    2301132: Box173
+    2301134: Box174
+    2301136: Box175
+    2301138: Box176
+    2301140: Box177
+    2301142: Box178
+    2301144: Box179
+    2301146: Box180
+    2301148: Box181
+    2301150: Box182
+    2301152: Box183
+    2301154: Box184
+    2301156: Box185
+    2301158: Box186
+    2301160: Box187
+    2301162: Box188
+    2301164: Box189
+    2301166: Box190
+    2301168: Box197
+    2301170: Box198
+    2301172: Box199
+    2301174: Box200
+    2301176: Box201
+    2301178: Box202
+    2301180: Box203
+    2301182: Box204
+    2301184: Box205
+    2301186: Box206
+    2301188: Box207
+    2301190: Box208
+    2301192: Box209
+    2301194: Box210
+    2301196: Box212
+    2301198: Box213
+    2301200: Box214
+    2301202: Box215
+    2301204: Box216
+    2301206: Box217
+    2301208: Box218
+    2301210: Box219
+    2301212: Box221
+    2301214: Box222
+    2301216: Box223
+    2301218: Box225
+    2301220: Box230
+    2301222: Box232
+    2301224: Box233
+    2301226: Box234
+    2301228: Box235
+    2301230: Box236
+    2301232: Box237
+    2301234: Box238
+    2301236: Box239
+    2301238: Box240
+    2301240: Box241
+    2301242: Box242
+    2301244: Box243
+    2301246: Box244
+    2301248: Box245
+    2301250: Box246
+    2301252: Box247
+    2301254: Box248
+    2301256: Box249
+    2301258: Box250
+    2301260: Box251
+    2301262: Box252
+    2301264: Box253
+    2301266: Box254
+    2301268: Box256
+    2301270: Box257
+    2301272: Box259
+    2301274: Box260
+    2301276: Box261
+    2301278: Box262
+    2301280: Box263
+    2301282: Box264
+    2301284: Box265
+    2301286: Box266
+    2301288: Box267
+    2301290: Box268
+    2301292: Box269
+    2301294: Box270
+    2301296: Box271
+    2301298: Box273
+    2301300: Box274
+    2301302: Box275
+    2301304: Box276
+    2301306: Box277
+    2301308: Box278
+    2301310: Box279
+    2301312: Box280
+    2301314: Box281
+    2301316: Box282
+    2301318: Box283
+    2301320: Box288
+    2301322: Box289
+    2301324: Box290
+    2301326: Box291
+    2301328: Box292
+    2301330: Box293
+    2301332: Box294
+    2301334: Box295
+    2301336: Box296
+    2301338: Box297
+    2301340: Box298
+    2301342: Box299
+    2301344: Box300
+    2301346: Box301
+    2301348: Box302
+    2301350: Box303
+    2301352: Box304
+    2301354: Box305
+    2301356: Box309
+    2301358: Box310
+    2301360: Box311
+    2301362: Box312
+    2301364: Box313
+    2301366: Box314
+    2301368: Box315
+    2301370: Box316
+    2301372: Box317
+    2301374: Box318
+    2301376: Box319
+    2301378: Box320
+    2301380: Box321
+    2301382: Box322
+    2301384: Box323
+    2301386: Capsule006
+    2301388: Capsule009
+    2301390: Cylinder001
+    2301392: Cylinder002
+    2301394: Cylinder003
+    2301396: Cylinder004
+    2301398: Cylinder005
+    2301400: Cylinder006
+    2301402: Cylinder007
+    2301404: Cylinder008
+    2301406: Cylinder009
+    2301408: Cylinder010
+    2301410: Cylinder011
+    2301412: Cylinder012
+    2301414: Cylinder013
+    2301416: Cylinder014
+    2301418: Dipli Priza
+    2301420: Dipli Priza001
+    2301422: Dipli Priza002
+    2301424: Dipli Priza003
+    2301426: Dipli Priza004
+    2301428: Dipli Priza005
+    2301430: Dipli Priza006
+    2301432: Dipli Priza007
+    2301434: Dipli Priza008
+    2301436: Dipli Priza009
+    2301438: Dipli Priza010
+    2301440: Dipli Priza011
+    2301442: Dipli Priza012
+    2301444: Dipli Priza013
+    2301446: Dipli Priza014
+    2301448: Dipli Priza015
+    2301450: Dipli Priza016
+    2301452: Dipli Priza017
+    2301454: Dipli Priza018
+    2301456: Dipli Priza019
+    2301458: Dipli Priza020
+    2301460: Dipli Priza021
+    2301462: Dipli Priza022
+    2301464: Door Yard003
+    2301466: GlassMain Door
+    2301468: Homa002
+    2301470: Homa1
+    2301472: Line002
+    2301474: Line015
+    2301476: Line018
+    2301478: Line020
+    2301480: Line021
+    2301482: Line022
+    2301484: Line023
+    2301486: Line024
+    2301488: Line025
+    2301490: Line026
+    2301492: Line027
+    2301494: Line028
+    2301496: Line029
+    2301498: Line030
+    2301500: Line031
+    2301502: Line032
+    2301504: Line033
+    2301506: Line034
+    2301508: Line037
+    2301510: Line045
+    2301512: Line046
+    2301514: Line047
+    2301516: Line048
+    2301518: Line049
+    2301520: Line050
+    2301522: Main Door001
+    2301524: Plane001
+    2301526: Plane002
+    2301528: Plane003
+    2301530: Plane004
+    2301532: Plane005
+    2301534: Plane006
+    2301536: Psif
+    2301538: Rectangle001
+    2301540: Rectangle002
+    2301542: Rectangle003
+    2301544: Rectangle004
+    2301546: Rectangle005
+    2301548: Rectangle006
+    2301550: Rectangle007
+    2301552: Rectangle008
+    2301554: Rectangle009
+    2301556: Rectangle010
+    2301558: Rectangle011
+    2301560: Rectangle012
+    2301562: Small Door
+    2301564: Small Window015
+    2301566: Small Window016
+    2301568: Small Window017
+    2301570: Small Window021
+    2301572: Small Window022
+    2301574: Small Window023
+    2301576: Small Window024
+    2301578: Small Window026
+    2301580: Small Window027
+    2301582: Small Window028
+    2301584: Small Window029
+    2301586: Small Window030
+    2301588: Small Window031
+    2301590: Small Window032
+    2301592: Small Window033
+    2301594: Small Window034
+    2301596: Small Window035
+    2301598: Small Window036
+    2301600: Small Window037
+    2301602: Small Window038
+    2301604: Small Window039
+    2301606: Small Window040
+    2301608: Small Window041
+    2301610: Small Window042
+    2301612: Small Window043
+    2301614: Small Window044
+    2301616: Small Window045
+    2301618: Small Window046
+    2301620: Small Window047
+    2301622: Small Window048
+    2301624: Small Window049
+    2301626: Small Window050
+    2301628: Small Window051
+    2301630: Small Window052
+    2301632: Small Window053
+    2301634: Small Window054
+    2301636: Small Window055
+    2301638: Small Window056
+    2301640: Small Window057
+    2301642: Small Window058
+    2301644: Small Window059
+    2301646: Small Window060
+    2301648: Small Window061
+    2301650: Small Window062
+    2301652: Small Window063
+    2301654: Small Window064
+    2301656: Small Window065
+    2301658: Small Window066
+    2301660: Small Window067
+    2301662: Sphere001
+    2301664: Sphere002
+    2301666: Sphere003
+    2301668: Sphere004
+    2301670: Sphere005
+    2301672: Sphere006
+    2301674: Sphere007
+    2301676: Sphere008
+    2301678: Sphere009
+    2301680: Sphere010
+    2301682: Tavani orofou
+    2301684: Tube001
+    2301686: Tube002
+    2301688: Tube003
+    2301690: Tube004
+    2301692: Tube005
+    2301694: Tube006
+    3300000: '* 1st Floor Kitchen Stair'
+    3300002: '* 1st Floor Lower Floor'
+    3300004: '* 1st Floor Lower FloorDown'
+    3300006: '* Arc Grnd Floor'
+    3300008: '* Ground Floor Wall 1'
+    3300010: '* Ground Floor Wall 2'
+    3300012: '*1st Floor Fat Wall'
+    3300014: '*1st Floor Fat Wall 2'
+    3300016: '*1st Floor Floor Down'
+    3300018: '*1st Floor Floor Up'
+    3300020: '*1st Floor Slim Wall 002'
+    3300022: '*1st Floor Slim Wall 003'
+    3300024: '*1st Floor Slim Wall 004'
+    3300026: '*1st Floor Slim Wall 005'
+    3300028: '*1st Floor Slim Wall 006'
+    3300030: '*1st Floor Slim Wall 008'
+    3300032: '*1st Floor Slim Wall 009'
+    3300034: '*1st Floor Slim Wall 010'
+    3300036: '*1st Floor Slim Wall 011'
+    3300038: '*1st Floor Slim Wall 012'
+    3300040: '*1st Floor Slim Wall 1'
+    3300042: '*Arc 2 Ground Floor'
+    3300044: '*Arc Wall Grnd Floor'
+    3300046: '*Arc Wall Grnd Floor 2'
+    3300048: '*Ground Floor'
+    3300050: 1st Floor Window Inside
+    3300052: 1st Floor Window Inside001
+    3300054: 1st Floor Window Inside002
+    3300056: 1st Floor Window Inside003
+    3300058: 1st Floor Window Inside004
+    3300060: 1st Floor Window Inside005
+    3300062: 1st Floor Window Inside006
+    3300064: 1st Floor Window Inside007
+    3300066: 1st Floor Window Inside008
+    3300068: 1st Floor Window Inside009
+    3300070: 1st Floor Window Inside010
+    3300072: 1st Floor Window Inside011
+    3300074: 1st Floor Window Inside013
+    3300076: 1st Floor Window Inside014
+    3300078: 1st Floor Window Inside015
+    3300080: 1st Floor Window Inside016
+    3300082: 1st Floor Window Inside018
+    3300084: 1st Floor Window Inside019
+    3300086: 1st Floor Window Inside022
+    3300088: 1st Floor Window Inside023
+    3300090: 1st Floor Window Inside024
+    3300092: 1st Floor Window Inside025
+    3300094: 1st Floor Window018
+    3300096: 1st Floor Window021
+    3300098: 1st Floor Window022
+    3300100: 1st Floor Window023
+    3300102: 1st Floor Window024
+    3300104: 1st Floor Window025
+    3300106: 1st Floor Window026
+    3300108: 1st Floor Window027
+    3300110: 1st Floor Window028
+    3300112: 1st Floor Window029
+    3300114: 1st Floor Window030
+    3300116: 1st Floor Window031
+    3300118: 1st Floor Window032
+    3300120: 1st Floor Window033
+    3300122: 1st Floor Window034
+    3300124: 1st Floor Window035
+    3300126: 1st Floor Window036
+    3300128: 1st Floor Window037
+    3300130: 1st Floor Window038
+    3300132: 1st Floor Window039
+    3300134: 1st Floor Window040
+    3300136: 1st Floor Window041
+    3300138: 1st Floor Window042
+    3300140: 1st Floor Window043
+    3300142: 1st Floor Window044
+    3300144: 1st Floor Window045
+    3300146: 1st Floor Window046
+    3300148: 1st Floor Window047
+    3300150: 1st Floor Window048
+    3300152: 1st Floor Window049
+    3300154: 1st Floor Window050
+    3300156: 1st Floor Window051
+    3300158: 1st Floor Window052
+    3300160: 1st Floor Window055
+    3300162: 1st Floor Window057
+    3300164: 1st Floor Window059
+    3300166: 1st Floor Window060
+    3300168: 1st Floor Window061
+    3300170: 1st Floor Window062
+    3300172: 1st Floor Window063
+    3300174: 1st Floor Window065
+    3300176: 1st Floor Window067
+    3300178: 1st Floor Window069
+    3300180: 1st Floor WindowDone
+    3300182: 1st Floor WindowDone001
+    3300184: 1st Floor WindowDone002
+    3300186: 1st Floor WindowDone003
+    3300188: 1st Floor WindowDone004
+    3300190: 1st Floor WindowDone005
+    3300192: 1st Floor WindowDone006
+    3300194: 1st Floor WindowDone007
+    3300196: 1st Floor WindowDone008
+    3300198: 1st Floor WindowDone009
+    3300200: 1st Floor WindowDone010
+    3300202: 1st Floor WindowDone011
+    3300204: 1st Floor WindowDone013
+    3300206: 1st Floor WindowDone014
+    3300208: 1st Floor WindowDone015
+    3300210: 1st Floor WindowDone016
+    3300212: 1st Floor WindowDone018
+    3300214: 1st Floor WindowDone019
+    3300216: 1st Floor WindowDone022
+    3300218: 1st Floor WindowDone023
+    3300220: 1st Floor WindowDone035
+    3300222: 1st Floor WindowDone036
+    3300224: 1st Floor WindowDone037
+    3300226: 1st Floor WindowDone038
+    3300228: 1st Floor WindowDone039
+    3300230: 1st Floor WindowDone040
+    3300232: 1st Floor WindowDone041
+    3300234: 1st Floor WindowDone042
+    3300236: 1st Floor WindowDone043
+    3300238: 1st Floor WindowDone044
+    3300240: 1st Floor WindowDone045
+    3300242: 1st Floor WindowDone046
+    3300244: 1st Floor WindowDone047
+    3300246: 1st Floor WindowDone048
+    3300248: 1st Floor WindowDone049
+    3300250: 1st Floor WindowDone050
+    3300252: 1st Floor WindowDone051
+    3300254: 1st Floor WindowDone052
+    3300256: 1st Floor WindowDone053
+    3300258: 1st Floor WindowDone054
+    3300260: 1st Floor WindowDone055
+    3300262: 1st Floor WindowDone056
+    3300264: 1st Floor WindowDone057
+    3300266: 1st Floor WindowDone058
+    3300268: 1st Floor WindowDone059
+    3300270: 1st Floor WindowDone060
+    3300272: 1st Floor WindowDone061
+    3300274: 1st Floor WindowDone062
+    3300276: 1st Floor WindowDone063
+    3300278: 1st Floor WindowDone064
+    3300280: 1st Floor WindowDone065
+    3300282: 1st Floor WindowDone066
+    3300284: 1st Floor WindowDone067
+    3300286: 1st Floor WindowDone068
+    3300288: 1st Floor WindowDone069
+    3300290: 1st Floor WindowDone070
+    3300292: 1st Floor WindowDone071
+    3300294: 1st Floor WindowDone072
+    3300296: 1st Floor WindowDone073
+    3300298: 1st Floor WindowDone074
+    3300300: 1st Floor WindowDone075
+    3300302: 1st Floor WindowDone076
+    3300304: 1st Floor WindowDone077
+    3300306: 1st Floor WindowDone078
+    3300308: 1st Floor WindowDone079
+    3300310: 1st Floor WindowDone080
+    3300312: 1st Floor WindowDone081
+    3300314: 1st Floor WindowDone082
+    3300316: 1st Floor WindowDone083
+    3300318: 1st Floor WindowDone084
+    3300320: 1st Floor WindowDone105
+    3300322: 1st Floor WindowDone106
+    3300324: 1st Floor WindowDone107
+    3300326: 1st Floor WindowDone108
+    3300328: 1st Floor WindowDone109
+    3300330: 1st Floor WindowDone110
+    3300332: 1st Floor WindowDone111
+    3300334: 1st Floor WindowDone112
+    3300336: 1st Floor WindowDone113
+    3300338: 1st Floor WindowDone114
+    3300340: 1st Floor WindowDone117
+    3300342: 1st Floor WindowDone119
+    3300344: 1st Floor WindowDone120
+    3300346: 1st Floor WindowDone123
+    3300348: 1st Floor WindowDone124
+    3300350: 1st Floor WindowDone125
+    3300352: 1st Floor WindowDone126
+    3300354: 1st Floor WindowDone127
+    3300356: 1st Floor WindowDone128
+    3300358: 1st Floor WindowDone129
+    3300360: 1st Floor WindowDone130
+    3300362: 1st Floor WindowDone131
+    3300364: 1st Floor WindowDone132
+    3300366: 1st Floor WindowDone133
+    3300368: 1st Floor WindowDone134
+    3300370: 1st Floor WindowDone135
+    3300372: 1st Floor WindowDone136
+    3300374: 1st Floor WindowDone137
+    3300376: 1st Floor WindowDone147
+    3300378: 1st Floor WindowDone148
+    3300380: 1st Floor WindowDone149
+    3300382: 1st Floor WindowDone150
+    3300384: 1st Floor WindowDone151
+    3300386: 1st Floor WindowDone152
+    3300388: 1st Floor WindowDone153
+    3300390: 1st Floor WindowDone154
+    3300392: 1st Floor WindowDone155
+    3300394: 1st Floor WindowDone156
+    3300396: 1st Floor WindowDone157
+    3300398: 1st Floor WindowDone158
+    3300400: 1st Floor WindowDone159
+    3300402: 1st Floor WindowDone160
+    3300404: 1st Floor WindowDone166
+    3300406: 1st Floor WindowDone167
+    3300408: 1st Floor WindowDone168
+    3300410: 1st Floor WindowDone169
+    3300412: 1st Floor WindowDone170
+    3300414: 1st Floor WindowDone171
+    3300416: 1st Floor WindowDone172
+    3300418: 1st Floor WindowDone173
+    3300420: 1st Floor WindowDone174
+    3300422: 1st Floor WindowDone175
+    3300424: 1st Floor WindowDone176
+    3300426: 1st Floor WindowDone177
+    3300428: 1st Floor WindowDone178
+    3300430: 1st Floor WindowDone179
+    3300432: 1st Floor WindowDone180
+    3300434: Balcony005
+    3300436: Balcony006
+    3300438: Balcony007
+    3300440: Balcony008
+    3300442: Balcony014
+    3300444: Balcony016
+    3300446: Balcony017
+    3300448: Balcony018
+    3300450: Balcony019
+    3300452: Balcony020
+    3300454: Balcony021
+    3300456: Balcony022
+    3300458: Balcony023
+    3300460: Balcony024
+    3300462: Balcony025
+    3300464: Balcony027
+    3300466: Balcony028
+    3300468: Balcony029
+    3300470: Balcony030
+    3300472: Balcony031
+    3300474: Balcony032
+    3300476: Balcony033
+    3300478: Balcony034
+    3300480: Balcony035
+    3300482: Balcony036
+    3300484: Balcony037
+    3300486: Balcony038
+    3300488: Balcony039
+    3300490: Balcony040
+    3300492: Balcony041
+    3300494: Balcony042
+    3300496: Balcony043
+    3300498: Balcony044
+    3300500: Balcony045
+    3300502: Balcony046
+    3300504: Balcony048
+    3300506: Balcony049
+    3300508: Balcony050
+    3300510: Balcony051
+    3300512: Balcony053
+    3300514: Balcony057
+    3300516: Balcony058
+    3300518: Balcony059
+    3300520: Balcony060
+    3300522: Balcony061
+    3300524: Balcony062
+    3300526: Balcony063
+    3300528: Balcony064
+    3300530: Balcony065
+    3300532: Balcony066
+    3300534: Balcony067
+    3300536: Balcony068
+    3300538: Balcony069
+    3300540: Balcony070
+    3300542: Balcony071
+    3300544: Balcony072
+    3300546: Balcony073
+    3300548: Balcony074
+    3300550: Balcony075
+    3300552: Balcony076
+    3300554: Balcony077
+    3300556: Balcony078
+    3300558: Balcony079
+    3300560: Balcony080
+    3300562: Balcony081
+    3300564: Balcony087
+    3300566: Balcony092
+    3300568: Balcony093
+    3300570: Balcony094
+    3300572: Balcony095
+    3300574: Balcony096
+    3300576: Balcony097
+    3300578: Balcony098
+    3300580: Balcony099
+    3300582: Balcony100
+    3300584: Balcony101
+    3300586: Balcony102
+    3300588: Balcony103
+    3300590: Balcony104
+    3300592: Balcony105
+    3300594: Balcony106
+    3300596: Balcony107
+    3300598: Balcony108
+    3300600: Balcony109
+    3300602: Balcony110
+    3300604: Balcony111
+    3300606: Balcony112
+    3300608: Balcony113
+    3300610: Balcony114
+    3300612: Balcony115
+    3300614: Balcony116
+    3300616: Balcony117
+    3300618: Balcony118
+    3300620: Balcony119
+    3300622: Balcony120
+    3300624: Balcony121
+    3300626: Balcony122
+    3300628: Balcony123
+    3300630: Balcony124
+    3300632: Balcony125
+    3300634: Balcony126
+    3300636: Balcony127
+    3300638: Balcony128
+    3300640: Balcony129
+    3300642: Balcony130
+    3300644: Balcony131
+    3300646: Balcony132
+    3300648: Balcony133
+    3300650: Balcony134
+    3300652: Balcony135
+    3300654: Balcony136
+    3300656: Balcony138
+    3300658: Balcony139
+    3300660: Balcony140
+    3300662: Balcony141
+    3300664: Balcony142
+    3300666: Balcony143
+    3300668: Balcony144
+    3300670: Balcony145
+    3300672: Balcony146
+    3300674: Balcony147
+    3300676: Balcony148
+    3300678: Balcony149
+    3300680: Balcony150
+    3300682: Balcony151
+    3300684: Balcony152
+    3300686: Balcony153
+    3300688: Balcony154
+    3300690: Balcony155
+    3300692: Balcony156
+    3300694: Balcony157
+    3300696: Balcony158
+    3300698: Balcony159
+    3300700: Big Door 3win Kasia
+    3300702: Big Door 3win Kasia001
+    3300704: Big Door 3win Kasia002
+    3300706: Big Door 3win Kasia003
+    3300708: Big Door 3win Kasia004
+    3300710: Big Door 3win Kasia005
+    3300712: Big Door 3win Kasia006
+    3300714: Big Door 3win Kasia007
+    3300716: Big Door 3win Kasia008
+    3300718: Big Door 3win Kasia009
+    3300720: Big Door 3win Kasia010
+    3300722: Big Door 3win Kasia011
+    3300724: Big Door 3win Kasia018
+    3300726: Big Door 3win Kasia019
+    3300728: Big Door 3win Kasia020
+    3300730: Big Door 3win Kasia021
+    3300732: Big Door 3win Kasia022
+    3300734: Big Door 3win Kasia023
+    3300736: Big Door 3win Kasia024
+    3300738: Big Door 3win Kasia025
+    3300740: Big Door 3win Kasia026
+    3300742: Big Door 3win Kasia027
+    3300744: Big Door 3win Kasia028
+    3300746: Big Door 3win Kasia029
+    3300748: Big Door 3win Kasia030
+    3300750: Big Door 3win Kasia031
+    3300752: Big Door 3win Kasia032
+    3300754: Big Door 3win Kasia033
+    3300756: Big Door 3win Kasia034
+    3300758: Big Door 3win Porta
+    3300760: Big Door 3win Porta001
+    3300762: Big Door 3win Porta003
+    3300764: Big Door 3win Porta004
+    3300766: Big Door 3win Porta005
+    3300768: Big Door 3win Skali
+    3300770: Big Door 3win Skali001
+    3300772: Big Door 3win Skali003
+    3300774: Big Door 3win Skali004
+    3300776: Big Door 3win Skali005
+    3300778: Big Door 3win Top Plate
+    3300780: Big Door 3win Top Plate001
+    3300782: Big Door 3win Top Plate003
+    3300784: Big Door 3win Top Plate004
+    3300786: Big Door 3win Top Plate005
+    3300788: Big Door005
+    3300790: Big Door006
+    3300792: Big Door007
+    3300794: Big Door008
+    3300796: Big Door009
+    3300798: Big Door010
+    3300800: Big Door011
+    3300802: Big Door012
+    3300804: Big Door017
+    3300806: Big Door018
+    3300808: Big Door019
+    3300810: Big Door020
+    3300812: Big Door021
+    3300814: Big Door022
+    3300816: Big Door023
+    3300818: Big Door024
+    3300820: Big Door025
+    3300822: Big Door026
+    3300824: Big Door027
+    3300826: Big Door028
+    3300828: Box001
+    3300830: Box003
+    3300832: Box004
+    3300834: Box005
+    3300836: Box011
+    3300838: Box017
+    3300840: Box018
+    3300842: Box019
+    3300844: Box020
+    3300846: Box021
+    3300848: Box022
+    3300850: Box023
+    3300852: Box024
+    3300854: Box025
+    3300856: Box027
+    3300858: Box028
+    3300860: Box029
+    3300862: Box030
+    3300864: Box031
+    3300866: Box032
+    3300868: Box033
+    3300870: Box034
+    3300872: Box035
+    3300874: Box036
+    3300876: Box037
+    3300878: Box038
+    3300880: Box039
+    3300882: Box040
+    3300884: Box041
+    3300886: Box042
+    3300888: Box043
+    3300890: Box044
+    3300892: Box045
+    3300894: Box046
+    3300896: Box047
+    3300898: Box048
+    3300900: Box049
+    3300902: Box050
+    3300904: Box051
+    3300906: Box052
+    3300908: Box053
+    3300910: Box054
+    3300912: Box055
+    3300914: Box056
+    3300916: Box057
+    3300918: Box059
+    3300920: Box060
+    3300922: Box063
+    3300924: Box064
+    3300926: Box066
+    3300928: Box067
+    3300930: Box068
+    3300932: Box070
+    3300934: Box071
+    3300936: Box072
+    3300938: Box073
+    3300940: Box074
+    3300942: Box075
+    3300944: Box076
+    3300946: Box077
+    3300948: Box078
+    3300950: Box079
+    3300952: Box080
+    3300954: Box081
+    3300956: Box082
+    3300958: Box083
+    3300960: Box084
+    3300962: Box085
+    3300964: Box086
+    3300966: Box087
+    3300968: Box088
+    3300970: Box089
+    3300972: Box090
+    3300974: Box091
+    3300976: Box092
+    3300978: Box093
+    3300980: Box094
+    3300982: Box095
+    3300984: Box096
+    3300986: Box097
+    3300988: Box098
+    3300990: Box099
+    3300992: Box100
+    3300994: Box101
+    3300996: Box102
+    3300998: Box103
+    3301000: Box104
+    3301002: Box105
+    3301004: Box106
+    3301006: Box107
+    3301008: Box108
+    3301010: Box109
+    3301012: Box110
+    3301014: Box111
+    3301016: Box112
+    3301018: Box113
+    3301020: Box115
+    3301022: Box116
+    3301024: Box117
+    3301026: Box118
+    3301028: Box119
+    3301030: Box120
+    3301032: Box121
+    3301034: Box122
+    3301036: Box123
+    3301038: Box124
+    3301040: Box125
+    3301042: Box126
+    3301044: Box127
+    3301046: Box128
+    3301048: Box129
+    3301050: Box130
+    3301052: Box131
+    3301054: Box132
+    3301056: Box133
+    3301058: Box134
+    3301060: Box135
+    3301062: Box136
+    3301064: Box137
+    3301066: Box138
+    3301068: Box139
+    3301070: Box140
+    3301072: Box141
+    3301074: Box142
+    3301076: Box143
+    3301078: Box144
+    3301080: Box145
+    3301082: Box146
+    3301084: Box147
+    3301086: Box148
+    3301088: Box149
+    3301090: Box150
+    3301092: Box151
+    3301094: Box152
+    3301096: Box153
+    3301098: Box154
+    3301100: Box155
+    3301102: Box156
+    3301104: Box157
+    3301106: Box158
+    3301108: Box159
+    3301110: Box162
+    3301112: Box163
+    3301114: Box164
+    3301116: Box165
+    3301118: Box166
+    3301120: Box167
+    3301122: Box168
+    3301124: Box169
+    3301126: Box170
+    3301128: Box171
+    3301130: Box172
+    3301132: Box173
+    3301134: Box174
+    3301136: Box175
+    3301138: Box176
+    3301140: Box177
+    3301142: Box178
+    3301144: Box179
+    3301146: Box180
+    3301148: Box181
+    3301150: Box182
+    3301152: Box183
+    3301154: Box184
+    3301156: Box185
+    3301158: Box186
+    3301160: Box187
+    3301162: Box188
+    3301164: Box189
+    3301166: Box190
+    3301168: Box197
+    3301170: Box198
+    3301172: Box199
+    3301174: Box200
+    3301176: Box201
+    3301178: Box202
+    3301180: Box203
+    3301182: Box204
+    3301184: Box205
+    3301186: Box206
+    3301188: Box207
+    3301190: Box208
+    3301192: Box209
+    3301194: Box210
+    3301196: Box212
+    3301198: Box213
+    3301200: Box214
+    3301202: Box215
+    3301204: Box216
+    3301206: Box217
+    3301208: Box218
+    3301210: Box219
+    3301212: Box221
+    3301214: Box222
+    3301216: Box223
+    3301218: Box225
+    3301220: Box230
+    3301222: Box232
+    3301224: Box233
+    3301226: Box234
+    3301228: Box235
+    3301230: Box236
+    3301232: Box237
+    3301234: Box238
+    3301236: Box239
+    3301238: Box240
+    3301240: Box241
+    3301242: Box242
+    3301244: Box243
+    3301246: Box244
+    3301248: Box245
+    3301250: Box246
+    3301252: Box247
+    3301254: Box248
+    3301256: Box249
+    3301258: Box250
+    3301260: Box251
+    3301262: Box252
+    3301264: Box253
+    3301266: Box254
+    3301268: Box256
+    3301270: Box257
+    3301272: Box259
+    3301274: Box260
+    3301276: Box261
+    3301278: Box262
+    3301280: Box263
+    3301282: Box264
+    3301284: Box265
+    3301286: Box266
+    3301288: Box267
+    3301290: Box268
+    3301292: Box269
+    3301294: Box270
+    3301296: Box271
+    3301298: Box273
+    3301300: Box274
+    3301302: Box275
+    3301304: Box276
+    3301306: Box277
+    3301308: Box278
+    3301310: Box279
+    3301312: Box280
+    3301314: Box281
+    3301316: Box282
+    3301318: Box283
+    3301320: Box288
+    3301322: Box289
+    3301324: Box290
+    3301326: Box291
+    3301328: Box292
+    3301330: Box293
+    3301332: Box294
+    3301334: Box295
+    3301336: Box296
+    3301338: Box297
+    3301340: Box298
+    3301342: Box299
+    3301344: Box300
+    3301346: Box301
+    3301348: Box302
+    3301350: Box303
+    3301352: Box304
+    3301354: Box305
+    3301356: Box309
+    3301358: Box310
+    3301360: Box311
+    3301362: Box312
+    3301364: Box313
+    3301366: Box314
+    3301368: Box315
+    3301370: Box316
+    3301372: Box317
+    3301374: Box318
+    3301376: Box319
+    3301378: Box320
+    3301380: Box321
+    3301382: Box322
+    3301384: Box323
+    3301386: Capsule006
+    3301388: Capsule009
+    3301390: Cylinder001
+    3301392: Cylinder002
+    3301394: Cylinder003
+    3301396: Cylinder004
+    3301398: Cylinder005
+    3301400: Cylinder006
+    3301402: Cylinder007
+    3301404: Cylinder008
+    3301406: Cylinder009
+    3301408: Cylinder010
+    3301410: Cylinder011
+    3301412: Cylinder012
+    3301414: Cylinder013
+    3301416: Cylinder014
+    3301418: Dipli Priza
+    3301420: Dipli Priza001
+    3301422: Dipli Priza002
+    3301424: Dipli Priza003
+    3301426: Dipli Priza004
+    3301428: Dipli Priza005
+    3301430: Dipli Priza006
+    3301432: Dipli Priza007
+    3301434: Dipli Priza008
+    3301436: Dipli Priza009
+    3301438: Dipli Priza010
+    3301440: Dipli Priza011
+    3301442: Dipli Priza012
+    3301444: Dipli Priza013
+    3301446: Dipli Priza014
+    3301448: Dipli Priza015
+    3301450: Dipli Priza016
+    3301452: Dipli Priza017
+    3301454: Dipli Priza018
+    3301456: Dipli Priza019
+    3301458: Dipli Priza020
+    3301460: Dipli Priza021
+    3301462: Dipli Priza022
+    3301464: Door Yard003
+    3301466: GlassMain Door
+    3301468: Homa002
+    3301470: Homa1
+    3301472: Line002
+    3301474: Line015
+    3301476: Line018
+    3301478: Line020
+    3301480: Line021
+    3301482: Line022
+    3301484: Line023
+    3301486: Line024
+    3301488: Line025
+    3301490: Line026
+    3301492: Line027
+    3301494: Line028
+    3301496: Line029
+    3301498: Line030
+    3301500: Line031
+    3301502: Line032
+    3301504: Line033
+    3301506: Line034
+    3301508: Line037
+    3301510: Line045
+    3301512: Line046
+    3301514: Line047
+    3301516: Line048
+    3301518: Line049
+    3301520: Line050
+    3301522: Main Door001
+    3301524: Plane001
+    3301526: Plane002
+    3301528: Plane003
+    3301530: Plane004
+    3301532: Plane005
+    3301534: Plane006
+    3301536: Psif
+    3301538: Rectangle001
+    3301540: Rectangle002
+    3301542: Rectangle003
+    3301544: Rectangle004
+    3301546: Rectangle005
+    3301548: Rectangle006
+    3301550: Rectangle007
+    3301552: Rectangle008
+    3301554: Rectangle009
+    3301556: Rectangle010
+    3301558: Rectangle011
+    3301560: Rectangle012
+    3301562: Small Door
+    3301564: Small Window015
+    3301566: Small Window016
+    3301568: Small Window017
+    3301570: Small Window021
+    3301572: Small Window022
+    3301574: Small Window023
+    3301576: Small Window024
+    3301578: Small Window026
+    3301580: Small Window027
+    3301582: Small Window028
+    3301584: Small Window029
+    3301586: Small Window030
+    3301588: Small Window031
+    3301590: Small Window032
+    3301592: Small Window033
+    3301594: Small Window034
+    3301596: Small Window035
+    3301598: Small Window036
+    3301600: Small Window037
+    3301602: Small Window038
+    3301604: Small Window039
+    3301606: Small Window040
+    3301608: Small Window041
+    3301610: Small Window042
+    3301612: Small Window043
+    3301614: Small Window044
+    3301616: Small Window045
+    3301618: Small Window046
+    3301620: Small Window047
+    3301622: Small Window048
+    3301624: Small Window049
+    3301626: Small Window050
+    3301628: Small Window051
+    3301630: Small Window052
+    3301632: Small Window053
+    3301634: Small Window054
+    3301636: Small Window055
+    3301638: Small Window056
+    3301640: Small Window057
+    3301642: Small Window058
+    3301644: Small Window059
+    3301646: Small Window060
+    3301648: Small Window061
+    3301650: Small Window062
+    3301652: Small Window063
+    3301654: Small Window064
+    3301656: Small Window065
+    3301658: Small Window066
+    3301660: Small Window067
+    3301662: Sphere001
+    3301664: Sphere002
+    3301666: Sphere003
+    3301668: Sphere004
+    3301670: Sphere005
+    3301672: Sphere006
+    3301674: Sphere007
+    3301676: Sphere008
+    3301678: Sphere009
+    3301680: Sphere010
+    3301682: Tavani orofou
+    3301684: Tube001
+    3301686: Tube002
+    3301688: Tube003
+    3301690: Tube004
+    3301692: Tube005
+    3301694: Tube006
+    4300000: Tavani orofou
+    4300002: Box131
+    4300004: Box132
+    4300006: Line047
+    4300008: Box119
+    4300010: Box120
+    4300012: Box121
+    4300014: Box122
+    4300016: Box123
+    4300018: Box124
+    4300020: Box125
+    4300022: Box126
+    4300024: Box127
+    4300026: Box128
+    4300028: Line048
+    4300030: Box129
+    4300032: Box130
+    4300034: Box001
+    4300036: Box003
+    4300038: Box004
+    4300040: Box005
+    4300042: Box011
+    4300044: Box064
+    4300046: Box066
+    4300048: Box067
+    4300050: Box068
+    4300052: Box071
+    4300054: Box118
+    4300056: Line049
+    4300058: Box289
+    4300060: Box293
+    4300062: Box292
+    4300064: Box288
+    4300066: Capsule006
+    4300068: Box290
+    4300070: Box291
+    4300072: Capsule009
+    4300074: Box296
+    4300076: Box299
+    4300078: Box298
+    4300080: Dipli Priza001
+    4300082: Dipli Priza002
+    4300084: Box294
+    4300086: Box295
+    4300088: Box297
+    4300090: Box300
+    4300092: Box301
+    4300094: Box302
+    4300096: 1st Floor Window Inside004
+    4300098: 1st Floor WindowDone004
+    4300100: 1st Floor Window Inside005
+    4300102: 1st Floor WindowDone005
+    4300104: 1st Floor Window Inside013
+    4300106: 1st Floor WindowDone013
+    4300108: 1st Floor Window Inside014
+    4300110: 1st Floor WindowDone014
+    4300112: 1st Floor Window Inside015
+    4300114: 1st Floor WindowDone015
+    4300116: 1st Floor Window Inside016
+    4300118: 1st Floor WindowDone016
+    4300120: 1st Floor WindowDone018
+    4300122: 1st Floor Window Inside018
+    4300124: 1st Floor WindowDone019
+    4300126: 1st Floor Window Inside019
+    4300128: 1st Floor WindowDone113
+    4300130: 1st Floor WindowDone112
+    4300132: 1st Floor WindowDone108
+    4300134: 1st Floor WindowDone035
+    4300136: 1st Floor WindowDone036
+    4300138: 1st Floor WindowDone107
+    4300140: 1st Floor WindowDone106
+    4300142: 1st Floor WindowDone105
+    4300144: 1st Floor WindowDone040
+    4300146: 1st Floor WindowDone041
+    4300148: 1st Floor WindowDone042
+    4300150: 1st Floor WindowDone043
+    4300152: 1st Floor WindowDone073
+    4300154: 1st Floor WindowDone124
+    4300156: 1st Floor WindowDone123
+    4300158: 1st Floor WindowDone120
+    4300160: 1st Floor WindowDone119
+    4300162: 1st Floor WindowDone117
+    4300164: 1st Floor WindowDone125
+    4300166: 1st Floor WindowDone126
+    4300168: 1st Floor WindowDone127
+    4300170: 1st Floor WindowDone128
+    4300172: 1st Floor WindowDone129
+    4300174: 1st Floor WindowDone130
+    4300176: 1st Floor WindowDone131
+    4300178: 1st Floor WindowDone132
+    4300180: 1st Floor WindowDone133
+    4300182: 1st Floor WindowDone134
+    4300184: 1st Floor WindowDone135
+    4300186: 1st Floor WindowDone136
+    4300188: 1st Floor WindowDone137
+    4300190: 1st Floor WindowDone072
+    4300192: 1st Floor WindowDone147
+    4300194: 1st Floor WindowDone148
+    4300196: 1st Floor WindowDone149
+    4300198: 1st Floor WindowDone150
+    4300200: 1st Floor WindowDone151
+    4300202: 1st Floor WindowDone152
+    4300204: 1st Floor WindowDone153
+    4300206: 1st Floor WindowDone154
+    4300208: 1st Floor WindowDone155
+    4300210: 1st Floor WindowDone071
+    4300212: 1st Floor WindowDone067
+    4300214: 1st Floor WindowDone066
+    4300216: 1st Floor WindowDone065
+    4300218: 1st Floor WindowDone083
+    4300220: 1st Floor WindowDone082
+    4300222: 1st Floor WindowDone081
+    4300224: 1st Floor WindowDone159
+    4300226: 1st Floor WindowDone077
+    4300228: 1st Floor WindowDone055
+    4300230: 1st Floor WindowDone056
+    4300232: 1st Floor WindowDone057
+    4300234: 1st Floor WindowDone076
+    4300236: 1st Floor WindowDone075
+    4300238: 1st Floor WindowDone053
+    4300240: 1st Floor WindowDone061
+    4300242: 1st Floor WindowDone062
+    4300244: 1st Floor WindowDone063
+    4300246: 1st Floor WindowDone052
+    4300248: 1st Floor WindowDone045
+    4300250: 1st Floor WindowDone046
+    4300252: 1st Floor WindowDone047
+    4300254: 1st Floor WindowDone051
+    4300256: 1st Floor WindowDone049
+    4300258: 1st Floor WindowDone050
+    4300260: 1st Floor WindowDone048
+    4300262: 1st Floor WindowDone064
+    4300264: 1st Floor WindowDone060
+    4300266: 1st Floor WindowDone054
+    4300268: 1st Floor WindowDone059
+    4300270: 1st Floor WindowDone058
+    4300272: 1st Floor WindowDone160
+    4300274: 1st Floor WindowDone078
+    4300276: 1st Floor WindowDone079
+    4300278: 1st Floor WindowDone080
+    4300280: 1st Floor WindowDone158
+    4300282: 1st Floor WindowDone157
+    4300284: 1st Floor WindowDone156
+    4300286: 1st Floor WindowDone084
+    4300288: 1st Floor WindowDone068
+    4300290: 1st Floor WindowDone069
+    4300292: 1st Floor WindowDone070
+    4300294: '*1st Floor Slim Wall 005'
+    4300296: 1st Floor WindowDone044
+    4300298: 1st Floor WindowDone074
+    4300300: 1st Floor WindowDone039
+    4300302: 1st Floor WindowDone038
+    4300304: 1st Floor WindowDone037
+    4300306: 1st Floor WindowDone023
+    4300308: 1st Floor WindowDone109
+    4300310: 1st Floor WindowDone110
+    4300312: 1st Floor WindowDone111
+    4300314: 1st Floor Window Inside023
+    4300316: 1st Floor Window Inside022
+    4300318: 1st Floor WindowDone114
+    4300320: 1st Floor WindowDone022
+    4300322: '*1st Floor Slim Wall 004'
+    4300324: '*1st Floor Slim Wall 003'
+    4300326: '*1st Floor Slim Wall 002'
+    4300328: '*1st Floor Slim Wall 1'
+    4300330: '*1st Floor Fat Wall'
+    4300332: '*1st Floor Fat Wall 2'
+    4300334: 1st Floor WindowDone008
+    4300336: 1st Floor Window Inside008
+    4300338: 1st Floor WindowDone007
+    4300340: 1st Floor Window Inside007
+    4300342: 1st Floor WindowDone006
+    4300344: 1st Floor Window Inside006
+    4300346: '*1st Floor Slim Wall 006'
+    4300348: Box230
+    4300350: Box225
+    4300352: '*1st Floor Slim Wall 008'
+    4300354: '*1st Floor Slim Wall 009'
+    4300356: Box238
+    4300358: Box239
+    4300360: Box240
+    4300362: Box241
+    4300364: Box242
+    4300366: Box243
+    4300368: Box244
+    4300370: 1st Floor Window Inside024
+    4300372: 1st Floor Window Inside025
+    4300374: '*1st Floor Slim Wall 010'
+    4300376: Box237
+    4300378: Box236
+    4300380: Box235
+    4300382: Box223
+    4300384: Box221
+    4300386: Box222
+    4300388: Box234
+    4300390: Box233
+    4300392: Box232
+    4300394: Balcony005
+    4300396: Balcony006
+    4300398: Balcony007
+    4300400: Balcony008
+    4300402: Balcony014
+    4300404: Balcony016
+    4300406: Balcony017
+    4300408: Balcony018
+    4300410: Balcony019
+    4300412: Balcony020
+    4300414: Balcony021
+    4300416: Balcony022
+    4300418: Balcony023
+    4300420: Balcony024
+    4300422: Balcony025
+    4300424: Balcony027
+    4300426: Balcony028
+    4300428: Balcony029
+    4300430: Balcony030
+    4300432: Balcony031
+    4300434: Balcony032
+    4300436: Balcony033
+    4300438: Balcony034
+    4300440: Balcony035
+    4300442: Balcony036
+    4300444: Balcony037
+    4300446: Balcony038
+    4300448: Balcony039
+    4300450: Balcony040
+    4300452: Balcony041
+    4300454: Balcony042
+    4300456: Balcony043
+    4300458: Balcony044
+    4300460: Balcony045
+    4300462: Balcony046
+    4300464: Box111
+    4300466: Box112
+    4300468: Box113
+    4300470: Box115
+    4300472: Box116
+    4300474: Box117
+    4300476: Box133
+    4300478: Balcony081
+    4300480: Balcony080
+    4300482: Balcony079
+    4300484: Balcony078
+    4300486: Balcony077
+    4300488: Balcony076
+    4300490: Balcony075
+    4300492: Balcony074
+    4300494: Balcony073
+    4300496: Balcony072
+    4300498: Balcony071
+    4300500: Balcony070
+    4300502: Balcony069
+    4300504: Balcony068
+    4300506: Balcony067
+    4300508: Balcony066
+    4300510: Balcony065
+    4300512: Balcony064
+    4300514: Balcony063
+    4300516: Balcony062
+    4300518: Balcony061
+    4300520: Balcony060
+    4300522: Balcony059
+    4300524: Balcony058
+    4300526: Balcony057
+    4300528: Balcony053
+    4300530: Balcony051
+    4300532: Balcony050
+    4300534: Balcony049
+    4300536: Balcony048
+    4300538: Sphere003
+    4300540: Box246
+    4300542: Cylinder001
+    4300544: Tube001
+    4300546: Plane001
+    4300548: Box245
+    4300550: Tube002
+    4300552: Sphere004
+    4300554: Box247
+    4300556: Cylinder002
+    4300558: Plane002
+    4300560: Box248
+    4300562: Tube003
+    4300564: Sphere005
+    4300566: Box249
+    4300568: Cylinder003
+    4300570: Plane003
+    4300572: Box250
+    4300574: Box267
+    4300576: Cylinder007
+    4300578: Box263
+    4300580: Box264
+    4300582: Box265
+    4300584: Box266
+    4300586: Box257
+    4300588: Cylinder006
+    4300590: Box268
+    4300592: Box256
+    4300594: Box261
+    4300596: Box260
+    4300598: Box262
+    4300600: Box259
+    4300602: Box271
+    4300604: Tube006
+    4300606: Sphere008
+    4300608: Box269
+    4300610: Cylinder008
+    4300612: Plane006
+    4300614: Box270
+    4300616: '*1st Floor Slim Wall 011'
+    4300618: Box273
+    4300620: Box274
+    4300622: Box275
+    4300624: '*1st Floor Slim Wall 012'
+    4300626: Box276
+    4300628: Box277
+    4300630: Sphere010
+    4300632: Cylinder012
+    4300634: Box280
+    4300636: Cylinder013
+    4300638: Cylinder014
+    4300640: Box281
+    4300642: Cylinder009
+    4300644: Box278
+    4300646: Cylinder010
+    4300648: Cylinder011
+    4300650: Box279
+    4300652: Sphere009
+    4300654: Dipli Priza015
+    4300656: Dipli Priza014
+    4300658: Dipli Priza013
+    4300660: Dipli Priza016
+    4300662: Dipli Priza017
+    4300664: Dipli Priza018
+    4300666: Dipli Priza019
+    4300668: 1st Floor WindowDone171
+    4300670: 1st Floor WindowDone172
+    4300672: 1st Floor WindowDone173
+    4300674: 1st Floor WindowDone174
+    4300676: 1st Floor WindowDone175
+    4300678: 1st Floor WindowDone176
+    4300680: 1st Floor WindowDone177
+    4300682: 1st Floor WindowDone178
+    4300684: 1st Floor WindowDone179
+    4300686: 1st Floor WindowDone180
+    4300688: Dipli Priza020
+    4300690: Dipli Priza021
+    4300692: Dipli Priza022
+    4300694: '* 1st Floor Lower FloorDown'
+    4300696: '* 1st Floor Lower Floor'
+    4300698: '*1st Floor Floor Down'
+    4300700: '*1st Floor Floor Up'
+    4300702: Box321
+    4300704: Box322
+    4300706: Box323
+    4300708: Box303
+    4300710: Box305
+    4300712: Box304
+    4300714: Box309
+    4300716: Box310
+    4300718: Box311
+    4300720: Box312
+    4300722: Box313
+    4300724: Box314
+    4300726: Box315
+    4300728: Box316
+    4300730: Box317
+    4300732: Box318
+    4300734: Box319
+    4300736: Box320
+    4300738: '*Arc Wall Grnd Floor 2'
+    4300740: Line002
+    4300742: '* Ground Floor Wall 2'
+    4300744: Small Door
+    4300746: Big Door 3win Top Plate
+    4300748: Big Door 3win Skali
+    4300750: Big Door008
+    4300752: Big Door007
+    4300754: Big Door005
+    4300756: Big Door006
+    4300758: Big Door 3win Kasia003
+    4300760: Big Door 3win Kasia001
+    4300762: Big Door 3win Kasia
+    4300764: Big Door 3win Kasia002
+    4300766: Big Door 3win Kasia004
+    4300768: Big Door 3win Kasia005
+    4300770: Big Door 3win Porta
+    4300772: '*Arc 2 Ground Floor'
+    4300774: '* Arc Grnd Floor'
+    4300776: Box059
+    4300778: Box060
+    4300780: '*Arc Wall Grnd Floor'
+    4300782: '* Ground Floor Wall 1'
+    4300784: Box063
+    4300786: Line015
+    4300788: Box070
+    4300790: Box072
+    4300792: Small Window015
+    4300794: Small Window016
+    4300796: Small Window017
+    4300798: Small Window022
+    4300800: Small Window023
+    4300802: Small Window021
+    4300804: Small Window024
+    4300806: Small Window030
+    4300808: Small Window032
+    4300810: Small Window026
+    4300812: Small Window027
+    4300814: Small Window028
+    4300816: Small Window029
+    4300818: Small Window031
+    4300820: Small Window033
+    4300822: Small Window034
+    4300824: Small Window035
+    4300826: Small Window036
+    4300828: Small Window037
+    4300830: Small Window038
+    4300832: Small Window039
+    4300834: Small Window040
+    4300836: Small Window041
+    4300838: Small Window042
+    4300840: Small Window043
+    4300842: Small Window044
+    4300844: Line018
+    4300846: Line020
+    4300848: Line021
+    4300850: Line022
+    4300852: Line023
+    4300854: Line024
+    4300856: Line025
+    4300858: Line026
+    4300860: Line027
+    4300862: Small Window049
+    4300864: Small Window050
+    4300866: Small Window051
+    4300868: Small Window052
+    4300870: Small Window053
+    4300872: Small Window054
+    4300874: Small Window055
+    4300876: Small Window045
+    4300878: Small Window056
+    4300880: Small Window057
+    4300882: Small Window058
+    4300884: Small Window059
+    4300886: Small Window060
+    4300888: Small Window061
+    4300890: Line028
+    4300892: Line029
+    4300894: Small Window062
+    4300896: Small Window063
+    4300898: Small Window064
+    4300900: Small Window065
+    4300902: Line030
+    4300904: Line031
+    4300906: Line032
+    4300908: Line033
+    4300910: Line034
+    4300912: Small Window067
+    4300914: Small Window046
+    4300916: Small Window047
+    4300918: Small Window048
+    4300920: Small Window066
+    4300922: '*Ground Floor'
+    4300924: Line037
+    4300926: 1st Floor Window018
+    4300928: 1st Floor Window022
+    4300930: 1st Floor Window023
+    4300932: 1st Floor Window024
+    4300934: Box073
+    4300936: Box074
+    4300938: 1st Floor Window037
+    4300940: 1st Floor Window038
+    4300942: 1st Floor Window039
+    4300944: 1st Floor Window040
+    4300946: 1st Floor Window041
+    4300948: 1st Floor Window042
+    4300950: 1st Floor Window043
+    4300952: 1st Floor Window044
+    4300954: 1st Floor Window045
+    4300956: 1st Floor Window046
+    4300958: 1st Floor Window047
+    4300960: 1st Floor Window048
+    4300962: 1st Floor Window049
+    4300964: Sphere002
+    4300966: 1st Floor Window051
+    4300968: 1st Floor Window050
+    4300970: Sphere001
+    4300972: 1st Floor Window036
+    4300974: 1st Floor Window035
+    4300976: 1st Floor Window034
+    4300978: 1st Floor Window033
+    4300980: 1st Floor Window032
+    4300982: 1st Floor Window031
+    4300984: 1st Floor Window030
+    4300986: 1st Floor Window029
+    4300988: 1st Floor Window028
+    4300990: 1st Floor Window027
+    4300992: 1st Floor Window026
+    4300994: 1st Floor Window025
+    4300996: 1st Floor Window021
+    4300998: 1st Floor Window052
+    4301000: 1st Floor Window055
+    4301002: 1st Floor Window059
+    4301004: 1st Floor Window060
+    4301006: 1st Floor Window057
+    4301008: 1st Floor Window061
+    4301010: 1st Floor Window062
+    4301012: 1st Floor Window063
+    4301014: Box075
+    4301016: Box076
+    4301018: 1st Floor Window065
+    4301020: 1st Floor Window067
+    4301022: 1st Floor Window069
+    4301024: Box077
+    4301026: Box078
+    4301028: Box082
+    4301030: Box089
+    4301032: Box088
+    4301034: Box087
+    4301036: Box086
+    4301038: Line046
+    4301040: Box085
+    4301042: Box084
+    4301044: Box090
+    4301046: Box083
+    4301048: Box080
+    4301050: Line045
+    4301052: Box079
+    4301054: Box081
+    4301056: Box091
+    4301058: Box092
+    4301060: Box093
+    4301062: Box107
+    4301064: Box106
+    4301066: Box096
+    4301068: Box104
+    4301070: Box098
+    4301072: Box102
+    4301074: Box100
+    4301076: Box109
+    4301078: Box103
+    4301080: Box097
+    4301082: Box105
+    4301084: Box095
+    4301086: Box094
+    4301088: Box108
+    4301090: Box101
+    4301092: Box099
+    4301094: Big Door009
+    4301096: Big Door010
+    4301098: Big Door011
+    4301100: Big Door012
+    4301102: Big Door 3win Top Plate001
+    4301104: Big Door 3win Skali001
+    4301106: Big Door 3win Porta001
+    4301108: Big Door 3win Kasia006
+    4301110: Big Door 3win Kasia007
+    4301112: Big Door 3win Kasia008
+    4301114: Big Door 3win Kasia009
+    4301116: Big Door 3win Kasia010
+    4301118: Big Door 3win Kasia011
+    4301120: Big Door017
+    4301122: Big Door018
+    4301124: Big Door019
+    4301126: Big Door020
+    4301128: Big Door 3win Top Plate003
+    4301130: Big Door 3win Skali003
+    4301132: Big Door 3win Porta003
+    4301134: Big Door 3win Kasia018
+    4301136: Big Door 3win Kasia019
+    4301138: Big Door 3win Kasia020
+    4301140: Big Door 3win Kasia021
+    4301142: Big Door 3win Kasia022
+    4301144: Big Door 3win Kasia023
+    4301146: Big Door 3win Top Plate004
+    4301148: Big Door 3win Skali004
+    4301150: Big Door 3win Porta004
+    4301152: Big Door 3win Kasia024
+    4301154: Big Door 3win Kasia025
+    4301156: Big Door 3win Kasia026
+    4301158: Big Door 3win Kasia027
+    4301160: Big Door 3win Kasia028
+    4301162: Big Door 3win Kasia029
+    4301164: Big Door025
+    4301166: Big Door026
+    4301168: Big Door027
+    4301170: Big Door028
+    4301172: Big Door 3win Top Plate005
+    4301174: Big Door 3win Skali005
+    4301176: Big Door 3win Porta005
+    4301178: Big Door 3win Kasia030
+    4301180: Big Door 3win Kasia031
+    4301182: Big Door 3win Kasia032
+    4301184: Big Door 3win Kasia033
+    4301186: Big Door 3win Kasia034
+    4301188: 1st Floor WindowDone
+    4301190: 1st Floor Window Inside
+    4301192: 1st Floor Window Inside001
+    4301194: 1st Floor WindowDone001
+    4301196: 1st Floor Window Inside002
+    4301198: 1st Floor WindowDone002
+    4301200: 1st Floor Window Inside003
+    4301202: 1st Floor WindowDone003
+    4301204: Big Door021
+    4301206: Big Door022
+    4301208: Big Door023
+    4301210: Big Door024
+    4301212: Box110
+    4301214: 1st Floor Window Inside009
+    4301216: 1st Floor WindowDone009
+    4301218: 1st Floor WindowDone010
+    4301220: 1st Floor Window Inside010
+    4301222: 1st Floor WindowDone011
+    4301224: 1st Floor Window Inside011
+    4301226: '* 1st Floor Kitchen Stair'
+    4301228: Rectangle006
+    4301230: Rectangle001
+    4301232: Main Door001
+    4301234: Box027
+    4301236: Box028
+    4301238: Box029
+    4301240: Box030
+    4301242: Box031
+    4301244: GlassMain Door
+    4301246: Box032
+    4301248: Rectangle003
+    4301250: Rectangle005
+    4301252: Rectangle004
+    4301254: Box033
+    4301256: Rectangle002
+    4301258: Box037
+    4301260: Box039
+    4301262: Box040
+    4301264: Box041
+    4301266: Box042
+    4301268: Box043
+    4301270: Box044
+    4301272: Box045
+    4301274: Box018
+    4301276: Box019
+    4301278: Box020
+    4301280: Box022
+    4301282: Box023
+    4301284: Box021
+    4301286: Box017
+    4301288: Box024
+    4301290: Box025
+    4301292: Rectangle012
+    4301294: Box048
+    4301296: Box057
+    4301298: Box056
+    4301300: Box051
+    4301302: Box050
+    4301304: Box049
+    4301306: Box055
+    4301308: Rectangle011
+    4301310: Rectangle007
+    4301312: Rectangle008
+    4301314: Rectangle009
+    4301316: Rectangle010
+    4301318: Box035
+    4301320: Box052
+    4301322: Box053
+    4301324: Box034
+    4301326: Box038
+    4301328: Box046
+    4301330: Box047
+    4301332: Box054
+    4301334: Box036
+    4301336: Homa1
+    4301338: Homa002
+    4301340: Door Yard003
+    4301342: 1st Floor WindowDone170
+    4301344: 1st Floor WindowDone169
+    4301346: 1st Floor WindowDone168
+    4301348: 1st Floor WindowDone167
+    4301350: 1st Floor WindowDone166
+    4301352: Line050
+    4301354: Balcony087
+    4301356: Balcony092
+    4301358: Balcony093
+    4301360: Balcony094
+    4301362: Balcony095
+    4301364: Balcony096
+    4301366: Balcony097
+    4301368: Balcony098
+    4301370: Balcony099
+    4301372: Balcony100
+    4301374: Balcony101
+    4301376: Balcony102
+    4301378: Balcony103
+    4301380: Balcony104
+    4301382: Balcony105
+    4301384: Balcony106
+    4301386: Balcony107
+    4301388: Balcony108
+    4301390: Balcony109
+    4301392: Balcony110
+    4301394: Balcony111
+    4301396: Balcony112
+    4301398: Balcony113
+    4301400: Balcony114
+    4301402: Balcony115
+    4301404: Balcony116
+    4301406: Balcony117
+    4301408: Balcony118
+    4301410: Balcony119
+    4301412: Balcony120
+    4301414: Balcony121
+    4301416: Balcony122
+    4301418: Balcony123
+    4301420: Balcony124
+    4301422: Balcony125
+    4301424: Balcony126
+    4301426: Balcony127
+    4301428: Balcony128
+    4301430: Balcony129
+    4301432: Balcony130
+    4301434: Balcony131
+    4301436: Balcony132
+    4301438: Balcony133
+    4301440: Balcony134
+    4301442: Balcony135
+    4301444: Balcony136
+    4301446: Balcony138
+    4301448: Balcony139
+    4301450: Balcony140
+    4301452: Balcony141
+    4301454: Balcony142
+    4301456: Balcony143
+    4301458: Balcony144
+    4301460: Balcony145
+    4301462: Balcony146
+    4301464: Balcony147
+    4301466: Balcony148
+    4301468: Balcony149
+    4301470: Balcony150
+    4301472: Balcony151
+    4301474: Balcony152
+    4301476: Balcony153
+    4301478: Balcony154
+    4301480: Balcony155
+    4301482: Balcony156
+    4301484: Balcony157
+    4301486: Balcony158
+    4301488: Balcony159
+    4301490: Box140
+    4301492: Box141
+    4301494: Box142
+    4301496: Box143
+    4301498: Box162
+    4301500: Box163
+    4301502: Box164
+    4301504: Box165
+    4301506: Box166
+    4301508: Box167
+    4301510: Box168
+    4301512: Box169
+    4301514: Box170
+    4301516: Box171
+    4301518: Box172
+    4301520: Box173
+    4301522: Box174
+    4301524: Box175
+    4301526: Box176
+    4301528: Box177
+    4301530: Box178
+    4301532: Box179
+    4301534: Box145
+    4301536: Box147
+    4301538: Box149
+    4301540: Box139
+    4301542: Box138
+    4301544: Box137
+    4301546: Box157
+    4301548: Box181
+    4301550: Box159
+    4301552: Box136
+    4301554: Box135
+    4301556: Box134
+    4301558: Box155
+    4301560: Box153
+    4301562: Box151
+    4301564: Box180
+    4301566: Box158
+    4301568: Box156
+    4301570: Box154
+    4301572: Box152
+    4301574: Box150
+    4301576: Box148
+    4301578: Box146
+    4301580: Box144
+    4301582: Psif
+    4301584: Box187
+    4301586: Box188
+    4301588: Box190
+    4301590: Box189
+    4301592: Box183
+    4301594: Box182
+    4301596: Box197
+    4301598: Box199
+    4301600: Box201
+    4301602: Box202
+    4301604: Box203
+    4301606: Box204
+    4301608: Box200
+    4301610: Box198
+    4301612: Box219
+    4301614: Box214
+    4301616: Box186
+    4301618: Box205
+    4301620: Box206
+    4301622: Box207
+    4301624: Box185
+    4301626: Box209
+    4301628: Box210
+    4301630: Box212
+    4301632: Box213
+    4301634: Box208
+    4301636: Box215
+    4301638: Box216
+    4301640: Box217
+    4301642: Box218
+    4301644: Box184
+    4301646: Box253
+    4301648: Plane005
+    4301650: Tube005
+    4301652: Sphere007
+    4301654: Cylinder005
+    4301656: Box254
+    4301658: Plane004
+    4301660: Tube004
+    4301662: Sphere006
+    4301664: Box251
+    4301666: Cylinder004
+    4301668: Box252
+    4301670: Box282
+    4301672: Box283
+    4301674: Dipli Priza
+    4301676: Dipli Priza003
+    4301678: Dipli Priza004
+    4301680: Dipli Priza005
+    4301682: Dipli Priza006
+    4301684: Dipli Priza007
+    4301686: Dipli Priza008
+    4301688: Dipli Priza009
+    4301690: Dipli Priza010
+    4301692: Dipli Priza011
+    4301694: Dipli Priza012
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

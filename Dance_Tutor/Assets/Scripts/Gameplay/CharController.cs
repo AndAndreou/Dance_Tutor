@@ -23,6 +23,9 @@ public class CharController : MonoBehaviour {
     void Awake()
     {
         animator = this.GetComponent<Animator>();
+
+        // Get animator controller and change the animation clip 
+        // or create new controller and replace the current controller with new one
     }
 
     // Use this for initialization
@@ -53,9 +56,9 @@ public class CharController : MonoBehaviour {
     {
         if (avatarRole == Role.Tutor)
         {
-            animationIsActive = true;
             WordsManager.StartWriteWords();
         }
+        animationIsActive = true;
     } 
 
     public void AnimationStop() //call from animation
@@ -63,8 +66,8 @@ public class CharController : MonoBehaviour {
         if (avatarRole == Role.Tutor)
         {
             GameManager.instance.ChoreographyFinished();
-            animationIsActive = false;
             WordsManager.StopWriteWords();
         }
+        animationIsActive = false;
     }
 }
