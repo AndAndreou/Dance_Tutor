@@ -34,6 +34,8 @@ public class WordsManager : MonoBehaviour {
     [HideInInspector]
     public static CharController[] allCharCotrollers { get; private set; }
 
+    private static bool savedWords = true;
+
     private static WordsManager _instance = null;
     public static WordsManager instance
     {
@@ -58,16 +60,21 @@ public class WordsManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        styleWordResults = new List<float>();
-        motionWordResults = new List<Vector3[]>();
+        InitWords();
 
         allCharCotrollers = FindObjectsOfType<CharController>();
 
         maxStyleWords = DataEditor.gameData.maxStyleWords;
 
+    }
+
+    private static void InitWords()
+    {
+        styleWordResults = new List<float>();
+        motionWordResults = new List<Vector3[]>();
+
         writeWords = false;
         prevWriteWordsVal = false;
-
     }
 	
 	// Update is called once per frame
@@ -194,12 +201,19 @@ public class WordsManager : MonoBehaviour {
     public static bool StartWriteWords()
     {
         writeWords = true;
+        savedWords = false;
         return writeWords;
     }
 
     public static bool StopWriteWords()
     {
-        writeWords = false;
+        InitWords();
+
+        if (savedWords == false)
+        {
+            DataEditor.SaveWords();
+            savedWords = true;
+        }
         return writeWords;
     }
 }

@@ -43,7 +43,7 @@ public class User {
     /// <param name="motionWordResultData"></param>
     /// <param name="styleWordResultData"></param>
     /// <returns></returns>
-    public DanceHistory AddDanceHistory(string danceName, Experience chorographyExperience, float[] motionWordResultData, float[] styleWordResultData)
+    public DanceHistory AddDanceHistory(string danceName, Experience chorographyExperience, List<Vector3[]> motionWordResultData, List<float> styleWordResultData)
     {
         DanceHistory newDanceHistory = new DanceHistory(danceName, chorographyExperience, motionWordResultData, styleWordResultData);
         this.history.Add(newDanceHistory);

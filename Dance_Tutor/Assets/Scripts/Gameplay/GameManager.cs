@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Debug")]
     public bool isDebugMode;
+    public bool useDataFromUser;
 
     public bool showChoreography { get; private set; }
 
@@ -51,6 +52,13 @@ public class GameManager : MonoBehaviour {
 
         //add listener for T-Pose Detect ations
         TPoseDetectionEvent.AddListener(TPoseDetetionAction);
+
+        // Prints
+        Debug.Log("********************************************");
+        Debug.Log("Selected user -> " + DataEditor.GetSelectedUser());
+        Debug.Log("Selected country -> " + DataEditor.GetCountry());
+        Debug.Log("Selected animation clip -> " + DataEditor.GetAnimationClip());
+        Debug.Log("********************************************");
     }
 
     // Use this for initialization

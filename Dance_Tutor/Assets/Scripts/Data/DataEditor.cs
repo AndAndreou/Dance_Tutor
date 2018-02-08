@@ -48,6 +48,7 @@ public class DataEditor : MonoBehaviour {
         {
             string dataAsJson = File.ReadAllText(filePath);
             gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+            selectedUser = gameData.Users[0];
         }
         else
         {
@@ -163,6 +164,11 @@ public class DataEditor : MonoBehaviour {
         selectedUser = FindUser(email);
     }
 
+    public static User GetSelectedUser()
+    {
+        return selectedUser;
+    }
+
     /// <summary>
     /// Load all counties and animation clips
     /// </summary>
@@ -227,6 +233,30 @@ public class DataEditor : MonoBehaviour {
     public static int GetAnimationsClipsLength()
     {
         return selectedCountryAllAnimations.Length;
+    }
+
+    /// <summary>
+    /// Save dance(selected clip name, selected user expirience, motion and style words results from WordsManager) as history in selected user
+    /// </summary>
+    public static void SaveWords()
+    {
+        selectedUser.AddDanceHistory(GetAnimationClip().name, selectedUser.expirience, WordsManager.motionWordResults, WordsManager.styleWordResults);
+        UpdateSelectedUser();
+    }
+
+    /// <summary>
+    /// Update selected user to list of users
+    /// </summary>
+    public static void UpdateSelectedUser()
+    {
+        for(int i=0; i < gameData.Users.Count; i++) 
+        {
+            if (gameData.Users[i].email == selectedUser.email)
+            {
+                gameData.Users[i] = selectedUser;
+                break;
+            }
+        }
     }
 }
 
