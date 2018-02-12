@@ -11,7 +11,7 @@ public class User {
     public Sex sex;
     public Experience expirience;
     public string country;
-    private List<DanceHistory> history;
+    public List<DanceHistory> history;
 
     /// <summary>
     /// Create new user
@@ -43,7 +43,7 @@ public class User {
     /// <param name="motionWordResultData"></param>
     /// <param name="styleWordResultData"></param>
     /// <returns></returns>
-    public DanceHistory AddDanceHistory(string danceName, Experience chorographyExperience, List<Vector3[]> motionWordResultData, List<float> styleWordResultData)
+    public DanceHistory AddDanceHistory(string danceName, Experience chorographyExperience, List<float> motionWordResultData, List<float> styleWordResultData)
     {
         DanceHistory newDanceHistory = new DanceHistory(danceName, chorographyExperience, motionWordResultData, styleWordResultData);
         this.history.Add(newDanceHistory);

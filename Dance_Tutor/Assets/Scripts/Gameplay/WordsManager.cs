@@ -24,7 +24,7 @@ public class WordsManager : MonoBehaviour {
     [HideInInspector]
     public static List<float> styleWordResults;
     [HideInInspector]
-    public static List<Vector3[]> motionWordResults;
+    public static List<float> motionWordResults;
 
     private Skeleton.StyleWord maxStyleWords = new Skeleton.StyleWord(); //used for styleword normilized
 
@@ -33,6 +33,8 @@ public class WordsManager : MonoBehaviour {
 
     [HideInInspector]
     public static CharController[] allCharCotrollers { get; private set; }
+
+    private static UIAvatarController uiAvatarController;
 
     private static bool savedWords = true;
 
@@ -64,6 +66,8 @@ public class WordsManager : MonoBehaviour {
 
         allCharCotrollers = FindObjectsOfType<CharController>();
 
+        uiAvatarController = FindObjectOfType<UIAvatarController>();
+
         maxStyleWords = DataEditor.gameData.maxStyleWords;
 
     }
@@ -71,7 +75,7 @@ public class WordsManager : MonoBehaviour {
     private static void InitWords()
     {
         styleWordResults = new List<float>();
-        motionWordResults = new List<Vector3[]>();
+        motionWordResults = new List<float>();
 
         writeWords = false;
         prevWriteWordsVal = false;
@@ -154,6 +158,9 @@ public class WordsManager : MonoBehaviour {
             distanceStyleWord = distanceStyleWord.GetDistanceBetweenWords(newStyleWords.ToArray());
             //print(distanceStyleWord.centroidHeightMax);
 
+            // Send data to ui avatar controller
+            uiAvatarController.lastStyleWord = distanceStyleWord;
+
             // Get Sum of all ellements of distances style word
             float totalDistanceStyleWord = distanceStyleWord.GetSumOfVars(distanceStyleWord);
 
@@ -175,6 +182,10 @@ public class WordsManager : MonoBehaviour {
             List<Vector3[]> distanceMotionWord = new List<Vector3[]>();
             // Get distance for all frames
             distanceMotionWord = newMotionWords[0].GetDistanceBetweenWordsInDegrees(newMotionWords.ToArray());
+
+            // Send data to ui avatar controller
+            uiAvatarController.lastMotionWord = distanceMotionWord;
+
             // Get Sum of all frames of distances motion word
             Vector3[] totalDistanceMotion = newMotionWords[0].GetSumOfFrames(distanceMotionWord);
 
@@ -192,8 +203,10 @@ public class WordsManager : MonoBehaviour {
                 }
             }
 
-            motionWordResults.Add(totalDistanceMotion);
-            myStreamingGraphController.AddNewMotionWord(avgError/ totalDistanceMotion.Length);
+            float motionResult = avgError / totalDistanceMotion.Length;
+            //motionWordResults.Add(totalDistanceMotion);
+            motionWordResults.Add(motionResult);
+            myStreamingGraphController.AddNewMotionWord(motionResult);
         }
         #endregion
     }
@@ -207,13 +220,14 @@ public class WordsManager : MonoBehaviour {
 
     public static bool StopWriteWords()
     {
-        InitWords();
-
         if (savedWords == false)
         {
             DataEditor.SaveWords();
             savedWords = true;
         }
+
+        InitWords();
+
         return writeWords;
     }
 }

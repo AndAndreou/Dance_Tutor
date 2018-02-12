@@ -518,6 +518,7 @@
     <Compile Include="Assets\Scripts\Gameplay\MathHelper.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MyStreamingGraph.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Skeleton.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\UIAvatarController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\WordsManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\MainMenu\UserUIComponentController.cs" />

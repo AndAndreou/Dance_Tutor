@@ -9,7 +9,7 @@ public class DanceHistory  {
     public string danceName;
     public Experience chorographyExperience;
     public DateTime dateTime;
-    public List<Vector3[]> motionWordResultData;
+    public List<float> motionWordResultData;
     public List<float> styleWordResultData;
 
     /// <summary>
@@ -19,7 +19,7 @@ public class DanceHistory  {
     /// <param name="chorographyExperience"></param>
     /// <param name="motionWordResultData"></param>
     /// <param name="styleWordResultData"></param>
-    public DanceHistory(string danceName, Experience chorographyExperience, List<Vector3[]> motionWordResultData, List<float> styleWordResultData)
+    public DanceHistory(string danceName, Experience chorographyExperience, List<float> motionWordResultData, List<float> styleWordResultData)
     {
         this.danceName = danceName;
         this.chorographyExperience = chorographyExperience;

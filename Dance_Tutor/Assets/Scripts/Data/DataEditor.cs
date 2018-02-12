@@ -96,24 +96,25 @@ public class DataEditor : MonoBehaviour {
 
         counter = 0;
 
-        // Write motionWord
-        results += "\r\n\r\n---MotionWord---\r\n";
-        List<Vector3[]> motionWord = WordsManager.motionWordResults;
-        Skeleton skeleton = WordsManager.allCharCotrollers[0].skeleton;
-        for (int i = 0; i < motionWord.Count; i++) // Motion words
-        {
-            for (int j = 0; j < motionWord[i].Length; j++) // Joint 
-            {
-                results += skeleton.joints[j].GetJointName() + "" + motionWord[i][j] + ", ";
 
-                counter++;
-                if (counter >= itemPerLine)
-                {
-                    results += "\r\n";
-                    counter = 0;
-                }
-            }
-        }
+        //// Write motionWord
+        //results += "\r\n\r\n---MotionWord---\r\n";
+        //List<Vector3[]> motionWord = WordsManager.motionWordResults;
+        //Skeleton skeleton = WordsManager.allCharCotrollers[0].skeleton;
+        //for (int i = 0; i < motionWord.Count; i++) // Motion words
+        //{
+        //    for (int j = 0; j < motionWord[i].Length; j++) // Joint 
+        //    {
+        //        results += skeleton.joints[j].GetJointName() + "" + motionWord[i][j] + ", ";
+
+        //        counter++;
+        //        if (counter >= itemPerLine)
+        //        {
+        //            results += "\r\n";
+        //            counter = 0;
+        //        }
+        //    }
+        //}
 
         string filePath = Application.dataPath + resultsDataProjectFilePath;
         File.WriteAllText(filePath, results);
