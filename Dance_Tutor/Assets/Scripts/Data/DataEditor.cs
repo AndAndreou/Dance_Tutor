@@ -82,7 +82,8 @@ public class DataEditor : MonoBehaviour {
 
         // Write style word
         results += "---StyleWord---\r\n";
-        foreach(float s in WordsManager.styleWordResults)
+        //foreach(float s in WordsManager.styleWordResults)
+        foreach (float s in WordsManagerWithSync.styleWordResults)
         {
             results += s + ", ";
 
@@ -241,7 +242,8 @@ public class DataEditor : MonoBehaviour {
     /// </summary>
     public static void SaveWords()
     {
-        selectedUser.AddDanceHistory(GetAnimationClip().name, selectedUser.expirience, WordsManager.motionWordResults, WordsManager.styleWordResults);
+        //selectedUser.AddDanceHistory(GetAnimationClip().name, selectedUser.expirience, WordsManager.motionWordResults, WordsManager.styleWordResults);
+        selectedUser.AddDanceHistory(GetAnimationClip().name, selectedUser.expirience, WordsManagerWithSync.motionWordResults, WordsManagerWithSync.styleWordResults);
         UpdateSelectedUser();
     }
 

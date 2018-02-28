@@ -48,7 +48,8 @@ public class CharController : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate () {
 
-        if (WordsManager.writeWords == true)
+        //if (WordsManager.writeWords == true)
+        if (WordsManagerWithSync.writeWords == true)
         {
             skeleton.AutoAddFrameValuesForEachJoint(this.transform);
         }
@@ -96,7 +97,8 @@ public class CharController : MonoBehaviour {
     {
         if (avatarRole == Role.Tutor)
         {
-            WordsManager.StartWriteWords();
+            //WordsManager.StartWriteWords();
+            WordsManagerWithSync.StartWriteWords();
         }
         animationIsActive = true;
     } 
@@ -106,7 +108,8 @@ public class CharController : MonoBehaviour {
         if (avatarRole == Role.Tutor)
         {
             GameManager.instance.ChoreographyFinished();
-            WordsManager.StopWriteWords();
+            //WordsManager.StopWriteWords();
+            WordsManagerWithSync.StopWriteWords();
         }
         animationIsActive = false;
     }

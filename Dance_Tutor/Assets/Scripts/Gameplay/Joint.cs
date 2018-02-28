@@ -137,6 +137,23 @@ public class Joint
 
         return returnList;
     }
+
+    /// <summary>
+    /// Return a list of frames between start(included) and end(included)
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
+    public List<Frame> GetFramesRange(int start, int end)
+    {
+        List<Frame> returnList = new List<Frame>();
+        for (int i = start; i <= end; i++)
+        {
+            returnList.Add(frames[i]);
+        }
+
+        return returnList;
+    }
 }
 
 public struct Frame

@@ -28,14 +28,17 @@ public class MyStreamingGraph : MonoBehaviour
         motiomWordGraph.DataSource.EndBatch(); // finally we call EndBatch , this will cause the GraphChart to redraw itself
 
         // put thresholds
-        styleWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManager.instance.styleWordThreshold);
-        motiomWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManager.instance.motionWordThreshold);
+        //styleWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManager.instance.styleWordThreshold);
+        //motiomWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManager.instance.motionWordThreshold);
+        styleWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManagerWithSync.instance.styleWordThreshold);
+        motiomWordGraph.DataSource.AddPointToCategory("Threshold", 0, WordsManagerWithSync.instance.motionWordThreshold);
     }
 
     public void AddNewStyleWord(float newStyleWord)
     {
         // put threshold
-        styleWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.styleWordThreshold);
+        //styleWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.styleWordThreshold);
+        styleWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManagerWithSync.instance.styleWordThreshold);
 
         styleWordGraph.DataSource.AddPointToCategoryRealtime("Player 1", TakeTime(), newStyleWord, 1f);  //System.DateTime.Now
     }
@@ -43,7 +46,8 @@ public class MyStreamingGraph : MonoBehaviour
     public void AddNewMotionWord(float newMotionWord)
     {
         // put threshold
-        motiomWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.motionWordThreshold);
+        //motiomWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.motionWordThreshold);
+        motiomWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManagerWithSync.instance.motionWordThreshold);
 
         motiomWordGraph.DataSource.AddPointToCategoryRealtime("Player 1", TakeTime(), newMotionWord, 1f);
        

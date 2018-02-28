@@ -10,7 +10,7 @@ public class WordsManager : MonoBehaviour {
     private int motionWordStepCounter;
 
     [Header("StyleWord")]
-    public int stykeWordStep = 5;
+    public int styleWordStep = 5;
     public int styleWordWindowSize = 35;
     private int styleWordStepCounter;
 
@@ -117,7 +117,7 @@ public class WordsManager : MonoBehaviour {
             {
                 newMotionWords.Add(controller.skeleton.AddMotionWord(motionWordWindowSize));
             }
-            motionWordStepCounter = motionWordWindowSize;
+            motionWordStepCounter = motionWordStep;
         }
 
         // Check and put the new style word if is the time
@@ -138,7 +138,7 @@ public class WordsManager : MonoBehaviour {
                 maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
                 DataEditor.gameData.maxStyleWords = maxStyleWords;
             }
-            styleWordStepCounter = styleWordWindowSize;
+            styleWordStepCounter = styleWordStep;
         }
         #endregion
 
@@ -159,7 +159,7 @@ public class WordsManager : MonoBehaviour {
             //print(distanceStyleWord.centroidHeightMax);
 
             // Send data to ui avatar controller
-            uiAvatarController.lastStyleWord = distanceStyleWord;
+            //uiAvatarController.lastStyleWord = distanceStyleWord;
 
             // Get Sum of all ellements of distances style word
             float totalDistanceStyleWord = distanceStyleWord.GetSumOfVars(distanceStyleWord);
@@ -184,7 +184,7 @@ public class WordsManager : MonoBehaviour {
             distanceMotionWord = newMotionWords[0].GetDistanceBetweenWordsInDegrees(newMotionWords.ToArray());
 
             // Send data to ui avatar controller
-            uiAvatarController.lastMotionWord = distanceMotionWord;
+            //uiAvatarController.lastMotionWord = distanceMotionWord;
 
             // Get Sum of all frames of distances motion word
             Vector3[] totalDistanceMotion = newMotionWords[0].GetSumOfFrames(distanceMotionWord);
@@ -203,7 +203,7 @@ public class WordsManager : MonoBehaviour {
                 }
             }
 
-            float motionResult = avgError / totalDistanceMotion.Length;
+            float motionResult = avgError / totalDistanceMotion.Length; // avg of all frames
             //motionWordResults.Add(totalDistanceMotion);
             motionWordResults.Add(motionResult);
             myStreamingGraphController.AddNewMotionWord(motionResult);

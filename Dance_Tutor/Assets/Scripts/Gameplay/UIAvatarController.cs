@@ -7,7 +7,7 @@ public class UIAvatarController : MonoBehaviour {
 
     [Header("UIComponent")]
     public Image headUIComponent;
-    public Image chestUIComponent;
+    public Image[] chestUIComponent = new Image[3];
     public Image spineUIComponent;
     public Image rightThighUIComponent;
     public Image rightFootUIComponent;
@@ -18,157 +18,347 @@ public class UIAvatarController : MonoBehaviour {
     public Image leftShoulderUIComponent;
     public Image leftHandUIComponetn;
 
-    [Header("Materials")]
-    public Material correctMaterial;
-    public Material wrongMaterial;
+    [Header("Colors")]
+    public Color correctColor;
+    public Color wrongColor;
+
+    [Header("Params")]
+    public float motionWordThreshold;
+
+    /// <summary>
+    /// Is the value tha balance the color between correct and wrong color under the threshold
+    /// </summary>
+    public float thresholdBalanceValue;
 
     [HideInInspector]
-    public Skeleton.StyleWord lastStyleWord;
-    [HideInInspector]
-    public List<Vector3[]> lastMotionWord;
+    public Vector3[] lastMotionWord;
+    private Vector3[] prevLastMotionWord;
 
-    private Material headMaterial
+    private Color headColor
     {
         get
         {
-           return headUIComponent.material;
+           return headUIComponent.color;
         }
         set
         {
-            headUIComponent.material = value;
+            headUIComponent.color = value;
         }
     }
 
-    private Material chestMaterial
+    private Color chestColor
     {
         get
         {
-            return chestUIComponent.material;
+            return chestUIComponent[0].color;
         }
         set
         {
-            chestUIComponent.material = value;
+            chestUIComponent[0].color = value;
+            chestUIComponent[1].color = value;
+            chestUIComponent[2].color = value;
         }
     }
 
-    private Material spineMaterial
+    private Color spineColor
     {
         get
         {
-            return spineUIComponent.material;
+            return spineUIComponent.color;
         }
         set
         {
-            spineUIComponent.material = value;
+            spineUIComponent.color = value;
         }
     }
 
-    private Material rightThighMaterial
+    private Color rightThighColor
     {
         get
         {
-            return rightThighUIComponent.material;
+            return rightThighUIComponent.color;
         }
         set
         {
-            rightThighUIComponent.material = value;
+            rightThighUIComponent.color = value;
         }
     }
 
-    private Material rightFootMaterial
+    private Color rightFootColor
     {
         get
         {
-            return rightFootUIComponent.material;
+            return rightFootUIComponent.color;
         }
         set
         {
-            rightFootUIComponent.material = value;
+            rightFootUIComponent.color = value;
         }
     }
 
-    private Material leftThighMaterial
+    private Color leftThighColor
     {
         get
         {
-            return leftThighUIComponent.material;
+            return leftThighUIComponent.color;
         }
         set
         {
-            leftThighUIComponent.material = value;
+            leftThighUIComponent.color = value;
         }
     }
 
-    private Material leftFootMaterial
+    private Color leftFootColor
     {
         get
         {
-            return leftFootUIComponent.material;
+            return leftFootUIComponent.color;
         }
         set
         {
-            leftFootUIComponent.material = value;
+            leftFootUIComponent.color = value;
         }
     }
 
-    private Material rightShoulderMaterial
+    private Color rightShoulderColor
     {
         get
         {
-            return rightShoulderUIComponent.material;
+            return rightShoulderUIComponent.color;
         }
         set
         {
-            rightShoulderUIComponent.material = value;
+            rightShoulderUIComponent.color = value;
         }
     }
 
-    private Material rightHandMaterial
+    private Color rightHandColor
     {
         get
         {
-            return rightHandUIComponent.material;
+            return rightHandUIComponent.color;
         }
         set
         {
-            rightHandUIComponent.material = value;
+            rightHandUIComponent.color = value;
         }
     }
 
-    private Material leftShoulderMaterial
+    private Color leftShoulderColor
     {
         get
         {
-            return leftShoulderUIComponent.material;
+            return leftShoulderUIComponent.color;
         }
         set
         {
-            leftShoulderUIComponent.material = value;
+            leftShoulderUIComponent.color = value;
         }
     }
 
-    private Material leftHandMaterial
+    private Color leftHandColor
     {
         get
         {
-            return leftHandUIComponetn.material;
+            return leftHandUIComponetn.color;
         }
         set
         {
-            leftHandUIComponetn.material = value;
+            leftHandUIComponetn.color = value;
         }
     }
+
+    private float headColorValue;
+    private float chestColorValue;
+    private float spineColorValue;
+    private float rightThighColorValue;
+    private float rightFootColorValue;
+    private float leftThighColorValue;
+    private float leftFootColorValue;
+    private float rightShoulderColorValue;
+    private float rightHandColorValue;
+    private float leftShoulderColorValue;
+    private float leftHandColorValue;
+
 
     // Use this for initialization
     void Start () {
-		
+
+        prevLastMotionWord = lastMotionWord;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        // Get style and motion word and check whos joint is out of threshold and put wrong material in uiAvatar
-        // What is the threshold? 
 
-	}
+        if (prevLastMotionWord!= lastMotionWord)
+        {
+            // We have new data
+            CalculateWrongs();
+        }
+        prevLastMotionWord = lastMotionWord;
+
+    }
+
+    private void CalculateWrongs()
+    {
+        // Get motion word and check whos joint is out of threshold and put wrong color in uiAvatar
+        // What is the threshold? 
+        float jointAvg = 0;
+        int jointIndex = 0;
+
+        // headColorValue
+        jointIndex = 16;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f)/WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            headColorValue = 1;
+        }
+        else
+        {
+            headColorValue = 0;
+        }
+
+        // chestColorValue
+        jointIndex = 12;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            chestColorValue = 1;
+        }
+        else
+        {
+            chestColorValue = 0;
+        }
+
+        // spineColorValue
+        jointIndex = 1;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            spineColorValue = 1;
+        }
+        else
+        {
+            spineColorValue = 0;
+        }
+
+        // rightThighColorValue
+        jointIndex = 7;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            rightThighColorValue = 1;
+        }
+        else
+        {
+            rightThighColorValue = 0;
+        }
+
+        // rightFootColorValue
+        jointIndex = 8;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            rightFootColorValue = 1;
+        }
+        else
+        {
+            rightFootColorValue = 0;
+        }
+
+        // leftThighColorValue
+        jointIndex = 2;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            leftThighColorValue = 1;
+        }
+        else
+        {
+            leftThighColorValue = 0;
+        }
+
+        // leftFootColorValue
+        jointIndex = 3;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            leftFootColorValue = 1;
+        }
+        else
+        {
+            leftFootColorValue = 0;
+        }
+
+        // rightShoulderColorValue
+        jointIndex = 33;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            rightShoulderColorValue = 1;
+        }
+        else
+        {
+            rightShoulderColorValue = 0;
+        }
+
+        // rightHandColorValue
+        jointIndex = 34;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            rightHandColorValue = 1;
+        }
+        else
+        {
+            rightHandColorValue = 0;
+        }
+
+        // leftShoulderColorValue
+        jointIndex = 19;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            leftShoulderColorValue = 1;
+        }
+        else
+        {
+            leftShoulderColorValue = 0;
+        }
+
+        // leftHandColorValue
+        jointIndex = 20;
+        jointAvg = ((lastMotionWord[jointIndex].x + lastMotionWord[jointIndex].y + lastMotionWord[jointIndex].z) / 3f) / WordsManager.instance.motionWordWindowSize;
+        if (jointAvg > motionWordThreshold)
+        {
+            leftHandColorValue = 1;
+        }
+        else
+        {
+            leftHandColorValue = 0;
+        }
+
+        ReDrawUIAvatar();
+    }
+
+    private void ReDrawUIAvatar()
+    {
+        headColor = CalculateColor(headColorValue);
+        chestColor = CalculateColor(chestColorValue);
+        spineColor = CalculateColor(spineColorValue);
+        rightThighColor = CalculateColor(rightThighColorValue);
+        rightFootColor = CalculateColor(rightFootColorValue);
+        leftThighColor = CalculateColor(leftThighColorValue);
+        leftFootColor = CalculateColor(leftFootColorValue);
+        rightShoulderColor = CalculateColor(rightShoulderColorValue);
+        rightHandColor = CalculateColor(rightHandColorValue);
+        leftShoulderColor = CalculateColor(leftShoulderColorValue);
+        leftHandColor = CalculateColor(leftHandColorValue);
+    }
+
+    private Color CalculateColor( float v)
+    {
+        return Color.Lerp(correctColor, wrongColor, v);
+    }
 }

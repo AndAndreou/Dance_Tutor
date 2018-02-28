@@ -1,0 +1,329 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WordsManagerWithSync : MonoBehaviour {
+
+    [Header("Extra Params For Sync")]
+    public int syncWindowSize = 10;
+    public int syncWindowStep = 15;
+    private int lastSelectedStyleWordFrame = 0;
+    private int lastSelectedMotionWordFrame = 0;
+
+    private static int frameCounter = 0;
+    private static int frameNoNeeded;
+    private static int nextStartFrameIdForSyncWindowTutor = 0;
+    private static int nextStartFrameIdForSyncWindowStudent = 0;
+
+    [Header("MotionWord")]
+    public int motionWordStep = 5;
+    public int motionWordWindowSize = 35;
+    private int motionWordStepCounter;
+
+    [Header("StyleWord")]
+    public int styleWordStep = 5;
+    public int styleWordWindowSize = 35;
+    private int styleWordStepCounter;
+
+    [Header("Comparisons")]
+    public float styleWordThreshold = 5;
+    public float motionWordThreshold = 65;
+
+    [Header("Controllers")]
+    public MyStreamingGraph myStreamingGraphController;
+
+    [HideInInspector]
+    public static List<float> styleWordResults;
+    [HideInInspector]
+    public static List<float> motionWordResults;
+
+    private Skeleton.StyleWord maxStyleWords = new Skeleton.StyleWord(); //used for styleword normilized
+
+    public static bool writeWords { get; private set; }
+    public static bool prevWriteWordsVal { get; private set; }
+
+    [HideInInspector]
+    public static CharController[] allCharCotrollers { get; private set; }
+
+    private static UIAvatarController uiAvatarController;
+
+    private static bool savedWords = true;
+
+    private static WordsManagerWithSync _instance = null;
+    public static WordsManagerWithSync instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = (WordsManagerWithSync)FindObjectOfType(typeof(WordsManagerWithSync));
+                if (_instance == null)
+                    _instance = (new GameObject("WordsManagerWithSync")).AddComponent<WordsManagerWithSync>();
+            }
+            return _instance;
+        }
+    }
+
+    void Awake()
+    {
+        motionWordStepCounter = motionWordWindowSize;
+        styleWordStepCounter = styleWordWindowSize;
+
+        frameNoNeeded = syncWindowSize + motionWordWindowSize;
+        nextStartFrameIdForSyncWindowTutor = nextStartFrameIdForSyncWindowStudent = Mathf.FloorToInt(motionWordWindowSize/2f);
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        InitWords();
+
+        allCharCotrollers = FindObjectsOfType<CharController>();
+
+        // Get only tutor and student charController
+        List<CharController> tempList = new List<CharController>();
+        foreach(CharController c in allCharCotrollers)
+        {
+            if ((c.avatarRole == CharController.Role.Tutor) || ((c.avatarRole == CharController.Role.Student)))
+            {
+                tempList.Add(c);
+            }
+        }
+        allCharCotrollers = tempList.ToArray();
+
+        uiAvatarController = FindObjectOfType<UIAvatarController>();
+
+        maxStyleWords = DataEditor.gameData.maxStyleWords;
+
+    }
+
+    private static void InitWords()
+    {
+        styleWordResults = new List<float>();
+        motionWordResults = new List<float>();
+
+        writeWords = false;
+        prevWriteWordsVal = false;
+    }
+	
+	// Update is called once per frame
+	void Update () {
+
+        if (writeWords == false)
+        {
+            if (prevWriteWordsVal == true)
+            {
+                // End writing of frames
+                DataEditor.SaveResultsData();
+            }
+        }
+
+        prevWriteWordsVal = writeWords;
+    }
+
+    private int[] FindBestMatchingFrameMotions()
+    {
+        int[] bestMatchingId = new int[2];
+        float minDistance = 10000;
+
+        for (int i = nextStartFrameIdForSyncWindowTutor; i < nextStartFrameIdForSyncWindowTutor + syncWindowSize; i++)
+        {
+            for(int x = nextStartFrameIdForSyncWindowStudent; x < nextStartFrameIdForSyncWindowStudent + syncWindowSize; x++)
+            {
+                Skeleton.MotionWord[] frameMotions = new Skeleton.MotionWord[2];
+                frameMotions[0] = allCharCotrollers[0].skeleton.frameMotions[i];
+                frameMotions[1] = allCharCotrollers[1].skeleton.frameMotions[x];
+
+                List<Vector3[]> distance = frameMotions[0].GetDistanceBetweenWordsInDegrees(frameMotions);
+                Vector3[] sumOfFrames = frameMotions[0].GetSumOfFrames(distance);
+                float totalSum = frameMotions[0].GetTotalSum(sumOfFrames);
+
+                if ((totalSum < minDistance) || ((i == 0) && (x == 0))) // Find smaller distance or we are in first comparison
+                {
+                    minDistance = totalSum;
+                    bestMatchingId[0] = i;
+                    bestMatchingId[1] = x;
+                }
+            }
+        }
+
+        // Find next parameters 
+        nextStartFrameIdForSyncWindowTutor = bestMatchingId[0] + syncWindowStep ;
+        nextStartFrameIdForSyncWindowStudent = bestMatchingId[1] + syncWindowStep;
+        frameNoNeeded = Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + syncWindowSize + Mathf.CeilToInt(motionWordWindowSize / 2f);
+        //Debug.Log(Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + " , " + syncWindowSize + " , " + Mathf.CeilToInt(motionWordWindowSize / 2f));
+
+        return bestMatchingId;
+    }
+
+    void LateUpdate()
+    {
+        if (writeWords == false)
+        {
+            return;
+        }
+
+        #region New Code
+        List<Skeleton.MotionWord> newMotionWords = null;
+        List<Skeleton.StyleWord> newStyleWords = null;
+
+        if (frameNoNeeded <= frameCounter) // Then can check the words
+        {
+            newMotionWords = new List<Skeleton.MotionWord>();
+            newStyleWords = new List<Skeleton.StyleWord>();
+
+            //Debug.Log("frameCounter: " + frameCounter + ", frameMotionNo: " + allCharCotrollers[0].skeleton.frameMotions.Count + ", frameNeeded: " + frameNoNeeded);
+            int[] bestMatchingFrameMotions = FindBestMatchingFrameMotions();
+
+            // Add MotionWords
+            //Debug.Log("bestMatchingFrameMotions[0]: " + bestMatchingFrameMotions[0] + ", bestMatchingFrameMotions[1]: " + bestMatchingFrameMotions[1] + ", motionWordWindowSize: " + motionWordWindowSize);
+            newMotionWords.Add(allCharCotrollers[0].skeleton.AddMotionWord(motionWordWindowSize,bestMatchingFrameMotions[0]));
+            newMotionWords.Add(allCharCotrollers[1].skeleton.AddMotionWord(motionWordWindowSize, bestMatchingFrameMotions[1]));
+
+            // Add StyleWords
+            Skeleton.StyleWord controllerNewStyleWord = allCharCotrollers[0].skeleton.AddStyleWord(styleWordWindowSize, bestMatchingFrameMotions[0]);
+            newStyleWords.Add(controllerNewStyleWord);
+            // Get the maximum value of all style words
+            maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+
+            controllerNewStyleWord = allCharCotrollers[1].skeleton.AddStyleWord(styleWordWindowSize, bestMatchingFrameMotions[1]);
+            newStyleWords.Add(controllerNewStyleWord);
+            // Get the maximum value of all style words
+            maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+
+            DataEditor.gameData.maxStyleWords = maxStyleWords;
+        }
+
+        #endregion
+
+        #region Check and Add new words
+        ////new words for this frame
+        //List<Skeleton.MotionWord> newMotionWords = null;
+        //List < Skeleton.StyleWord> newStyleWords = null;
+
+        //// Check and put the new motion word if is the time
+        //motionWordStepCounter--;
+        //if (motionWordStepCounter <= 0)
+        //{
+        //    newMotionWords = new List<Skeleton.MotionWord>();
+        //    foreach (CharController controller in allCharCotrollers)
+        //    {
+        //        newMotionWords.Add(controller.skeleton.AddMotionWord(motionWordWindowSize));
+                
+        //    }
+        //    motionWordStepCounter = motionWordStep;
+        //}
+
+        //// Check and put the new style word if is the time
+        //styleWordStepCounter--;
+        //if (styleWordStepCounter <= 0)
+        //{
+        //    //print("!!!!!!!!!!!!!!!!!!");
+        //    newStyleWords = new List<Skeleton.StyleWord>();
+        //    foreach (CharController controller in allCharCotrollers)
+        //    {
+        //        // Write style word for each controller
+        //        Skeleton.StyleWord controllerNewStyleWord = controller.skeleton.AddStyleWord(styleWordWindowSize);
+        //        newStyleWords.Add(controllerNewStyleWord);
+        //        //print(controllerNewStyleWord.centroidPelvisDistanceMax);
+
+        //        // Get the maximum value of all style words
+        //        //maxStyleWords = Mathf.Max(maxStyleWords, controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords), DataEditor.gameData.maxStyleWords);
+        //        maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+        //        DataEditor.gameData.maxStyleWords = maxStyleWords;
+        //    }
+        //    styleWordStepCounter = styleWordStep;
+        //}
+        #endregion
+
+        #region Comparisons
+
+        if (newStyleWords != null)
+        {
+
+            for (int i = 0; i < newStyleWords.Count; i++)
+            {
+                // Normalized all style words dependent on maxStyleWords
+                newStyleWords[i] = newStyleWords[i].GetNormilizedWord(newStyleWords[i], maxStyleWords);
+            }
+
+            Skeleton.StyleWord distanceStyleWord = new Skeleton.StyleWord();
+            // Get total distance
+            distanceStyleWord = distanceStyleWord.GetDistanceBetweenWords(newStyleWords.ToArray());
+            //print(distanceStyleWord.centroidHeightMax);
+
+            // Send data to ui avatar controller
+            //uiAvatarController.lastStyleWord = distanceStyleWord;
+
+            // Get Sum of all ellements of distances style word
+            float totalDistanceStyleWord = distanceStyleWord.GetSumOfVars(distanceStyleWord);
+
+            if (totalDistanceStyleWord < styleWordThreshold)
+            {
+                //print("Style Word: " + totalDistanceStyleWord + " OK");
+            }
+            else
+            {
+                //print("Style Word: " + totalDistanceStyleWord + " NOT OK");
+            }
+
+            styleWordResults.Add(totalDistanceStyleWord);
+            myStreamingGraphController.AddNewStyleWord(totalDistanceStyleWord);
+        }
+
+        if(newMotionWords != null)
+        {
+            List<Vector3[]> distanceMotionWord = new List<Vector3[]>();
+            // Get distance for all frames
+            distanceMotionWord = newMotionWords[0].GetDistanceBetweenWordsInDegrees(newMotionWords.ToArray());
+
+            // Get Sum of all frames of distances motion word
+            Vector3[] totalDistanceMotion = newMotionWords[0].GetSumOfFrames(distanceMotionWord);
+
+            // Send data to ui avatar controller
+            uiAvatarController.lastMotionWord = totalDistanceMotion;
+
+            float avgError = 0;
+            for (int i = 0; i < totalDistanceMotion.Length; i++) // For each joint
+            {
+                avgError += ((totalDistanceMotion[i].x + totalDistanceMotion[i].y + totalDistanceMotion[i].z)/3f); //avg of 3 axis error
+                if ((totalDistanceMotion[i].x <= motionWordThreshold) && (totalDistanceMotion[i].y <= motionWordThreshold) && (totalDistanceMotion[i].z <= motionWordThreshold))
+                {
+                    //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " OK");
+                }
+                else
+                {
+                    //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " NOT OK");
+                }
+            }
+
+            float motionResult = avgError / totalDistanceMotion.Length; // avg of all frames
+            //motionWordResults.Add(totalDistanceMotion);
+            motionWordResults.Add(motionResult);
+            myStreamingGraphController.AddNewMotionWord(motionResult);
+        }
+        #endregion
+
+        frameCounter++;
+    }
+
+    public static bool StartWriteWords()
+    {
+        writeWords = true;
+        savedWords = false;
+        return writeWords;
+    }
+
+    public static bool StopWriteWords()
+    {
+        if (savedWords == false)
+        {
+            DataEditor.SaveWords();
+            savedWords = true;
+        }
+
+        InitWords();
+
+        return writeWords;
+    }
+}
