@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 namespace EazyTools.SoundManager
 {
@@ -116,10 +117,11 @@ namespace EazyTools.SoundManager
 
         void Awake()
         {
+            SceneManager.sceneLoaded += this.MyOnLevelWasLoaded;
             instance.Init();
         }
 
-        void OnLevelWasLoaded(int level)
+        void MyOnLevelWasLoaded(Scene scene, LoadSceneMode sceneMode)
         {
             List<int> keys;
 

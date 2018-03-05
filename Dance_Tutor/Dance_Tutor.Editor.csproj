@@ -192,6 +192,7 @@
     <Compile Include="Assets\_OtherAssets\Chart and Graph\Editor\RenameWindow.cs" />
     <Compile Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\Standard Assets\Editor\KinectCopyPluginDataHelper.cs" />
     <Compile Include="Assets\_OtherAssets\Kinect-v2-with-MS-SDK-v2.16.0\Standard Assets\Editor\KinectFacePostBuildCopyPluginData.cs" />
+    <Compile Include="Assets\Editor\WordManagerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\results.txt" />

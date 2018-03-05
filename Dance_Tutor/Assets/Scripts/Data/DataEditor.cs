@@ -48,7 +48,10 @@ public class DataEditor : MonoBehaviour {
         {
             string dataAsJson = File.ReadAllText(filePath);
             gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-            selectedUser = gameData.Users[0];
+            if (gameData.Users != null)
+            {
+                selectedUser = gameData.Users[0];
+            }
         }
         else
         {

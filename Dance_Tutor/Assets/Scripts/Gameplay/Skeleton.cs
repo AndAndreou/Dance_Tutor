@@ -118,8 +118,8 @@ public class Skeleton
             float sum = 0;
             for(int i = 0; i < sumOfFrames.Length; i++)
             {
-                float axisAvg = (sumOfFrames[i].x + sumOfFrames[i].y + sumOfFrames[i].z)/3f;
-                sum += axisAvg;
+                float axisSum = (sumOfFrames[i].x + sumOfFrames[i].y + sumOfFrames[i].z);
+                sum += axisSum;
             }
 
             return sum;
@@ -394,12 +394,13 @@ public class Skeleton
 
         return motionWord;
     }
-    
+
     /// <summary>
-    /// Add motion word in motion words list
+    /// Add motion word from start frame(included) to end frame(included) in motion words list
     /// </summary>
-    public MotionWord AddMotionWord(int motionWordWindowSize, int selectedFrame)
+    public MotionWord AddMotionWord(int startFrame, int endFrame)
     {
+        int size = endFrame - startFrame + 1;
         MotionWord motionWord = new MotionWord();
         motionWord.joint = new List<Vector3[]>();
         //Debug.Log("startFrame: " + (selectedFrame - Mathf.FloorToInt(motionWordWindowSize / 2f)) + ", endFrame: " + (selectedFrame + Mathf.FloorToInt(motionWordWindowSize / 2f)));
@@ -407,9 +408,9 @@ public class Skeleton
         {
             // Get last frames per joint and get only rotations
             
-            Frame[] framePerJoint = joint.GetFramesRange(selectedFrame - Mathf.FloorToInt(motionWordWindowSize / 2f), selectedFrame + Mathf.FloorToInt(motionWordWindowSize / 2f)).ToArray();
-            Vector3[] jointRotationByFrame = new Vector3[motionWordWindowSize];
-            for (int i = 0; i < motionWordWindowSize; i++)
+            Frame[] framePerJoint = joint.GetFramesRange(startFrame, endFrame).ToArray();
+            Vector3[] jointRotationByFrame = new Vector3[size];
+            for (int i = 0; i < size; i++)
             {
                 jointRotationByFrame[i] = framePerJoint[i].rotation;
             }
@@ -903,12 +904,14 @@ public class Skeleton
     /// <summary>
     /// Add style word in style words list
     /// </summary>
-    public StyleWord AddStyleWord(int styleWordWindowSize,int selectedFrame)
+    public StyleWord AddStyleWord(int startFrame, int endFrame)
     {
+        int styleWordWindowSize = endFrame - startFrame + 1;
+
         Dictionary<JointName, List<Frame>> jointsWithLastFrames = new Dictionary<JointName, List<Frame>>();
         foreach (Joint joint in joints)
         {
-            jointsWithLastFrames.Add(joint.GetJointName(), joint.GetFramesRange(selectedFrame- Mathf.FloorToInt(styleWordWindowSize/2f), selectedFrame + Mathf.FloorToInt(styleWordWindowSize / 2f)));
+            jointsWithLastFrames.Add(joint.GetJointName(), joint.GetFramesRange(startFrame, endFrame));
         }
 
         // Feet to hips distance

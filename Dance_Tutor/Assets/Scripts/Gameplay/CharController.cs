@@ -52,6 +52,7 @@ public class CharController : MonoBehaviour {
         if (WordsManagerWithSync.writeWords == true)
         {
             skeleton.AutoAddFrameValuesForEachJoint(this.transform);
+            //Debug.Log(gameObject.name + " ---> " + skeleton.frameMotions.Count);
         }
     }
 

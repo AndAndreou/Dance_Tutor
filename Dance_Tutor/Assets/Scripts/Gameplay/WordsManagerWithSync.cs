@@ -7,8 +7,6 @@ public class WordsManagerWithSync : MonoBehaviour {
     [Header("Extra Params For Sync")]
     public int syncWindowSize = 10;
     public int syncWindowStep = 15;
-    private int lastSelectedStyleWordFrame = 0;
-    private int lastSelectedMotionWordFrame = 0;
 
     private static int frameCounter = 0;
     private static int frameNoNeeded;
@@ -49,6 +47,21 @@ public class WordsManagerWithSync : MonoBehaviour {
 
     private static bool savedWords = true;
 
+    // params from inspector
+    [HideInInspector]
+    public bool syncAnimationEnable = true;
+    [HideInInspector]
+    public bool syncWindowsMoveParallel;
+    [HideInInspector]
+    public PositionOfSyncFrameEnum positionOfSyncFrame;
+
+    public enum PositionOfSyncFrameEnum
+    {
+        start = 0,
+        middle = 1,
+        end = 2
+    }
+
     private static WordsManagerWithSync _instance = null;
     public static WordsManagerWithSync instance
     {
@@ -70,7 +83,24 @@ public class WordsManagerWithSync : MonoBehaviour {
         styleWordStepCounter = styleWordWindowSize;
 
         frameNoNeeded = syncWindowSize + motionWordWindowSize;
-        nextStartFrameIdForSyncWindowTutor = nextStartFrameIdForSyncWindowStudent = Mathf.FloorToInt(motionWordWindowSize/2f);
+
+        int startFrameID = 0;
+        switch (positionOfSyncFrame)
+        {
+            case PositionOfSyncFrameEnum.start:
+                startFrameID = 0;
+                break;
+            case PositionOfSyncFrameEnum.middle:
+                startFrameID = Mathf.FloorToInt(motionWordWindowSize / 2f);
+                break;
+            case PositionOfSyncFrameEnum.end:
+                startFrameID = frameNoNeeded - syncWindowSize + 1;
+                break;
+            default:
+                startFrameID = frameNoNeeded - syncWindowSize + 1;
+                break;
+        }
+        nextStartFrameIdForSyncWindowTutor = nextStartFrameIdForSyncWindowStudent = startFrameID;
     }
 
     // Use this for initialization
@@ -138,7 +168,7 @@ public class WordsManagerWithSync : MonoBehaviour {
                 Vector3[] sumOfFrames = frameMotions[0].GetSumOfFrames(distance);
                 float totalSum = frameMotions[0].GetTotalSum(sumOfFrames);
 
-                if ((totalSum < minDistance) || ((i == 0) && (x == 0))) // Find smaller distance or we are in first comparison
+                if ((totalSum < minDistance) || ((i == nextStartFrameIdForSyncWindowTutor) && (x == nextStartFrameIdForSyncWindowStudent))) // Find smaller distance or we are in first comparison
                 {
                     minDistance = totalSum;
                     bestMatchingId[0] = i;
@@ -148,9 +178,32 @@ public class WordsManagerWithSync : MonoBehaviour {
         }
 
         // Find next parameters 
-        nextStartFrameIdForSyncWindowTutor = bestMatchingId[0] + syncWindowStep ;
-        nextStartFrameIdForSyncWindowStudent = bestMatchingId[1] + syncWindowStep;
-        frameNoNeeded = Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + syncWindowSize + Mathf.CeilToInt(motionWordWindowSize / 2f);
+        if (syncWindowsMoveParallel)
+        {
+            nextStartFrameIdForSyncWindowTutor = nextStartFrameIdForSyncWindowStudent = Mathf.Max(bestMatchingId[0], bestMatchingId[1]) + syncWindowStep;
+        }
+        else
+        {
+            nextStartFrameIdForSyncWindowTutor = bestMatchingId[0] + syncWindowStep;
+            nextStartFrameIdForSyncWindowStudent = bestMatchingId[1] + syncWindowStep;
+        }
+
+        //frameNoNeeded = Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + syncWindowSize + Mathf.CeilToInt(motionWordWindowSize / 2f);
+        switch (positionOfSyncFrame)
+        {
+            case PositionOfSyncFrameEnum.start:
+                frameNoNeeded = Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + syncWindowSize + Mathf.Max(motionWordWindowSize,styleWordWindowSize);
+                break;
+            case PositionOfSyncFrameEnum.middle:
+                frameNoNeeded = Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + syncWindowSize + Mathf.CeilToInt(Mathf.Max(motionWordWindowSize, styleWordWindowSize) / 2f);
+                break;
+            case PositionOfSyncFrameEnum.end:
+                frameNoNeeded = Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + syncWindowSize - 1;
+                break;
+            default:
+                frameNoNeeded = Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + syncWindowSize - 1;
+                break;
+        }
         //Debug.Log(Mathf.Max(nextStartFrameIdForSyncWindowTutor, nextStartFrameIdForSyncWindowStudent) + " , " + syncWindowSize + " , " + Mathf.CeilToInt(motionWordWindowSize / 2f));
 
         return bestMatchingId;
@@ -163,77 +216,91 @@ public class WordsManagerWithSync : MonoBehaviour {
             return;
         }
 
-        #region New Code
+        #region Check and Add new words
+
         List<Skeleton.MotionWord> newMotionWords = null;
         List<Skeleton.StyleWord> newStyleWords = null;
 
-        if (frameNoNeeded <= frameCounter) // Then can check the words
+        if (syncAnimationEnable)
         {
-            newMotionWords = new List<Skeleton.MotionWord>();
-            newStyleWords = new List<Skeleton.StyleWord>();
+            
+            #region Sync Animation Code
+            if (frameNoNeeded <= frameCounter) // Then can check the words
+            {
+                //print("frameNeeded:" + frameNoNeeded);
+                newMotionWords = new List<Skeleton.MotionWord>();
+                newStyleWords = new List<Skeleton.StyleWord>();
 
-            //Debug.Log("frameCounter: " + frameCounter + ", frameMotionNo: " + allCharCotrollers[0].skeleton.frameMotions.Count + ", frameNeeded: " + frameNoNeeded);
-            int[] bestMatchingFrameMotions = FindBestMatchingFrameMotions();
+                //Debug.Log("frameCounter: " + frameCounter + ", frameMotionNo: " + allCharCotrollers[0].skeleton.frameMotions.Count + ", frameNeeded: " + frameNoNeeded);
+                int[] bestMatchingFrameMotions = FindBestMatchingFrameMotions();
 
-            // Add MotionWords
-            //Debug.Log("bestMatchingFrameMotions[0]: " + bestMatchingFrameMotions[0] + ", bestMatchingFrameMotions[1]: " + bestMatchingFrameMotions[1] + ", motionWordWindowSize: " + motionWordWindowSize);
-            newMotionWords.Add(allCharCotrollers[0].skeleton.AddMotionWord(motionWordWindowSize,bestMatchingFrameMotions[0]));
-            newMotionWords.Add(allCharCotrollers[1].skeleton.AddMotionWord(motionWordWindowSize, bestMatchingFrameMotions[1]));
+                int[] startEndFrames = new int[2];
+                // Add MotionWords
+                //Debug.Log("bestMatchingFrameMotions[0]: " + bestMatchingFrameMotions[0] + ", bestMatchingFrameMotions[1]: " + bestMatchingFrameMotions[1] + ", motionWordWindowSize: " + motionWordWindowSize);
+                startEndFrames = FindStartAndEndFrameForWord(bestMatchingFrameMotions[0], motionWordWindowSize);
+                //print(startEndFrames[0] + " - " + startEndFrames[1]);
+                newMotionWords.Add(allCharCotrollers[0].skeleton.AddMotionWord(startEndFrames[0], startEndFrames[1]));
 
-            // Add StyleWords
-            Skeleton.StyleWord controllerNewStyleWord = allCharCotrollers[0].skeleton.AddStyleWord(styleWordWindowSize, bestMatchingFrameMotions[0]);
-            newStyleWords.Add(controllerNewStyleWord);
-            // Get the maximum value of all style words
-            maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+                startEndFrames = FindStartAndEndFrameForWord(bestMatchingFrameMotions[1], motionWordWindowSize);
+                //print(startEndFrames[0] + " - " + startEndFrames[1]);
+                newMotionWords.Add(allCharCotrollers[1].skeleton.AddMotionWord(startEndFrames[0], startEndFrames[1]));
 
-            controllerNewStyleWord = allCharCotrollers[1].skeleton.AddStyleWord(styleWordWindowSize, bestMatchingFrameMotions[1]);
-            newStyleWords.Add(controllerNewStyleWord);
-            // Get the maximum value of all style words
-            maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+                // Add StyleWords
+                startEndFrames = FindStartAndEndFrameForWord(bestMatchingFrameMotions[0], styleWordWindowSize);
+                Skeleton.StyleWord controllerNewStyleWord = allCharCotrollers[0].skeleton.AddStyleWord(startEndFrames[0], startEndFrames[1]);
+                newStyleWords.Add(controllerNewStyleWord);
+                // Get the maximum value of all style words
+                maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
 
-            DataEditor.gameData.maxStyleWords = maxStyleWords;
+                startEndFrames = FindStartAndEndFrameForWord(bestMatchingFrameMotions[1], styleWordWindowSize);
+                controllerNewStyleWord = allCharCotrollers[1].skeleton.AddStyleWord(startEndFrames[0], startEndFrames[1]);
+                newStyleWords.Add(controllerNewStyleWord);
+                // Get the maximum value of all style words
+                maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+
+                DataEditor.gameData.maxStyleWords = maxStyleWords;
+            }
+            #endregion
         }
+        else
+        {
+            #region Async Animation Code
+            // Check and put the new motion word if is the time
 
-        #endregion
+            motionWordStepCounter--;
+            if (motionWordStepCounter <= 0)
+            {
+                newMotionWords = new List<Skeleton.MotionWord>();
+                foreach (CharController controller in allCharCotrollers)
+                {
+                    newMotionWords.Add(controller.skeleton.AddMotionWord(motionWordWindowSize));
 
-        #region Check and Add new words
-        ////new words for this frame
-        //List<Skeleton.MotionWord> newMotionWords = null;
-        //List < Skeleton.StyleWord> newStyleWords = null;
+                }
+                motionWordStepCounter = motionWordStep;
+            }
 
-        //// Check and put the new motion word if is the time
-        //motionWordStepCounter--;
-        //if (motionWordStepCounter <= 0)
-        //{
-        //    newMotionWords = new List<Skeleton.MotionWord>();
-        //    foreach (CharController controller in allCharCotrollers)
-        //    {
-        //        newMotionWords.Add(controller.skeleton.AddMotionWord(motionWordWindowSize));
-                
-        //    }
-        //    motionWordStepCounter = motionWordStep;
-        //}
+            // Check and put the new style word if is the time
+            styleWordStepCounter--;
+            if (styleWordStepCounter <= 0)
+            {
+                //print("!!!!!!!!!!!!!!!!!!");
+                newStyleWords = new List<Skeleton.StyleWord>();
+                foreach (CharController controller in allCharCotrollers)
+                {
+                    // Write style word for each controller
+                    Skeleton.StyleWord controllerNewStyleWord = controller.skeleton.AddStyleWord(styleWordWindowSize);
+                    newStyleWords.Add(controllerNewStyleWord);
+                    //print(controllerNewStyleWord.centroidPelvisDistanceMax);
 
-        //// Check and put the new style word if is the time
-        //styleWordStepCounter--;
-        //if (styleWordStepCounter <= 0)
-        //{
-        //    //print("!!!!!!!!!!!!!!!!!!");
-        //    newStyleWords = new List<Skeleton.StyleWord>();
-        //    foreach (CharController controller in allCharCotrollers)
-        //    {
-        //        // Write style word for each controller
-        //        Skeleton.StyleWord controllerNewStyleWord = controller.skeleton.AddStyleWord(styleWordWindowSize);
-        //        newStyleWords.Add(controllerNewStyleWord);
-        //        //print(controllerNewStyleWord.centroidPelvisDistanceMax);
-
-        //        // Get the maximum value of all style words
-        //        //maxStyleWords = Mathf.Max(maxStyleWords, controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords), DataEditor.gameData.maxStyleWords);
-        //        maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
-        //        DataEditor.gameData.maxStyleWords = maxStyleWords;
-        //    }
-        //    styleWordStepCounter = styleWordStep;
-        //}
+                    // Get the maximum value of all style words
+                    //maxStyleWords = Mathf.Max(maxStyleWords, controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords), DataEditor.gameData.maxStyleWords);
+                    maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
+                    DataEditor.gameData.maxStyleWords = maxStyleWords;
+                }
+                styleWordStepCounter = styleWordStep;
+            }
+            #endregion
+        }
         #endregion
 
         #region Comparisons
@@ -305,6 +372,42 @@ public class WordsManagerWithSync : MonoBehaviour {
         #endregion
 
         frameCounter++;
+    }
+
+    /// <summary>
+    /// Return the first frame id in position 0 and the last frame id in position 1
+    /// </summary>
+    /// <param name="selectedFrame"></param>
+    /// <param name="wordSize"></param>
+    /// <returns></returns>
+    private int[] FindStartAndEndFrameForWord(int selectedFrame,int wordSize)
+    {
+        // Calculate the start frame of word
+        int[] frames = new int[2];
+        int startFrame = 0;
+        int endFrame = 0;
+        switch (positionOfSyncFrame)
+        {
+            case PositionOfSyncFrameEnum.start:
+                startFrame = selectedFrame;
+                break;
+            case PositionOfSyncFrameEnum.middle:
+                startFrame = selectedFrame - Mathf.FloorToInt(wordSize / 2f);
+                break;
+            case PositionOfSyncFrameEnum.end:
+                startFrame = selectedFrame - wordSize + 1;
+                break;
+            default:
+                startFrame = selectedFrame - wordSize + 1;
+                break;
+        }
+
+        endFrame = startFrame + wordSize - 1;
+
+        frames[0] = startFrame;
+        frames[1] = endFrame;
+
+        return frames;
     }
 
     public static bool StartWriteWords()
