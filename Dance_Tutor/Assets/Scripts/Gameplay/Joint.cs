@@ -7,6 +7,7 @@ public class Joint
 {
     public JointName name;
     public GameObject jointGO;
+    public bool UseItInCalculations;
     public List<Frame> frames;
 
     /// <summary>
@@ -84,9 +85,17 @@ public class Joint
         }
         //Get position and direction relative to the caller transform
         //Frame newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), callerTransform.InverseTransformDirection(jointGO.transform.eulerAngles), Time.time);
-        
+
         //Get position relative to the caller transform and local euler angles
-        Frame newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), (jointGO.transform.localEulerAngles), Time.time);
+        Frame newFrame = new Frame();
+        if (UseItInCalculations)
+        {
+            newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), (jointGO.transform.localEulerAngles), Time.time);
+        }
+        else
+        {
+            newFrame = new Frame(Vector3.zero, Vector3.zero, Time.time);
+        }
         frames.Add(newFrame);
         return newFrame;
     }

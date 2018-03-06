@@ -177,6 +177,7 @@ public class Skeleton
         public float headOrientationMax = 0;
         public float headOrientationMin = 0;
         public float headOrientationMean = 0;
+        public float headOrientationStd = 0;
 
         public float decelerationPeaksNo = 0;
 
@@ -306,6 +307,77 @@ public class Skeleton
 
             return sum;
         }
+
+        public enum LMACompnents
+        {
+            Body = 0,
+            Efford = 1,
+            Shape = 2,
+            Space = 3
+        }
+
+        public enum LMAOperationType
+        {
+            Sum = 0,
+        }
+
+        public float GetLMAComponent(LMACompnents lmaComponent,LMAOperationType operationType)
+        {
+            float result = 0;
+            switch (lmaComponent)
+            {
+                case LMACompnents.Body:
+                    float feetHipDistance = feetHipDistanceMax + feetHipDistanceMin + feetHipDistanceMean + feetHipDistanceStd;
+                    float handsSholderDistance = handsShoulderDistanceMax + handsShoulderDistanceMin + handsShoulderDistanceMean + handsShoulderDistanceStd;
+                    float handsDistance = handsDistanceMax + handsDistanceMin + handsDistanceMean + handsDistanceStd;
+                    float handsHeadDistance = handsHeadDistanceMax + handsHeadDistanceMin + handsHeadDistanceMean + handsHeadDistanceStd;
+                    float pelvisHeight = pelvisHeightMax + pelvisHeightMin + pelvisHeightMean + pelvisHeightStd;  
+                    float hipGroundMinusFeetHipDistance = hipGroundMinusFeetHipMax + hipGroundMinusFeetHipMin + hipGroundMinusFeetHipMean + hipGroundMinusFeetHipStd;
+                    float centroidHeight = centroidHeightMax + centroidHeightMin + centroidHeightMean + centroidHeightStd;
+                    float centroidPelvisDistance = centroidPelvisDistanceMax + centroidPelvisDistanceMin + centroidPelvisDistanceMean + centroidPelvisDistanceStd;
+                    float gaitSize = gaitSizeMax + gaitSizeMin + gaitSizeMean + gaitSizeStd;
+                    float body = feetHipDistance + handsSholderDistance + handsDistance + handsHeadDistance + pelvisHeight + hipGroundMinusFeetHipDistance + centroidHeight + centroidPelvisDistance + gaitSize;
+
+                    result = body;
+                    break;
+                case LMACompnents.Efford:
+                    float headOrientation = headOrientationMax + headOrientationMin + headOrientationMean + headOrientationStd;
+                    float decelerationPeaks = decelerationPeaksNo;
+                    float hipVelocity = hipVelocityMax + hipVelocityMin + hipVelocityStd;
+                    float handsVelocity = handsVelocityMax + handsVelocityMin + handsVelocityStd;
+                    float feetVelocity = feetVelocityMax + feetVelocityMin + feetVelocityStd;
+                    float hipAcceleration = hipAccelerationMax + hipAccelerationStd;
+                    float handsAcceleration = handsAccelerationMax + handsAccelerationStd;
+                    float feetAcceleration = feetAccelerationMax + feetAccelerationStd;
+                    float jerk = jerkAccelerationMax + jerkAccelerationStd;
+                    float effort = headOrientation + decelerationPeaks + hipVelocity + handsVelocity + feetVelocity + hipAcceleration + handsAcceleration + feetAcceleration + jerk;
+
+                    result = effort;
+                    break;
+                case LMACompnents.Shape:
+                    float volume = volumeMax + volumeMin + volumeMean + volumeStd;
+                    float volumeUpperBody = volumeUpperBodyMax + volumeUpperBodyMin + volumeUpperBodyMean + volumeUpperBodyStd;
+                    float volumeLowerBody = volumeLowerBodyMax + volumeLowerBodyMin + volumeLowerBodyMean + volumeLowerBodyStd;
+                    float volumeLeftSide = volumeLeftSideMax + volumeLeftSideMin + volumeLeftSideMean + volumeLeftSideStd;
+                    float volumeRightSide = volumeRightSideMax + volumeRightSideMin + volumeRightSideMean + volumeRightSideStd;
+                    float torsoHeight = torsoHeightMax + torsoHeightMin + torsoHeightMean + torsoHeightStd;
+                    float handsLevel = handsLevelNo1 + handsLevelNo2 + handsLevelNo3;
+                    float shape = volume + volumeUpperBody + volumeLowerBody + volumeLeftSide + volumeRightSide + torsoHeight + handsLevel;
+
+                    result = shape;
+                    break;
+                case LMACompnents.Space:
+                    float totalDistance = totalDistanceNo;
+                    float totalArea = totalAreaNo;
+                    float space = totalDistance + totalArea;
+
+                    result = space;
+                    break;
+            }
+
+            return result;
+        }
+        
     }
 
     private List<Vector3> skeletonCentroid;
@@ -356,15 +428,17 @@ public class Skeleton
     public void AutoAddFrameValuesForEachJoint(Transform callerTransform)
     {
         Vector3 centroidForThisFrame = Vector3.zero;
+        int activeJoints = 0;
         foreach (Joint joint in joints)
         {
-            Frame f = joint.AddFrame(callerTransform);
+                Frame f = joint.AddFrame(callerTransform);
 
-            centroidForThisFrame = f.position;
+                centroidForThisFrame += f.position;
+                activeJoints++;
         }
 
         // Calculate centroid
-        centroidForThisFrame = centroidForThisFrame / joints.Count;
+        centroidForThisFrame = centroidForThisFrame / activeJoints;
         skeletonCentroid.Add(centroidForThisFrame);
 
         AddFrameMotion();
@@ -380,14 +454,14 @@ public class Skeleton
 
         foreach( Joint joint in joints)
         {
-            // Get last frames per joint and get only rotations
-            Frame[] framePerJoint = joint.GetLastFrames(motionWordWindowSize).ToArray();
-            Vector3[] jointRotationByFrame = new Vector3[motionWordWindowSize];
-            for (int i = 0; i < motionWordWindowSize; i++)
-            {
-                jointRotationByFrame[i] = framePerJoint[i].rotation;
-            }
-            motionWord.joint.Add(jointRotationByFrame);
+                // Get last frames per joint and get only rotations
+                Frame[] framePerJoint = joint.GetLastFrames(motionWordWindowSize).ToArray();
+                Vector3[] jointRotationByFrame = new Vector3[motionWordWindowSize];
+                for (int i = 0; i < motionWordWindowSize; i++)
+                {
+                    jointRotationByFrame[i] = framePerJoint[i].rotation;
+                }
+                motionWord.joint.Add(jointRotationByFrame);
         }
 
         motionWords.Add(motionWord);
@@ -406,15 +480,14 @@ public class Skeleton
         //Debug.Log("startFrame: " + (selectedFrame - Mathf.FloorToInt(motionWordWindowSize / 2f)) + ", endFrame: " + (selectedFrame + Mathf.FloorToInt(motionWordWindowSize / 2f)));
         foreach (Joint joint in joints)
         {
-            // Get last frames per joint and get only rotations
-            
-            Frame[] framePerJoint = joint.GetFramesRange(startFrame, endFrame).ToArray();
-            Vector3[] jointRotationByFrame = new Vector3[size];
-            for (int i = 0; i < size; i++)
-            {
-                jointRotationByFrame[i] = framePerJoint[i].rotation;
-            }
-            motionWord.joint.Add(jointRotationByFrame);
+                // Get last frames per joint and get only rotations
+                Frame[] framePerJoint = joint.GetFramesRange(startFrame, endFrame).ToArray();
+                Vector3[] jointRotationByFrame = new Vector3[size];
+                for (int i = 0; i < size; i++)
+                {
+                    jointRotationByFrame[i] = framePerJoint[i].rotation;
+                }
+                motionWord.joint.Add(jointRotationByFrame);
         }
 
         motionWords.Add(motionWord);
@@ -446,30 +519,6 @@ public class Skeleton
 
         return frameMotion;
     }
-
-    //// Get motions (is like motionWords) to check for sync
-    //public List<Vector3>[] GetMotionsForFrames(int startFrame, int endFrame)
-    //{
-    //    List<Vector3>[] motions = new List<Vector3>[startFrame - endFrame + 1];
-
-    //    for (int i = startFrame; i <= endFrame; i++)
-    //    {
-    //        List<Vector3> motion = new List<Vector3>();
-    //        foreach (Joint joint in joints)
-    //        {
-    //            Frame[] framePerJoint = joint.GetFramesRange(startFrame, endFrame).ToArray();
-    //            Vector3 jointRotationByFrame = new Vector3();
-    //            for (int j = startFrame; j <= endFrame; j++)
-    //            {
-    //                jointRotationByFrame = framePerJoint[i].rotation;
-    //            }
-    //            motion.Add(jointRotationByFrame);
-    //        }
-    //        motions[i] = motion;
-    //    }
-
-    //    return motions;
-    //}
 
     /// <summary>
     /// Add style word in style words list
@@ -829,6 +878,7 @@ public class Skeleton
         newStyleWord.headOrientationMax = GetMaximumOfArray(f10);
         newStyleWord.headOrientationMin = GetMinimumOfArray(f10);
         newStyleWord.headOrientationMean = GetMeanOfArray(f10);
+        newStyleWord.headOrientationMean = GetStdOfArray(f10);
 
         newStyleWord.decelerationPeaksNo = f11;
 
@@ -1261,6 +1311,7 @@ public class Skeleton
         newStyleWord.headOrientationMax = GetMaximumOfArray(f10);
         newStyleWord.headOrientationMin = GetMinimumOfArray(f10);
         newStyleWord.headOrientationMean = GetMeanOfArray(f10);
+        newStyleWord.headOrientationMean = GetStdOfArray(f10);
 
         newStyleWord.decelerationPeaksNo = f11;
 

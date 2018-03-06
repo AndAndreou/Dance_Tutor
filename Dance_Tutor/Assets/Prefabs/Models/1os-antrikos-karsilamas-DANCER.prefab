@@ -1735,8 +1735,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203533247231044}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.040474113, y: -7.141733e-18, z: 0.32163504}
+  m_LocalRotation: {x: -0, y: 0.99400663, z: -0, w: -0.10932007}
+  m_LocalPosition: {x: 3.44, y: 0.074, z: -0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4782740015979340}
@@ -1801,7 +1801,7 @@ Transform:
   - {fileID: 4784451012998208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 192.55199, z: 0}
 --- !u!4 &4041658076216500
 Transform:
   m_ObjectHideFlags: 1
@@ -3304,99 +3304,143 @@ MonoBehaviour:
     joints:
     - name: 0
       jointGO: {fileID: 1578509529530620}
+      UseItInCalculations: 1
     - name: 11
       jointGO: {fileID: 1707098378189134}
+      UseItInCalculations: 1
     - name: 1
       jointGO: {fileID: 1255805195882866}
+      UseItInCalculations: 1
     - name: 2
       jointGO: {fileID: 1649392668104222}
+      UseItInCalculations: 1
     - name: 3
       jointGO: {fileID: 1699224133940562}
+      UseItInCalculations: 1
     - name: 4
       jointGO: {fileID: 1040518208414302}
+      UseItInCalculations: 1
     - name: 5
       jointGO: {fileID: 1849362113323578}
+      UseItInCalculations: 1
     - name: 6
       jointGO: {fileID: 1806934555544176}
+      UseItInCalculations: 1
     - name: 7
       jointGO: {fileID: 1258826051461654}
+      UseItInCalculations: 1
     - name: 8
       jointGO: {fileID: 1412457218281878}
+      UseItInCalculations: 1
     - name: 9
       jointGO: {fileID: 1841495763095192}
+      UseItInCalculations: 1
     - name: 10
       jointGO: {fileID: 1269763368921030}
+      UseItInCalculations: 1
     - name: 12
       jointGO: {fileID: 1906953029640982}
+      UseItInCalculations: 1
     - name: 13
       jointGO: {fileID: 1713786653880370}
+      UseItInCalculations: 1
     - name: 14
       jointGO: {fileID: 1008141364176172}
+      UseItInCalculations: 1
     - name: 64
       jointGO: {fileID: 1571557017193846}
+      UseItInCalculations: 1
     - name: 65
       jointGO: {fileID: 1373385995725514}
+      UseItInCalculations: 1
     - name: 66
       jointGO: {fileID: 1181548862551544}
+      UseItInCalculations: 1
     - name: 40
       jointGO: {fileID: 1277246335983734}
+      UseItInCalculations: 1
     - name: 41
       jointGO: {fileID: 1016583846562902}
+      UseItInCalculations: 1
     - name: 42
       jointGO: {fileID: 1209577687795368}
+      UseItInCalculations: 1
     - name: 43
       jointGO: {fileID: 1017932381242762}
+      UseItInCalculations: 1
     - name: 60
       jointGO: {fileID: 1377606132867504}
+      UseItInCalculations: 1
     - name: 63
       jointGO: {fileID: 1241560697785690}
+      UseItInCalculations: 1
     - name: 56
       jointGO: {fileID: 1869739311193262}
+      UseItInCalculations: 1
     - name: 59
       jointGO: {fileID: 1071918538765124}
+      UseItInCalculations: 1
     - name: 44
       jointGO: {fileID: 1860189506429296}
+      UseItInCalculations: 1
     - name: 47
       jointGO: {fileID: 1000857623063594}
+      UseItInCalculations: 1
     - name: 48
       jointGO: {fileID: 1773273044946902}
+      UseItInCalculations: 1
     - name: 51
       jointGO: {fileID: 1760064096266666}
+      UseItInCalculations: 1
     - name: 52
       jointGO: {fileID: 1064870871015740}
+      UseItInCalculations: 1
     - name: 55
       jointGO: {fileID: 1362217470974672}
+      UseItInCalculations: 1
     - name: 16
       jointGO: {fileID: 1197321453550068}
+      UseItInCalculations: 1
     - name: 17
       jointGO: {fileID: 1773671407927202}
+      UseItInCalculations: 1
     - name: 18
       jointGO: {fileID: 1547659258730050}
+      UseItInCalculations: 1
     - name: 19
       jointGO: {fileID: 1924085685565966}
+      UseItInCalculations: 1
     - name: 36
       jointGO: {fileID: 1958163063701020}
+      UseItInCalculations: 1
     - name: 39
       jointGO: {fileID: 1159354808182332}
+      UseItInCalculations: 1
     - name: 32
       jointGO: {fileID: 1988439219429730}
+      UseItInCalculations: 1
     - name: 35
       jointGO: {fileID: 1636098271057956}
+      UseItInCalculations: 1
     - name: 20
       jointGO: {fileID: 1466722893117552}
+      UseItInCalculations: 1
     - name: 23
       jointGO: {fileID: 1287172563335488}
+      UseItInCalculations: 1
     - name: 24
       jointGO: {fileID: 1053082254889628}
+      UseItInCalculations: 1
     - name: 27
       jointGO: {fileID: 1016614491136856}
+      UseItInCalculations: 1
     - name: 28
       jointGO: {fileID: 1397307303989488}
+      UseItInCalculations: 1
     - name: 31
       jointGO: {fileID: 1404932541378086}
-  selectedAnimationIndex: 0
-  animations:
-  - {fileID: 7400000, guid: f61fae1b3d1119d42a6178a1b032d3bb, type: 3}
+      UseItInCalculations: 1
+  avatarRole: 0
 --- !u!137 &137039586876201550
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
