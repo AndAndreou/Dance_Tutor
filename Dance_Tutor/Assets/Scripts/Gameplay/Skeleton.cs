@@ -311,7 +311,7 @@ public class Skeleton
         public enum LMACompnents
         {
             Body = 0,
-            Efford = 1,
+            Effort = 1,
             Shape = 2,
             Space = 3
         }
@@ -340,7 +340,7 @@ public class Skeleton
 
                     result = body;
                     break;
-                case LMACompnents.Efford:
+                case LMACompnents.Effort:
                     float headOrientation = headOrientationMax + headOrientationMin + headOrientationMean + headOrientationStd;
                     float decelerationPeaks = decelerationPeaksNo;
                     float hipVelocity = hipVelocityMax + hipVelocityMin + hipVelocityStd;

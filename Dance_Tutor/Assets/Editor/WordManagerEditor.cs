@@ -15,12 +15,12 @@ public class WordManagerEditor : Editor
 
     WordsManagerWithSync myWordManager ;
 
-    MyStreamingGraph streamGraph ;
+    //MyStreamingGraph streamGraph ;
 
     private void Awake()
     {
         myWordManager = (WordsManagerWithSync)target;
-        streamGraph = FindObjectOfType<MyStreamingGraph>();
+        //streamGraph = FindObjectOfType<MyStreamingGraph>();
 
         if (myWordManager.syncAnimationEnable)
         {
@@ -100,8 +100,8 @@ public class WordManagerEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Controllers", EditorStyles.boldLabel);
         
-        streamGraph = EditorGUILayout.ObjectField(streamGraph, typeof(MyStreamingGraph), true) as MyStreamingGraph;
-        myWordManager.myStreamingGraphController = streamGraph;
+        //streamGraph = EditorGUILayout.ObjectField(streamGraph, typeof(MyStreamingGraph), true) as MyStreamingGraph;
+        //myWordManager.myStreamingGraphController = streamGraph;
 
         if (GUILayout.Button("Set Defult"))
         {

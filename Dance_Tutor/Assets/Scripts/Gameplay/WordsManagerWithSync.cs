@@ -27,9 +27,6 @@ public class WordsManagerWithSync : MonoBehaviour {
     public float styleWordThreshold = 5;
     public float motionWordThreshold = 65;
 
-    [Header("Controllers")]
-    public MyStreamingGraph myStreamingGraphController;
-
     [HideInInspector]
     public static List<float> styleWordResults;
     [HideInInspector]
@@ -43,9 +40,9 @@ public class WordsManagerWithSync : MonoBehaviour {
     [HideInInspector]
     public static CharController[] allCharCotrollers { get; private set; }
 
-    private static UIAvatarController uiAvatarController;
-
     private static bool savedWords = true;
+
+    private UIFeedBackResultManager uiFeedBackResultManager;
 
     // params from inspector
     [HideInInspector]
@@ -121,7 +118,7 @@ public class WordsManagerWithSync : MonoBehaviour {
         }
         allCharCotrollers = tempList.ToArray();
 
-        uiAvatarController = FindObjectOfType<UIAvatarController>();
+        uiFeedBackResultManager = FindObjectOfType<UIFeedBackResultManager>();
 
         maxStyleWords = DataEditor.gameData.maxStyleWords;
 
@@ -319,8 +316,7 @@ public class WordsManagerWithSync : MonoBehaviour {
             distanceStyleWord = distanceStyleWord.GetDistanceBetweenWords(newStyleWords.ToArray());
             //print(distanceStyleWord.centroidHeightMax);
 
-            // Send data to ui avatar controller
-            //uiAvatarController.lastStyleWord = distanceStyleWord;
+            uiFeedBackResultManager.SendNewStyleWordToLMARadarGraph(distanceStyleWord);
 
             // Get Sum of all ellements of distances style word
             float totalDistanceStyleWord = distanceStyleWord.GetSumOfVars(distanceStyleWord);
@@ -335,7 +331,7 @@ public class WordsManagerWithSync : MonoBehaviour {
             }
 
             styleWordResults.Add(totalDistanceStyleWord);
-            myStreamingGraphController.AddNewStyleWord(totalDistanceStyleWord);
+            uiFeedBackResultManager.AddNewStyleWordForStreamingGraph(totalDistanceStyleWord);
         }
 
         if(newMotionWords != null)
@@ -348,7 +344,7 @@ public class WordsManagerWithSync : MonoBehaviour {
             Vector3[] totalDistanceMotion = newMotionWords[0].GetSumOfFrames(distanceMotionWord);
 
             // Send data to ui avatar controller
-            uiAvatarController.lastMotionWord = totalDistanceMotion;
+            uiFeedBackResultManager.SendMotionDataToUIAvatar(totalDistanceMotion);
 
             float avgError = 0;
             for (int i = 0; i < totalDistanceMotion.Length; i++) // For each joint
@@ -367,7 +363,7 @@ public class WordsManagerWithSync : MonoBehaviour {
             float motionResult = avgError / totalDistanceMotion.Length; // avg of all frames
             //motionWordResults.Add(totalDistanceMotion);
             motionWordResults.Add(motionResult);
-            myStreamingGraphController.AddNewMotionWord(motionResult);
+            uiFeedBackResultManager.AddNewMotionWordForStreamingGraph(motionResult);
         }
         #endregion
 

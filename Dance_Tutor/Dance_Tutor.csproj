@@ -515,10 +515,13 @@
     <Compile Include="Assets\Scripts\Gameplay\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GeneralGestureListener.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Joint.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\LMAHintController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MathHelper.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\MyRadarLMAResults.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MyStreamingGraph.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Skeleton.cs" />
     <Compile Include="Assets\Scripts\Gameplay\UIAvatarController.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\UIFeedBackResultManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\WordsManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\WordsManagerWithSync.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MainMenuController.cs" />
