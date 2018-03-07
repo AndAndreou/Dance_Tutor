@@ -511,6 +511,7 @@
     <Compile Include="Assets\Scripts\Data\DanceHistory.cs" />
     <Compile Include="Assets\Scripts\Data\DataEditor.cs" />
     <Compile Include="Assets\Scripts\Data\User.cs" />
+    <Compile Include="Assets\Scripts\FPSCounter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\CharController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GeneralGestureListener.cs" />
