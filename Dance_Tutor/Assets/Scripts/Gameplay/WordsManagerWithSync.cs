@@ -31,6 +31,12 @@ public class WordsManagerWithSync : MonoBehaviour {
     public static List<float> styleWordResults;
     [HideInInspector]
     public static List<float> motionWordResults;
+    [HideInInspector]
+    public static List<Skeleton.StyleWord> LMARadarGraphResults;
+    [HideInInspector]
+    public static List<Vector3[]> motionDataToUIAvatarResults;
+    [HideInInspector]
+    public static List<float> wordsTimers; // Save time of animation for each written word
 
     private Skeleton.StyleWord maxStyleWords = new Skeleton.StyleWord(); //used for styleword normilized
 
@@ -128,6 +134,9 @@ public class WordsManagerWithSync : MonoBehaviour {
     {
         styleWordResults = new List<float>();
         motionWordResults = new List<float>();
+        LMARadarGraphResults = new List<Skeleton.StyleWord>();
+        motionDataToUIAvatarResults = new List<Vector3[]>();
+        wordsTimers = new List<float>(); 
 
         writeWords = false;
         prevWriteWordsVal = false;
@@ -256,6 +265,9 @@ public class WordsManagerWithSync : MonoBehaviour {
                 maxStyleWords = controllerNewStyleWord.GetMax(controllerNewStyleWord, maxStyleWords);
 
                 DataEditor.gameData.maxStyleWords = maxStyleWords;
+
+                // Save the time in animation of words
+                wordsTimers.Add(allCharCotrollers[0].skeleton.joints[0].frames[bestMatchingFrameMotions[0]].time);
             }
             #endregion
         }
@@ -316,6 +328,7 @@ public class WordsManagerWithSync : MonoBehaviour {
             distanceStyleWord = distanceStyleWord.GetDistanceBetweenWords(newStyleWords.ToArray());
             //print(distanceStyleWord.centroidHeightMax);
 
+            LMARadarGraphResults.Add(distanceStyleWord);
             uiFeedBackResultManager.SendNewStyleWordToLMARadarGraph(distanceStyleWord);
 
             // Get Sum of all ellements of distances style word
@@ -344,6 +357,7 @@ public class WordsManagerWithSync : MonoBehaviour {
             Vector3[] totalDistanceMotion = newMotionWords[0].GetSumOfFrames(distanceMotionWord);
 
             // Send data to ui avatar controller
+            motionDataToUIAvatarResults.Add(totalDistanceMotion);
             uiFeedBackResultManager.SendMotionDataToUIAvatar(totalDistanceMotion);
 
             float avgError = 0;

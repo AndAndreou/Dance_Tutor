@@ -43,9 +43,9 @@ public class User {
     /// <param name="motionWordResultData"></param>
     /// <param name="styleWordResultData"></param>
     /// <returns></returns>
-    public DanceHistory AddDanceHistory(string danceName, Experience chorographyExperience, List<float> motionWordResultData, List<float> styleWordResultData)
+    public DanceHistory AddDanceHistory(string danceName, Experience chorographyExperience, List<float> motionWordResultData, List<float> styleWordResultData,List<Skeleton.StyleWord> LMARadarGraphResults , List<Vector3[]> motionDataToUIAvatarResults,List<float> wordsTimers)
     {
-        DanceHistory newDanceHistory = new DanceHistory(danceName, chorographyExperience, motionWordResultData, styleWordResultData);
+        DanceHistory newDanceHistory = new DanceHistory(danceName, chorographyExperience, motionWordResultData, styleWordResultData, LMARadarGraphResults, motionDataToUIAvatarResults, wordsTimers);
         this.history.Add(newDanceHistory);
         return newDanceHistory;
     }
@@ -53,6 +53,11 @@ public class User {
     public List<DanceHistory> GetAllDanceHistory()
     {
         return this.history;
+    }
+
+    public DanceHistory GetTheLastDanceHistory()
+    {
+        return this.history[this.history.Count - 1];
     }
 }
 

@@ -86,15 +86,29 @@ public class Joint
         //Get position and direction relative to the caller transform
         //Frame newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), callerTransform.InverseTransformDirection(jointGO.transform.eulerAngles), Time.time);
 
+        // Get current time of animation
+        Animator callerAnimator = callerTransform.gameObject.GetComponent<Animator>();
+        AnimatorStateInfo animationState = callerAnimator.GetCurrentAnimatorStateInfo(0);
+        AnimatorClipInfo[] myAnimatorClip = callerAnimator.GetCurrentAnimatorClipInfo(0);
+        float animationTime;
+        if ((myAnimatorClip == null) || (myAnimatorClip.Length == 0))
+        {
+            animationTime = 0;
+        }
+        else
+        {
+            animationTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
+        }
+    
         //Get position relative to the caller transform and local euler angles
         Frame newFrame = new Frame();
         if (UseItInCalculations)
         {
-            newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), (jointGO.transform.localEulerAngles), Time.time);
+            newFrame = new Frame(callerTransform.InverseTransformPoint(jointGO.transform.position), (jointGO.transform.localEulerAngles), animationTime);
         }
         else
         {
-            newFrame = new Frame(Vector3.zero, Vector3.zero, Time.time);
+            newFrame = new Frame(Vector3.zero, Vector3.zero, animationTime);
         }
         frames.Add(newFrame);
         return newFrame;

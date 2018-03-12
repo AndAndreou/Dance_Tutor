@@ -235,6 +235,23 @@ public class DataEditor : MonoBehaviour {
         return selectedCountryAllAnimations[ID];
     }
 
+    /// <summary>
+    /// Get the last dance of history of selected user
+    /// </summary>
+    /// <returns></returns>
+    public static AnimationClip GetLastAnimationClipInHistoryOfSelectedPlayer()
+    {
+        AnimationClip[] allAnimationClip = Resources.LoadAll<AnimationClip>("Animations");
+        foreach (AnimationClip clip in allAnimationClip)
+        {
+            if(clip.name == selectedUser.history[selectedUser.history.Count - 1].danceName)
+            {
+                return clip;
+            }
+        }
+        return null;
+    }
+
     public static int GetAnimationsClipsLength()
     {
         return selectedCountryAllAnimations.Length;
@@ -246,7 +263,16 @@ public class DataEditor : MonoBehaviour {
     public static void SaveWords()
     {
         //selectedUser.AddDanceHistory(GetAnimationClip().name, selectedUser.expirience, WordsManager.motionWordResults, WordsManager.styleWordResults);
-        selectedUser.AddDanceHistory(GetAnimationClip().name, selectedUser.expirience, WordsManagerWithSync.motionWordResults, WordsManagerWithSync.styleWordResults);
+        string clipName;
+        if (GameManager.instance.useDataFromUser)
+        {
+            clipName = GetAnimationClip().name;
+        }
+        else
+        {
+            clipName = "Evaki3_3";
+        }
+        selectedUser.AddDanceHistory(clipName, selectedUser.expirience, WordsManagerWithSync.motionWordResults, WordsManagerWithSync.styleWordResults,WordsManagerWithSync.LMARadarGraphResults,WordsManagerWithSync.motionDataToUIAvatarResults, WordsManagerWithSync.wordsTimers);
         UpdateSelectedUser();
     }
 
