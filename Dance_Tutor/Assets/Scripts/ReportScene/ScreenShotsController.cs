@@ -16,8 +16,11 @@ public class ScreenShotsController : MonoBehaviour {
 
     private List<Sprite> screenShotsSprites;
 
+    private ReportSceneManager sceneManager;
+
     private void Start()
     {
+        sceneManager = FindObjectOfType<ReportSceneManager>();
         screenShotsSprites = new List<Sprite>();
 
         camera = this.GetComponent<Camera>();
@@ -60,9 +63,9 @@ public class ScreenShotsController : MonoBehaviour {
         RenderTexture.active = null; // JC: added to avoid errors
         Destroy(rt);
         byte[] bytes = screenShot.EncodeToPNG();
-        // Dont needed this
-        string filename = ScreenShotName(shotCounter);
-        File.WriteAllBytes(filename, bytes);
+        //// Dont needed this
+        //string filename = ScreenShotName(shotCounter);
+        //File.WriteAllBytes(filename, bytes);
 
         // Create sprite
         Texture2D texture2d = new Texture2D(2,2);
@@ -70,6 +73,8 @@ public class ScreenShotsController : MonoBehaviour {
         Sprite newSprite = new Sprite();
         newSprite = Sprite.Create(texture2d, new Rect(0, 0, texture2d.width, texture2d.height), new Vector2(0, 0));
         screenShotsSprites.Add(newSprite);
+
+        sceneManager.AddFigureImg(shotCounter, newSprite);
 
         shotCounter++;
     }

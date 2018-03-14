@@ -36,15 +36,18 @@ public class ReportAvatarController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 
-        PauseAnimation();
-
-        if ((remainingTime <= 0) && (frameIndex < totalWordsFrame))
+        if (!screenShotsIsDone)
         {
-            SetAnimationInNextFrameByTime();
+            PauseAnimation();
+
+            if ((remainingTime <= 0) && (frameIndex < totalWordsFrame))
+            {
+                SetAnimationInNextFrameByTime();
+            }
+            remainingTime -= Time.deltaTime;
         }
-        remainingTime -= Time.deltaTime;
 	}
 
     private void PreviewSelectedAnimationClip()
@@ -57,7 +60,7 @@ public class ReportAvatarController : MonoBehaviour {
         previewAnimation.legacy = true;
         avatarAnimation.AddClip(previewAnimation, previewAnimation.name);
         avatarAnimation.Play(previewAnimation.name);
-       
+
         Debug.Log(previewAnimation.name);
     }
 
@@ -67,6 +70,7 @@ public class ReportAvatarController : MonoBehaviour {
         {
             screenShotController.TakeShot();
             avatarAnimation[previewAnimation.name].speed = 0;
+            frameIndex++;
         }
     }
 
@@ -76,10 +80,11 @@ public class ReportAvatarController : MonoBehaviour {
         avatarAnimation.Play(previewAnimation.name);
         avatarAnimation[previewAnimation.name].speed = 1;
 
-        frameIndex++;
+        //frameIndex++;
         if(frameIndex >= totalWordsFrame)
         {
             screenShotsIsDone = true;
+            PauseAnimation();
         }
         remainingTime = timeForNextAnimationFrame;
     }
