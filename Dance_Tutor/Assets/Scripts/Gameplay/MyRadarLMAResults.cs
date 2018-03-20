@@ -122,7 +122,11 @@ public class MyRadarLMAResults : MonoBehaviour {
                 msg += upperThresholdLMA[i];
             }
         }
-        GameObject hint = Instantiate(hintPrefab, hintStartPosition.transform.position, Quaternion.identity, hintStartPosition.transform);
-        hint.GetComponent<LMAHintController>().SetMsg(msg);
+
+        if ((hintPrefab == null) || (hintStartPosition == null))
+        {
+            GameObject hint = Instantiate(hintPrefab, hintStartPosition.transform.position, Quaternion.identity, hintStartPosition.transform);
+            hint.GetComponent<LMAHintController>().SetMsg(msg);
+        }
     }
 }

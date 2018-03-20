@@ -308,6 +308,32 @@ public class Skeleton
             return sum;
         }
 
+        public StyleWord GetSumOfWords(StyleWord[] styleWords)
+        {
+            StyleWord sumWord = styleWords[0];
+            for (int i = 1; i < styleWords.Length; i++)
+            {
+                foreach (FieldInfo field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+                {
+                    field.SetValue(sumWord,(float)field.GetValue(sumWord) + (float)field.GetValue(styleWords[i]));
+
+                }
+            }
+            return sumWord;
+        }
+
+        public StyleWord DivideWordWithNumber(StyleWord styleWord, float no)
+        {
+            StyleWord dividedWord = new StyleWord();
+
+            foreach (FieldInfo field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
+            {
+                field.SetValue(dividedWord,(float)field.GetValue(styleWord) / no);
+
+            }
+            return dividedWord;
+        }
+
         public enum LMACompnents
         {
             Body = 0,
