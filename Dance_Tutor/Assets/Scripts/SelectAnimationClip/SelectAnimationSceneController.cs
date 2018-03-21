@@ -14,6 +14,9 @@ public class SelectAnimationSceneController : MonoBehaviour {
     [Header("UI Compnents")]
     public GameObject uiLoadingPanel;
     public Text uiLoadingTxt;
+    [Header("User")]
+    public Image userphoto;
+    public Text userName;
 
     //events
     [HideInInspector]
@@ -21,29 +24,26 @@ public class SelectAnimationSceneController : MonoBehaviour {
     [HideInInspector]
     public UnityEvent ChangeSelectedAnimationClipEvent;
 
-    private static SelectAnimationSceneController _instance = null;
-    public static SelectAnimationSceneController instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = (SelectAnimationSceneController)FindObjectOfType(typeof(GameManager));
-                if (_instance == null)
-                    _instance = (new GameObject("SelectAnimationSceneController")).AddComponent<SelectAnimationSceneController>();
-            }
-            return _instance;
-        }
-    }
+    //private static SelectAnimationSceneController _instance = null;
+    //public static SelectAnimationSceneController instance
+    //{
+    //    get
+    //    {
+    //        if (_instance == null)
+    //        {
+    //            _instance = (SelectAnimationSceneController)FindObjectOfType(typeof(GameManager));
+    //            if (_instance == null)
+    //                _instance = (new GameObject("SelectAnimationSceneController")).AddComponent<SelectAnimationSceneController>();
+    //        }
+    //        return _instance;
+    //    }
+    //}
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
-        if (FindObjectOfType<DataEditor>() == null)
-        {
-            DataEditor.LoadGameData();
-        }
+        DataEditor.LoadGameData();
 
         //create event for selected country
         if (ChangeSelectedCountryEvent == null)
@@ -56,7 +56,11 @@ public class SelectAnimationSceneController : MonoBehaviour {
         {
             ChangeSelectedAnimationClipEvent = new UnityEvent();
         }
+
+        userName.text = DataEditor.selectedUser.name;
+        userphoto.sprite = Resources.Load<Sprite>("UsersImages\\" + DataEditor.selectedUser.photoName);
     }
+
 
     private void Update()
     {
@@ -64,9 +68,13 @@ public class SelectAnimationSceneController : MonoBehaviour {
         {
             LoadLevel("Gameplay");
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadLevel("MainMenu");
+        }
     }
 
-    public static int GoToNextCountry()
+    public int GoToNextCountry()
     {
         DataEditor.selectedContryID++;
         if (DataEditor.selectedContryID > (DataEditor.countries.Length - 1))
@@ -79,7 +87,7 @@ public class SelectAnimationSceneController : MonoBehaviour {
         return DataEditor.selectedContryID;
     }
 
-    public static int GoToPrevCountry()
+    public int GoToPrevCountry()
     {
         DataEditor.selectedContryID--;
         if (DataEditor.selectedContryID < 0)
@@ -92,16 +100,16 @@ public class SelectAnimationSceneController : MonoBehaviour {
         return DataEditor.selectedContryID;
     }
 
-    private static void ChangeSelectedCounty()
+    private void ChangeSelectedCounty()
     {
         DataEditor.selectedCountryAllAnimations = DataEditor.countries[DataEditor.selectedContryID].GetAllAnimations();
         DataEditor.selectedAnimationClipID = 0;
 
-        instance.ChangeSelectedCountryEvent.Invoke();
+        ChangeSelectedCountryEvent.Invoke();
         ChangeSelectedAnimationClip();
     }
 
-    public static int GoToNextAnimationClip()
+    public int GoToNextAnimationClip()
     {
         DataEditor.selectedAnimationClipID++;
         if (DataEditor.selectedAnimationClipID > (DataEditor.selectedCountryAllAnimations.Length-1))
@@ -114,7 +122,7 @@ public class SelectAnimationSceneController : MonoBehaviour {
         return DataEditor.selectedAnimationClipID;
     }
 
-    public static int GoToPrevAnimationClip()
+    public int GoToPrevAnimationClip()
     {
         DataEditor.selectedAnimationClipID--;
         if (DataEditor.selectedAnimationClipID < 0)
@@ -127,21 +135,20 @@ public class SelectAnimationSceneController : MonoBehaviour {
         return DataEditor.selectedAnimationClipID;
     }
 
-    private static void ChangeSelectedAnimationClip()
+    private void ChangeSelectedAnimationClip()
     {
-        instance.ChangeSelectedAnimationClipEvent.Invoke();
+        ChangeSelectedAnimationClipEvent.Invoke();
     }
 
     public void LoadLevel(string sceneName) //The name of the scene
     {
-
+        DataEditor.SaveGameData();
+        uiLoadingPanel.SetActive(true);
         StartCoroutine(LevelCoroutine(sceneName));
     }
 
     IEnumerator LevelCoroutine(string sceneName)
     {
-        uiLoadingPanel.SetActive(true);
-
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
 
         while (!async.isDone)
@@ -150,5 +157,10 @@ public class SelectAnimationSceneController : MonoBehaviour {
             yield return null;
 
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        DataEditor.SaveGameData();
     }
 }

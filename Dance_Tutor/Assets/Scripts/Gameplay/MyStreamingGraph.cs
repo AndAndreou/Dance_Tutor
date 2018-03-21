@@ -17,13 +17,13 @@ public class MyStreamingGraph : MonoBehaviour
 
         // Style word graph 
         styleWordGraph.DataSource.StartBatch(); // calling StartBatch allows changing the graph data without redrawing the graph for every change
-        styleWordGraph.DataSource.ClearCategory("Player 1"); // clear the "Player 1" category. this category is defined using the GraphChart inspector
+        styleWordGraph.DataSource.ClearCategory("Value"); // clear the "Value" category. this category is defined using the GraphChart inspector
 
         styleWordGraph.DataSource.EndBatch(); // finally we call EndBatch , this will cause the GraphChart to redraw itself
 
         // Motion word graph
         motiomWordGraph.DataSource.StartBatch(); // calling StartBatch allows changing the graph data without redrawing the graph for every change
-        motiomWordGraph.DataSource.ClearCategory("Player 1"); // clear the "Player 1" category. this category is defined using the GraphChart inspector
+        motiomWordGraph.DataSource.ClearCategory("Value"); // clear the "Value" category. this category is defined using the GraphChart inspector
 
         motiomWordGraph.DataSource.EndBatch(); // finally we call EndBatch , this will cause the GraphChart to redraw itself
 
@@ -40,7 +40,7 @@ public class MyStreamingGraph : MonoBehaviour
         //styleWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.styleWordThreshold);
         styleWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManagerWithSync.instance.styleWordThreshold);
 
-        styleWordGraph.DataSource.AddPointToCategoryRealtime("Player 1", TakeTime(), newStyleWord, 1f);  //System.DateTime.Now
+        styleWordGraph.DataSource.AddPointToCategoryRealtime("Value", TakeTime(), newStyleWord, 1f);  //System.DateTime.Now
     }
 
     public void AddNewMotionWord(float newMotionWord)
@@ -49,7 +49,7 @@ public class MyStreamingGraph : MonoBehaviour
         //motiomWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManager.instance.motionWordThreshold);
         motiomWordGraph.DataSource.AddPointToCategory("Threshold", TakeTime(), WordsManagerWithSync.instance.motionWordThreshold);
 
-        motiomWordGraph.DataSource.AddPointToCategoryRealtime("Player 1", TakeTime(), newMotionWord, 1f);
+        motiomWordGraph.DataSource.AddPointToCategoryRealtime("Value", TakeTime(), newMotionWord, 1f);
        
     }
 

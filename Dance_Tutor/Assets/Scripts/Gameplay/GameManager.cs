@@ -3,11 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
     public AudioClip song;
     public float songDelay;
+
+    [Header("UI Component")]
+    public GameObject uiLoadingPanel;
+    public Text uiLoadingTxt;
+
+    [Header("Texts")]
+    public Text goToReportTxt;
 
     [Header("Debug")]
     public bool isDebugMode;
@@ -39,10 +48,7 @@ public class GameManager : MonoBehaviour {
         //init
         showChoreography = isDebugMode;
 
-        if (FindObjectOfType<DataEditor>() == null)
-        {
-            DataEditor.LoadGameData();
-        }
+        DataEditor.LoadGameData();
 
         //create event for T-Pose Detect
         if (TPoseDetectionEvent == null)
@@ -68,7 +74,13 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (showChoreography == false)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                LoadLevel("Report");
+            }
+        }
     }
 
     void PlaySong()
@@ -87,6 +99,27 @@ public class GameManager : MonoBehaviour {
     public void ChoreographyFinished()
     {
         showChoreography = false;
+        goToReportTxt.gameObject.SetActive(true);
+    }
+
+    public void LoadLevel(string sceneName) //The name of the scene
+    {
+        DataEditor.SaveGameData();
+        StartCoroutine(LevelCoroutine(sceneName));
+    }
+
+    IEnumerator LevelCoroutine(string sceneName)
+    {
+        uiLoadingPanel.SetActive(true);
+
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!async.isDone)
+        {
+            uiLoadingTxt.text = (int)(async.progress * 100) + "%";
+            yield return null;
+
+        }
     }
 
     /// <summary>

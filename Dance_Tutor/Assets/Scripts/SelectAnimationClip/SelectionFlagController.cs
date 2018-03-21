@@ -15,8 +15,11 @@ public class SelectionFlagController : MonoBehaviour {
 
     private bool enableScroll;
 
-	// Use this for initialization
-	void Start () {
+    private SelectAnimationSceneController selectAnimationSceneController;
+
+    // Use this for initialization
+    void Start () {
+        selectAnimationSceneController = FindObjectOfType<SelectAnimationSceneController>();
         animator = GetComponent<Animator>();
         ResetFlagsUI();
 
@@ -32,7 +35,7 @@ public class SelectionFlagController : MonoBehaviour {
     {
         if (enableScroll)
         {
-            SelectAnimationSceneController.GoToNextCountry();
+            selectAnimationSceneController.GoToNextCountry();
 
             animator.SetTrigger("GoLeft");
 
@@ -44,7 +47,7 @@ public class SelectionFlagController : MonoBehaviour {
     {
         if (enableScroll)
         {
-            SelectAnimationSceneController.GoToPrevCountry();
+            selectAnimationSceneController.GoToPrevCountry();
 
             animator.SetTrigger("GoRight");
 
@@ -62,7 +65,7 @@ public class SelectionFlagController : MonoBehaviour {
         // Set background
         uiBackgroundImg.sprite = selectedCountry.background;
 
-        //Debug.Log(SelectAnimationSceneController.countries[SelectAnimationSceneController.selectedContryID].name);
+        //Debug.Log(selectAnimationSceneController.countries[selectAnimationSceneController.selectedContryID].name);
 
         // Set other flags
         int prevFlagID = middleFlagID - 1;

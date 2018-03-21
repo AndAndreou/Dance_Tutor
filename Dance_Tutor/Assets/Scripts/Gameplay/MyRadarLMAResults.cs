@@ -10,8 +10,8 @@ public class MyRadarLMAResults : MonoBehaviour {
     public GameObject hintStartPosition;
     public GameObject hintPrefab;
 
-    public float lmaComponentsUpperThreshold;
-    public float lmaComponentsLowerThreshold;
+    private float lmaComponentsUpperThreshold;
+    private float lmaComponentsLowerThreshold;
 
     public float lmaHintTime;
 
@@ -20,10 +20,17 @@ public class MyRadarLMAResults : MonoBehaviour {
     private List<string> upperThresholdLMA;
     private List<string> lowerThresholdLMA;
 
-    private void Start()
+    private void Awake()
     {
         upperThresholdLMA = new List<string>();
         lowerThresholdLMA = new List<string>();
+    }
+
+    private void Start()
+    {
+
+        lmaComponentsUpperThreshold = DataEditor.lmaComponentsUpperThreshold;
+        lmaComponentsLowerThreshold = DataEditor.lmaComponentsLowerThreshold;
 
         currentLMATime = lmaHintTime;
 
@@ -123,7 +130,7 @@ public class MyRadarLMAResults : MonoBehaviour {
             }
         }
 
-        if ((hintPrefab == null) || (hintStartPosition == null))
+        if (!(hintPrefab == null) && (hintStartPosition != null))
         {
             GameObject hint = Instantiate(hintPrefab, hintStartPosition.transform.position, Quaternion.identity, hintStartPosition.transform);
             hint.GetComponent<LMAHintController>().SetMsg(msg);

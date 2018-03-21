@@ -92,10 +92,10 @@ public class WordManagerEditor : Editor
             myWordManager.styleWordWindowSize = EditorGUILayout.IntField("Style Word Size", myWordManager.styleWordWindowSize);
         }
 
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Word Thresholds", EditorStyles.boldLabel);
-        myWordManager.motionWordThreshold = EditorGUILayout.FloatField("Motion Word Threshold", myWordManager.motionWordThreshold);
-        myWordManager.styleWordThreshold = EditorGUILayout.FloatField("Motion Word Threshold", myWordManager.styleWordThreshold);
+        //EditorGUILayout.Space();
+        //EditorGUILayout.LabelField("Word Thresholds", EditorStyles.boldLabel);
+        //EditorGUILayout.LabelField("Motion Word Threshold", myWordManager.motionWordThreshold.ToString());
+        //EditorGUILayout.LabelField("Motion Word Threshold", myWordManager.styleWordThreshold.ToString());
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Controllers", EditorStyles.boldLabel);
@@ -127,9 +127,5 @@ public class WordManagerEditor : Editor
         useSameSizeForWords = true;
         myWordManager.motionWordWindowSize = 35;
         myWordManager.styleWordWindowSize = 35;
-
-        myWordManager.motionWordThreshold = 65;
-        myWordManager.styleWordThreshold = 5;
-
     }
 }

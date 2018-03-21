@@ -20,17 +20,20 @@ public class SelectAnimationClipController : MonoBehaviour {
 
     private bool enableScroll;
 
+    private SelectAnimationSceneController selectAnimationSceneController;
+
     // Use this for initialization
     void Start()
     {
+        selectAnimationSceneController = FindObjectOfType<SelectAnimationSceneController>();
         animator = GetComponent<Animator>();
-        ResetFlagsUI();
+        ResetAnimationsUI();
 
         enableScroll = true;
 
         //add listener for events
-        SelectAnimationSceneController.instance.ChangeSelectedCountryEvent.AddListener(ChangeSelectedCountry);
-        SelectAnimationSceneController.instance.ChangeSelectedAnimationClipEvent.AddListener(PreviewSelectedAnimationClip);
+        selectAnimationSceneController.ChangeSelectedCountryEvent.AddListener(ChangeSelectedCountry);
+        selectAnimationSceneController.ChangeSelectedAnimationClipEvent.AddListener(PreviewSelectedAnimationClip);
 
         // Get/Set Animation component to avatar
         avatarAnimation = avatar.GetComponent<Animation>();
@@ -53,7 +56,7 @@ public class SelectAnimationClipController : MonoBehaviour {
     {
         if (enableScroll)
         {
-            SelectAnimationSceneController.GoToNextAnimationClip();
+            selectAnimationSceneController.GoToNextAnimationClip();
 
             animator.SetTrigger("GoUp");
 
@@ -65,7 +68,7 @@ public class SelectAnimationClipController : MonoBehaviour {
     {
         if (enableScroll)
         {
-            SelectAnimationSceneController.GoToPrevAnimationClip();
+            selectAnimationSceneController.GoToPrevAnimationClip();
 
             animator.SetTrigger("GoDown");
 
@@ -73,14 +76,15 @@ public class SelectAnimationClipController : MonoBehaviour {
         }
     }
 
-    public void ResetFlagsUI()
+    public void ResetAnimationsUI()
     {
-        // Set the middle flag
+        // Set the middle animation
         int middleAnimationClipID = (uiAnimationClipName.Length / 2);
         AnimationClip selectedAnimationClip = DataEditor.GetAnimationClip();
         uiAnimationClipName[middleAnimationClipID].text = selectedAnimationClip.name;
+        uiAnimationClipName[middleAnimationClipID].color = GetColorOfExpirience();
 
-        // Set other flags
+        // Set other animation
         int prevAnimationClipID = middleAnimationClipID - 1;
         int prevSelectedAnimationClipID = DataEditor.selectedAnimationClipID - 1;
         int nextAnimationClipID = middleAnimationClipID + 1;
@@ -96,6 +100,7 @@ public class SelectAnimationClipController : MonoBehaviour {
                 prevSelectedAnimationClipID = (DataEditor.GetAnimationsClipsLength() - 1);
             }
             uiAnimationClipName[prevAnimationClipID].text = DataEditor.GetAnimationClip(prevSelectedAnimationClipID).name;
+            uiAnimationClipName[prevAnimationClipID].color = GetColorOfExpirience(prevSelectedAnimationClipID);
             prevAnimationClipID--;
             prevSelectedAnimationClipID--;
 
@@ -108,6 +113,7 @@ public class SelectAnimationClipController : MonoBehaviour {
                 nextSelectedAnimationClipID = 0;
             }
             uiAnimationClipName[nextAnimationClipID].text = DataEditor.GetAnimationClip(nextSelectedAnimationClipID).name;
+            uiAnimationClipName[nextAnimationClipID].color = GetColorOfExpirience(nextSelectedAnimationClipID);
             nextAnimationClipID++;
             nextSelectedAnimationClipID++;
 
@@ -117,7 +123,7 @@ public class SelectAnimationClipController : MonoBehaviour {
 
     private void ChangeSelectedCountry()
     {
-        ResetFlagsUI();
+        ResetAnimationsUI();
     }
 
     private void PreviewSelectedAnimationClip()
@@ -129,5 +135,21 @@ public class SelectAnimationClipController : MonoBehaviour {
 
 
         Debug.Log(previewAnimation.name);
+    }
+
+    private Color GetColorOfExpirience(int animationID = -1)
+    {
+        Experience animationExpirience = DataEditor.GetExperineceChorographyOfSelectedCountry(animationID);
+        switch (animationExpirience)
+        {
+            case Experience.Beginner:
+                return Color.green;
+            case Experience.Intermediate:
+                return Color.yellow;
+            case Experience.Expert:
+                return Color.red;
+            default:
+                return Color.black;
+        }
     }
 }

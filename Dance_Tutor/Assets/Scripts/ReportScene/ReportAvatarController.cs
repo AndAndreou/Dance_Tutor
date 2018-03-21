@@ -61,7 +61,7 @@ public class ReportAvatarController : MonoBehaviour {
         avatarAnimation.AddClip(previewAnimation, previewAnimation.name);
         avatarAnimation.Play(previewAnimation.name);
 
-        Debug.Log(previewAnimation.name);
+        //Debug.Log(previewAnimation.name);
     }
 
     private void PauseAnimation()

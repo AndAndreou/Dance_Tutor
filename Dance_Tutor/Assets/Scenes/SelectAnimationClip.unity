@@ -3682,6 +3682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiLoadingPanel: {fileID: 102550591}
   uiLoadingTxt: {fileID: 1473139101}
+  userphoto: {fileID: 1373237447}
+  userName: {fileID: 1489893561}
   ChangeSelectedCountryEvent:
     m_PersistentCalls:
       m_Calls: []

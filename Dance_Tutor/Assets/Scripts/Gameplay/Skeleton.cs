@@ -300,11 +300,13 @@ public class Skeleton
         public float GetSumOfVars(StyleWord styleWord)
         {
             float sum = 0;
+            //Debug.Log("mmmmmmmmmmmmmmm");
             foreach (var field in typeof(StyleWord).GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public))
             {
                 sum += (float)field.GetValue(styleWord);
+                //Debug.Log(float.IsNaN((float)field.GetValue(styleWord)) ? field.Name : ((float)field.GetValue(styleWord)).ToString());
             }
-
+            //Debug.Log("nnnnnnnnnnnnnnn");
             return sum;
         }
 
@@ -1106,6 +1108,9 @@ public class Skeleton
 
                 // jointsWithLastFrames[JointName.Root] Velocity
                 f12[i] = ((jointsWithLastFrames[JointName.Root][i].position - jointsWithLastFrames[JointName.Root][i - 1].position) / (jointsWithLastFrames[JointName.Root][i].time - jointsWithLastFrames[JointName.Root][i - 1].time)).magnitude;
+                //Debug.Log("\\\\\\");
+                //Debug.Log(jointsWithLastFrames[JointName.Root][i].position + " - " + jointsWithLastFrames[JointName.Root][i - 1].position + " / " + jointsWithLastFrames[JointName.Root][i].time + " - " + jointsWithLastFrames[JointName.Root][i - 1].time);
+                //Debug.Log(f12[i]);
 
                 float leftHandVelocity = ((jointsWithLastFrames[JointName.EndSiteLeftHandMiddle][i].position - jointsWithLastFrames[JointName.EndSiteLeftHandMiddle][i - 1].position) / (jointsWithLastFrames[JointName.EndSiteLeftHandMiddle][i].time - jointsWithLastFrames[JointName.EndSiteLeftHandMiddle][i - 1].time)).magnitude;
                 float rightHandVelocity = ((jointsWithLastFrames[JointName.EndSiteLeftHandMiddle][i].position - jointsWithLastFrames[JointName.EndSiteRightHandMiddle][i - 1].position) / (jointsWithLastFrames[JointName.EndSiteRightHandMiddle][i].time - jointsWithLastFrames[JointName.EndSiteRightHandMiddle][i - 1].time)).magnitude;
@@ -1412,18 +1417,22 @@ public class Skeleton
 
     private float GetMaximumOfArray(float[] array)
     {
+        array = array.Where(c => !float.IsNaN(c) && !float.IsInfinity(c)).ToArray(); // Remove nan and infinity values from array
         return Mathf.Max(array);
     }
     private float GetMinimumOfArray(float[] array)
     {
+        array = array.Where(c => !float.IsNaN(c) && !float.IsInfinity(c)).ToArray(); // Remove nan and infinity values from array
         return Mathf.Min(array);
     }
     private float GetMeanOfArray(float[] array)
     {
+        array = array.Where(c => !float.IsNaN(c) && !float.IsInfinity(c)).ToArray(); // Remove nan and infinity values from array
         return array.Average();
     }
     private float GetStdOfArray(float[] array)
     {
+        array = array.Where(c => !float.IsNaN(c) && !float.IsInfinity(c)).ToArray(); // Remove nan and infinity values from array
         float average = array.Average();
         float sumOfSquaresOfDifferences = array.Select(val => (val - average) * (val - average)).Sum();
         float std = Mathf.Sqrt(sumOfSquaresOfDifferences / array.Length);

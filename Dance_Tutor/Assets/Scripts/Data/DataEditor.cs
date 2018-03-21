@@ -5,6 +5,123 @@ using System.IO;
 using UnityEngine;
 
 public class DataEditor : MonoBehaviour {
+    #region Thresholds
+        // Thresholds Amateur
+        private static float styleWordThresholdAmateur = 5f;
+        private static float motionWordThresholdAmateur = 65f;
+        private static float uiMotionFeedBackThresholdAmateur = 5f;
+        private static float lmaComponentsUpperThresholdAmateur = 5f;
+        private static float lmaComponentsLowerThresholdAmateur = 1f;
+
+        // Thresholds Intermediate
+        private static float styleWordThresholdIntermediate = 4f;
+        private static float motionWordThresholdIntermediate = 55f;
+        private static float uiMotionFeedBackThresholdIntermediate = 4f;
+        private static float lmaComponentsUpperThresholdIntermediate = 4f;
+        private static float lmaComponentsLowerThresholdIntermediate = 2f;
+
+        // Thresholds Expert
+        private static float styleWordThresholdExpert = 3f;
+        private static float motionWordThresholdExpert = 40f;
+        private static float uiMotionFeedBackThresholdExpert = 3f;
+        private static float lmaComponentsUpperThresholdExpert = 3.5f;
+        private static float lmaComponentsLowerThresholdExpert = 2.5f;
+    #endregion
+
+    public static float styleWordThreshold
+    { get
+        {   if (selectedUser == null) return 0;
+
+            switch (selectedUser.expirience)
+            {
+                case Experience.Beginner:
+                    return styleWordThresholdAmateur;
+                case Experience.Intermediate:
+                    return styleWordThresholdIntermediate;
+                case Experience.Expert:
+                    return styleWordThresholdExpert;
+                default:
+                    return styleWordThresholdAmateur; ;
+            }
+        }
+        private set { }
+    }
+    public static float motionWordThreshold
+    {
+        get
+        {
+            if (selectedUser == null) return 0;
+            switch (selectedUser.expirience)
+            {
+                case Experience.Beginner:
+                    return motionWordThresholdAmateur;
+                case Experience.Intermediate:
+                    return motionWordThresholdIntermediate;
+                case Experience.Expert:
+                    return motionWordThresholdExpert;
+                default:
+                    return motionWordThresholdAmateur; ;
+            }
+        }
+        private set { }
+    }
+    public static float uiMotionFeedBackThreshold
+    {
+        get
+        {
+            if (selectedUser == null) return 0;
+            switch (selectedUser.expirience)
+            {
+                case Experience.Beginner:
+                    return uiMotionFeedBackThresholdAmateur;
+                case Experience.Intermediate:
+                    return uiMotionFeedBackThresholdIntermediate;
+                case Experience.Expert:
+                    return uiMotionFeedBackThresholdExpert;
+                default:
+                    return uiMotionFeedBackThresholdAmateur; ;
+            }
+        }
+        private set { }
+    }
+    public static float lmaComponentsUpperThreshold
+    {
+        get
+        {
+            if (selectedUser == null) return 0;
+            switch (selectedUser.expirience)
+            {
+                case Experience.Beginner:
+                    return lmaComponentsUpperThresholdAmateur;
+                case Experience.Intermediate:
+                    return lmaComponentsUpperThresholdIntermediate;
+                case Experience.Expert:
+                    return lmaComponentsUpperThresholdExpert;
+                default:
+                    return lmaComponentsUpperThresholdAmateur; ;
+            }
+        }
+        private set { }
+    }
+    public static float lmaComponentsLowerThreshold
+    {
+        get
+        {
+            if (selectedUser == null) return 0;
+            switch (selectedUser.expirience)
+            {
+                case Experience.Beginner:
+                    return lmaComponentsLowerThresholdAmateur;
+                case Experience.Intermediate:
+                    return lmaComponentsLowerThresholdIntermediate;
+                case Experience.Expert:
+                    return lmaComponentsLowerThresholdExpert;
+                default:
+                    return lmaComponentsLowerThresholdAmateur; ;
+            }
+        }
+        private set { }
+    }
 
     public static GameData gameData;
 
@@ -236,6 +353,33 @@ public class DataEditor : MonoBehaviour {
     }
 
     /// <summary>
+    /// Get the experience of animation with ID from selected country
+    /// </summary>
+    /// <param name="animationId"></param>
+    /// <returns></returns>
+    public static Experience GetExperineceChorographyOfSelectedCountry(int animationId = -1)
+    {
+        if (animationId < 0)
+        {
+            animationId = selectedAnimationClipID;
+        }
+
+        int beginnerAnimationLength = countries[selectedContryID].beginnerAnimations.Length;
+        if (animationId < beginnerAnimationLength)
+        {
+            return Experience.Beginner;
+        }
+        else if(animationId < (beginnerAnimationLength + countries[selectedContryID].intermediateAnimations.Length))
+        {
+            return Experience.Intermediate;
+        }
+        else
+        {
+            return Experience.Expert;
+        }
+    }
+
+    /// <summary>
     /// Get the last dance of history of selected user
     /// </summary>
     /// <returns></returns>
@@ -272,7 +416,7 @@ public class DataEditor : MonoBehaviour {
         {
             clipName = "Evaki3_3";
         }
-        selectedUser.AddDanceHistory(clipName, selectedUser.expirience, WordsManagerWithSync.motionWordResults, WordsManagerWithSync.styleWordResults,WordsManagerWithSync.LMARadarGraphResults,WordsManagerWithSync.motionDataToUIAvatarResults, WordsManagerWithSync.wordsTimers);
+        selectedUser.AddDanceHistory(clipName, GetExperineceChorographyOfSelectedCountry(), WordsManagerWithSync.motionWordResults, WordsManagerWithSync.styleWordResults,WordsManagerWithSync.LMARadarGraphResults,WordsManagerWithSync.motionDataToUIAvatarResults, WordsManagerWithSync.wordsTimers);
         UpdateSelectedUser();
     }
 
@@ -282,6 +426,28 @@ public class DataEditor : MonoBehaviour {
     public static void UpdateSelectedUser()
     {
         for(int i=0; i < gameData.Users.Count; i++) 
+        {
+            if (gameData.Users[i].email == selectedUser.email)
+            {
+                gameData.Users[i] = selectedUser;
+                break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Update selected user to list of users
+    /// </summary>
+    public static void UpdateSelectedUser(string photoName, string name, string dateOfBirth, Sex sex, Experience expirience, string country)
+    {
+        selectedUser.photoName = photoName;
+        selectedUser.name = name;
+        selectedUser.dateOfBirth = dateOfBirth;
+        selectedUser.sex = sex;
+        selectedUser.expirience = expirience;
+        selectedUser.country = country;
+
+        for (int i = 0; i < gameData.Users.Count; i++)
         {
             if (gameData.Users[i].email == selectedUser.email)
             {
@@ -315,5 +481,27 @@ public struct Country
         Array.Copy(expertAnimations, 0, allAnimations, beginnerAnimations.Length + intermediateAnimations.Length, expertAnimations.Length);
 
         return allAnimations;
+    }
+
+    public Experience GetAnimationExpirience(AnimationClip animationClip)
+    {
+        foreach(AnimationClip clip in beginnerAnimations)
+        {
+            if (clip == animationClip)
+            {
+                return Experience.Beginner;
+            }
+        }
+
+        foreach (AnimationClip clip in intermediateAnimations)
+        {
+            if (clip == animationClip)
+            {
+                return Experience.Intermediate;
+            }
+        }
+
+        // Else
+        return Experience.Expert;
     }
 }

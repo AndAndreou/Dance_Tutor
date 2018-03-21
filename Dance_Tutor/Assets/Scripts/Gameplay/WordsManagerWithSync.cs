@@ -23,9 +23,10 @@ public class WordsManagerWithSync : MonoBehaviour {
     public int styleWordWindowSize = 35;
     private int styleWordStepCounter;
 
-    [Header("Comparisons")]
-    public float styleWordThreshold = 5;
-    public float motionWordThreshold = 65;
+    [HideInInspector]
+    public float styleWordThreshold ;
+    [HideInInspector]
+    public float motionWordThreshold ;
 
     [HideInInspector]
     public static List<float> styleWordResults;
@@ -110,6 +111,9 @@ public class WordsManagerWithSync : MonoBehaviour {
     void Start ()
     {
         InitWords();
+
+        styleWordThreshold = DataEditor.styleWordThreshold;
+        motionWordThreshold = DataEditor.motionWordThreshold;
 
         allCharCotrollers = FindObjectsOfType<CharController>();
 
@@ -333,16 +337,7 @@ public class WordsManagerWithSync : MonoBehaviour {
 
             // Get Sum of all ellements of distances style word
             float totalDistanceStyleWord = distanceStyleWord.GetSumOfVars(distanceStyleWord);
-
-            if (totalDistanceStyleWord < styleWordThreshold)
-            {
-                //print("Style Word: " + totalDistanceStyleWord + " OK");
-            }
-            else
-            {
-                //print("Style Word: " + totalDistanceStyleWord + " NOT OK");
-            }
-
+            //print("..." + totalDistanceStyleWord + ", " + newStyleWords[0].hipVelocityMax + ", " + newStyleWords[1].hipVelocityMax);
             styleWordResults.Add(totalDistanceStyleWord);
             uiFeedBackResultManager.AddNewStyleWordForStreamingGraph(totalDistanceStyleWord);
         }
@@ -364,14 +359,7 @@ public class WordsManagerWithSync : MonoBehaviour {
             for (int i = 0; i < totalDistanceMotion.Length; i++) // For each joint
             {
                 avgError += ((totalDistanceMotion[i].x + totalDistanceMotion[i].y + totalDistanceMotion[i].z)/3f); //avg of 3 axis error
-                if ((totalDistanceMotion[i].x <= motionWordThreshold) && (totalDistanceMotion[i].y <= motionWordThreshold) && (totalDistanceMotion[i].z <= motionWordThreshold))
-                {
-                    //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " OK");
-                }
-                else
-                {
-                    //print("Motion Word - joint " + allCharCotrollers[0].skeleton.joints[i].GetJointName() + ": " + totalDistanceMotion[i] + " NOT OK");
-                }
+
             }
 
             float motionResult = avgError / totalDistanceMotion.Length; // avg of all frames

@@ -22,13 +22,7 @@ public class UIAvatarController : MonoBehaviour {
     public Color correctColor;
     public Color wrongColor;
 
-    [Header("Params")]
-    public float motionWordThreshold;
-
-    /// <summary>
-    /// Is the value tha balance the color between correct and wrong color under the threshold
-    /// </summary>
-    public float thresholdBalanceValue;
+    private float motionWordThreshold;
 
     [HideInInspector]
     public Vector3[] lastMotionWord;
@@ -185,7 +179,9 @@ public class UIAvatarController : MonoBehaviour {
     void Start () {
 
         prevLastMotionWord = lastMotionWord;
-	}
+        motionWordThreshold = DataEditor.uiMotionFeedBackThreshold;
+
+    }
 	
 	// Update is called once per frame
 	void Update ()

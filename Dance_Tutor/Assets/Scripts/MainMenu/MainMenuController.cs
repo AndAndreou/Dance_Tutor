@@ -28,6 +28,10 @@ public class MainMenuController : MonoBehaviour {
     public GameObject uiLoadingPanel;
     public Text uiLoadingTxt;
 
+    [Header("Buttons")]
+    public Button selectUserButton;
+    public Button modifyUserButton;
+
     [Header("Prefabs")]
     public GameObject userUIPrefab;
     public GameObject userPhotoOptionPrefab;
@@ -51,6 +55,10 @@ public class MainMenuController : MonoBehaviour {
         {
             return uiNameCompnent.text;
         }
+        set
+        {
+            uiNameCompnent.text = value;
+        }
     }
 
     private string uiEmail
@@ -59,6 +67,10 @@ public class MainMenuController : MonoBehaviour {
         {
             return uiEmailCompnent.text;
         }
+        set
+        {
+            uiEmailCompnent.text = value;
+        }
     }
 
     private string uiDateOfBirth
@@ -66,6 +78,10 @@ public class MainMenuController : MonoBehaviour {
         get
         {
             return uiDateOfBirthCompnent.text;
+        }
+        set
+        {
+            uiDateOfBirthCompnent.text = value;
         }
     }
 
@@ -77,6 +93,19 @@ public class MainMenuController : MonoBehaviour {
             else if (uiSexFamaleCompnent.isOn) { return Sex.Female; }
             else { return Sex.Other; }
         }
+        set
+        {
+            uiSexMaleCompnent.isOn = false;
+            uiSexFamaleCompnent.isOn = false;
+            uiSexOtherCompnent.isOn = false;
+
+            if (value == Sex.Male)
+                uiSexMaleCompnent.isOn = true;
+            else if (value == Sex.Female)
+                uiSexFamaleCompnent.isOn = true;
+            else
+                uiSexOtherCompnent.isOn = true;
+        }
     }
 
     private Experience uiExpirience
@@ -84,6 +113,10 @@ public class MainMenuController : MonoBehaviour {
         get
         {
             return (Experience) uiExpirienceCompnent.value;
+        }
+        set
+        {
+            uiExpirienceCompnent.value = (int)value;
         }
     }
 
@@ -93,11 +126,15 @@ public class MainMenuController : MonoBehaviour {
         {
             return uiCountryCompnent.text;
         }
+        set
+        {
+            uiCountryCompnent.text = value;
+        }
     }
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         FillExperienceDropdownList();
         if (FindObjectOfType<DataEditor>() == null)
@@ -170,7 +207,7 @@ public class MainMenuController : MonoBehaviour {
             if (goScript != null)
             {
                 goScript.SetUIComponents(u.name, u.email, Resources.Load<Sprite>("UsersImages\\" + u.photoName));
-                go.GetComponent<Button>().onClick.AddListener(() => UserSelectedButton(u.email));
+                go.GetComponent<Button>().onClick.AddListener(() => UserButton(u.email));
             }
         }
     }
@@ -190,9 +227,43 @@ public class MainMenuController : MonoBehaviour {
     /// User select his/her account
     /// </summary>
     /// <param name="userEmail"></param>
-    public void UserSelectedButton(string userEmail)
+    public void UserButton(string userEmail)
     {
         DataEditor.SetSelectedUser(userEmail);
+        FillFormWithSelectedUserInfo();
+
+        selectUserButton.gameObject.SetActive(true);
+        modifyUserButton.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Fill form with user infos
+    /// </summary>
+    private void FillFormWithSelectedUserInfo()
+    {
+        SelectUserPhotoButton(DataEditor.selectedUser.photoName);
+        uiName = DataEditor.selectedUser.name;
+        uiEmail = DataEditor.selectedUser.email;
+        uiDateOfBirth = DataEditor.selectedUser.dateOfBirth;
+        uiSex = DataEditor.selectedUser.sex;
+        uiExpirience = DataEditor.selectedUser.expirience;
+        uiCountry = DataEditor.selectedUser.country;
+    }
+
+    /// <summary>
+    /// Modify information of selected user
+    /// </summary>
+    public void ModifyUserInfos()
+    {
+        DataEditor.UpdateSelectedUser(uiPhoto.name, uiName, uiDateOfBirth, uiSex, uiExpirience, uiCountry);
+        AddAllUserToMenu();
+    }
+
+    /// <summary>
+    /// Select user and go to the next scene
+    /// </summary>
+    public void SelectUserButton()
+    {
         LoadLevel("SelectAnimationClip");
     }
 
@@ -238,7 +309,7 @@ public class MainMenuController : MonoBehaviour {
 
     public void LoadLevel(string sceneName) //The name of the scene
     {
-
+        DataEditor.SaveGameData();
         StartCoroutine(LevelCoroutine(sceneName));
     }
 

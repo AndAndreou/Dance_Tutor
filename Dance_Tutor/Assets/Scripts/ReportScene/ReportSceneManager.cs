@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ReportSceneManager : MonoBehaviour {
@@ -23,6 +24,13 @@ public class ReportSceneManager : MonoBehaviour {
     [Header("Figures")]
     public GameObject figurePrefab;
     public GameObject figurePanel;
+    public int spaceBetweenFigures;
+
+    [Header("UI Component")]
+    public GameObject uiLoadingPanel;
+    public Text uiLoadingTxt;
+
+    private int spaceBetweenFiguresCounter;
 
     private List<Image> figureImage;
 
@@ -58,6 +66,8 @@ public class ReportSceneManager : MonoBehaviour {
 
         lmaRadarGraphResults = DataEditor.selectedUser.GetTheLastDanceHistory().LMARadarGraphResults;
         uiAvatarResults = DataEditor.selectedUser.GetTheLastDanceHistory().motionDataToUIAvatarResults;
+
+        spaceBetweenFiguresCounter = spaceBetweenFigures;
     }
 
     // Use this for initialization
@@ -128,6 +138,31 @@ public class ReportSceneManager : MonoBehaviour {
     public void AddFigureImg(int index, Sprite sprite)
     {
         figureImage[index].sprite = sprite;
-        figureImage[index].color = Color.white;
+        if ((spaceBetweenFiguresCounter == 0)||(index== figureImage.Count-1))
+        {
+            figureImage[index].color = Color.white;
+            spaceBetweenFiguresCounter = spaceBetweenFigures;
+        }
+        spaceBetweenFiguresCounter--;
+    }
+
+    public void LoadLevel(string sceneName) //The name of the scene
+    {
+        DataEditor.SaveGameData();
+        StartCoroutine(LevelCoroutine(sceneName));
+    }
+
+    IEnumerator LevelCoroutine(string sceneName)
+    {
+        uiLoadingPanel.SetActive(true);
+
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!async.isDone)
+        {
+            uiLoadingTxt.text = (int)(async.progress * 100) + "%";
+            yield return null;
+
+        }
     }
 }
