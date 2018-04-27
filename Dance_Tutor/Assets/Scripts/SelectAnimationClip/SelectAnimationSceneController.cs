@@ -18,6 +18,9 @@ public class SelectAnimationSceneController : MonoBehaviour {
     public Image userphoto;
     public Text userName;
 
+    [Space(20)]
+    public bool isDebugMode;
+
     //events
     [HideInInspector]
     public UnityEvent ChangeSelectedCountryEvent;

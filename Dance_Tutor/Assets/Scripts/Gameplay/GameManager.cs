@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
 
         DataEditor.LoadGameData();
 
+
         //create event for T-Pose Detect
         if (TPoseDetectionEvent == null)
         {

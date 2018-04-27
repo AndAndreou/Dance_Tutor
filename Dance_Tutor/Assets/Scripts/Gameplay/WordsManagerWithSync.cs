@@ -311,6 +311,9 @@ public class WordsManagerWithSync : MonoBehaviour {
                     DataEditor.gameData.maxStyleWords = maxStyleWords;
                 }
                 styleWordStepCounter = styleWordStep;
+
+                // Save the time in animation of words
+                wordsTimers.Add(allCharCotrollers[0].skeleton.joints[0].frames[frameCounter].time);
             }
             #endregion
         }

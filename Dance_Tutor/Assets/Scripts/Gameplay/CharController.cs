@@ -48,11 +48,14 @@ public class CharController : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate () {
 
-        //if (WordsManager.writeWords == true)
-        if (WordsManagerWithSync.writeWords == true)
+        if ((avatarRole != Role.NPC) && (avatarRole != Role.NPCDancer))
         {
-            skeleton.AutoAddFrameValuesForEachJoint(this.transform);
-            //Debug.Log(gameObject.name + " ---> " + skeleton.frameMotions.Count);
+            //if (WordsManager.writeWords == true)
+            if (WordsManagerWithSync.writeWords == true)
+            {
+                skeleton.AutoAddFrameValuesForEachJoint(this.transform);
+                //Debug.Log(gameObject.name + " ---> " + skeleton.frameMotions.Count);
+            }
         }
     }
 
@@ -89,6 +92,8 @@ public class CharController : MonoBehaviour {
 
             // Replace current animation with new one ( new = selected animation + start & stop animation event)
             newAnimatorController["Antonis3_1"] = selectedAnimationClip;
+            newAnimatorController["Antonis3_1"].legacy = true;
+            Debug.Log(newAnimatorController["Antonis3_1"].name);
             // Replace current controller with new
             animator.runtimeAnimatorController = newAnimatorController;
         }

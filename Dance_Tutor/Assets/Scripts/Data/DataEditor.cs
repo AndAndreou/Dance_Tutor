@@ -128,9 +128,9 @@ public class DataEditor : MonoBehaviour {
     public static Country[] countries;
 
     [HideInInspector]
-    public static int selectedContryID;
+    public static int selectedContryID = -1;
     [HideInInspector]
-    public static int selectedAnimationClipID;
+    public static int selectedAnimationClipID = -1;
     [HideInInspector]
     public static AnimationClip[] selectedCountryAllAnimations;
     [HideInInspector]
@@ -167,7 +167,10 @@ public class DataEditor : MonoBehaviour {
             gameData = JsonUtility.FromJson<GameData>(dataAsJson);
             if (gameData.Users != null)
             {
-                selectedUser = gameData.Users[0];
+                if (selectedUser == null)
+                {
+                    selectedUser = gameData.Users[0];
+                }
             }
         }
         else
@@ -315,10 +318,15 @@ public class DataEditor : MonoBehaviour {
             countries[i].intermediateAnimations = Resources.LoadAll<AnimationClip>("Animations\\Countries\\" + countriesFoldersNames[i] + "\\Clips\\Intermediate");
             countries[i].expertAnimations = Resources.LoadAll<AnimationClip>("Animations\\Countries\\" + countriesFoldersNames[i] + "\\Clips\\Expert");
         }
-
-        selectedContryID = countries.Length / 2;
+        if (selectedContryID < 0)
+        {
+            selectedContryID = countries.Length / 2;
+        }
         selectedCountryAllAnimations = countries[selectedContryID].GetAllAnimations();
-        selectedAnimationClipID = 0;
+        if (selectedAnimationClipID < 0)
+        {
+            selectedAnimationClipID = 0;
+        }
     }
 
 
